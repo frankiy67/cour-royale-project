@@ -15,6 +15,7 @@ const SALLES = [
       { h: "SANS TABLES", v: "25 pers. max" },
     ],
     text: "Avec un espace convivial de 35 m² comprenant une petite cuisine équipée pour vos pauses et repas et 2 cabinets de toilette. Accès de plain-pied / Accès handicapé.",
+    equipment: "📽 Vidéoprojecteur · 📋 2 Tableaux blancs · 🪟 Porte-fenêtre sur la cour · 🚗 Parking week-end · ♿ Accès PMR",
     ctaColor: "bg-accent hover:bg-accent/90",
   },
   {
@@ -27,6 +28,7 @@ const SALLES = [
       { h: "SANS TABLES", v: "14 pers. max" },
     ],
     text: "Avec un espace convivial de 35 m² comprenant une petite cuisine équipée pour vos pauses et repas et 2 cabinets de toilette. Accès de plain-pied / Accès handicapé.",
+    equipment: "📽 Vidéoprojecteur · 📋 2 Tableaux blancs · ☕ Cuisine équipée (frigo, plaques, cafetière) · 🚗 2 places semaine · ♿ Accès PMR",
     ctaColor: "bg-[#1A5C8B] hover:bg-[#1A5C8B]/90",
   },
 ];
@@ -93,7 +95,8 @@ export default function SallesSection() {
                     </div>
                   ))}
                 </div>
-                <p className="font-inter text-muted-foreground text-sm leading-relaxed mb-6">{s.text}</p>
+                <p className="font-inter text-muted-foreground text-sm leading-relaxed mb-4">{s.text}</p>
+                <p className="font-inter text-foreground/70 text-xs leading-relaxed mb-6">{s.equipment}</p>
                 <div className="flex flex-wrap items-center gap-3">
                   <button onClick={() => setPlanOpen(true)} className="font-inter text-sm border border-border text-foreground px-5 py-2 rounded-lg hover:bg-secondary transition-colors">
                     Voir le plan 📐

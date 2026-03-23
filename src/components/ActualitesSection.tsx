@@ -1,32 +1,19 @@
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
 
-// Update these items with real news when available — no backend required
+// TODO: mettre à jour avec de vraies actualités
 const NEWS = [
   {
-    date: "Janvier 2026",
-    tag: "DISPONIBILITÉ",
-    title: "Nouveau lot disponible — Bâtiment de la Halle",
-    desc: "Un bureau individuel de 17 m² se libère au sein du Bâtiment de la Halle. Idéal pour une installation rapide, seul ou à deux, avec accès aux parties communes.",
+    date: "Avril 2018",
+    tag: "ACTUALITÉ",
+    title: "Locaux à vendre sans frais d'agence",
+    desc: "Des bureaux sont disponibles à l'acquisition directement auprès du propriétaire.",
     cta: { label: "Nous contacter", href: "#contact" },
-  },
-  {
-    date: "Novembre 2025",
-    tag: "AMÉNAGEMENT",
-    title: "Rénovation des espaces communs du Bâtiment de l'Horloge",
-    desc: "Les couloirs et espaces communs ont été entièrement rénovés : nouvel éclairage LED basse consommation, peintures fraîches et signalétique modernisée.",
-    cta: null,
-  },
-  {
-    date: "Septembre 2025",
-    tag: "ÉVÉNEMENT",
-    title: "Journées Portes Ouvertes — une cinquantaine de visiteurs",
-    desc: "Nous avons accueilli une cinquantaine de visiteurs lors de nos journées portes ouvertes annuelles. Merci à tous les participants et à nos locataires pour leur accueil chaleureux.",
-    cta: null,
   },
 ];
 
 const TAG_COLORS: Record<string, string> = {
+  ACTUALITÉ:     "text-accent border-accent/40",
   DISPONIBILITÉ: "text-accent border-accent/40",
   AMÉNAGEMENT:   "text-[#1A5C8B] border-[#1A5C8B]/30",
   ÉVÉNEMENT:     "text-emerald-700 border-emerald-700/30",
@@ -59,7 +46,7 @@ export default function ActualitesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {NEWS.map((n) => (
             <motion.article
               key={n.title}

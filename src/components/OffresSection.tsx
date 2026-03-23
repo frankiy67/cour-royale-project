@@ -7,6 +7,7 @@ const OFFERS = [
     img: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_040_rsdern",
     surface: "80 m²", title: "BÂTIMENT DU MOULIN · LOTS CB9 & CB10",
     desc: "2 grandes salles avec chacune sa porte donnant sur l'extérieur.",
+    features: ["❄️ Climatisation", "💡 Lumineux", "📶 Fibre", "🚪 Entrée indépendante", "♿ RDC"],
     plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/MOULIN_002_jrv9yh",
     link: "https://www.semeuse.eu/fr/articles.php?id=15075551344292",
     span: "md:col-span-2 md:row-span-2",
@@ -15,6 +16,7 @@ const OFFERS = [
     img: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_030_ae5zus",
     surface: "17 m²", title: "BUREAU INDIVIDUEL",
     desc: "1 bureau de 12 m² au rez-de-chaussée + Parties communes de 5 m² comprenant 1 cabinet de toilette et 1 coin café.",
+    features: ["❄️ Climatisation", "💡 Lumineux", "📶 Fibre", "🔇 VMC"],
     link: "https://www.semeuse.eu/fr/articles.php?id=15075551594292",
     span: "",
   },
@@ -22,6 +24,7 @@ const OFFERS = [
     img: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_033_giqqp6",
     surface: "122 m²", title: "BÂTIMENT DE L'HORLOGE · LOT D14",
     desc: "Au rez de chaussée, 11 m² (entrée + dégagement). À l'étage, 111 m² (6 bureaux + dégagement + 2 cabinets de toilette).",
+    features: ["❄️ Climatisation", "💡 Lumineux", "📶 Fibre", "🔇 VMC", "🚪 Entrée indépendante"],
     plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HORLOGE_002_dwursl",
     link: "https://www.semeuse.eu/fr/articles.php?id=15075551094292",
     span: "",
@@ -30,6 +33,7 @@ const OFFERS = [
     img: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_041_qi8egu",
     surface: "99 m²", title: "BÂTIMENT DE LA HALLE · LOT H7",
     desc: "Au rez de chaussée, 2 bureaux cloisonnés + 1 open space + 1 salle de réunion vitrée + 2 cabinets de toilette et un dégagement.",
+    features: ["❄️ Climatisation", "💡 Lumineux", "📶 Fibre", "🚗 3 places dédiées", "🚪 Entrée indépendante"],
     plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HALLE_lot7_002_cpwrsp",
     link: "https://www.semeuse.eu/fr/articles.php?id=152104165720835",
     span: "md:col-span-2",
@@ -38,6 +42,7 @@ const OFFERS = [
     img: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_039_ioasxr",
     surface: "43 m²", title: "BÂTIMENT DE LA HALLE · LOT H6",
     desc: "Bureau modulable dans le bâtiment de la Halle.",
+    features: ["💡 Lumineux", "📶 Fibre"],
     plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HALLE_002_hudnb2",
     span: "",
   },
@@ -45,6 +50,7 @@ const OFFERS = [
     img: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_031_l0tnhc",
     surface: "17 m²", title: "BÂTIMENT DE LA HALLE · LOT H4",
     desc: "Bureau individuel dans le bâtiment de la Halle.",
+    features: ["💡 Lumineux", "📶 Fibre"],
     plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HALLE_002_hudnb2",
     span: "",
   },
@@ -130,7 +136,14 @@ export default function OffresSection() {
               <div className="absolute inset-0 bg-foreground/85 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                 <span className="font-playfair text-white text-3xl mb-1">{o.surface}</span>
                 <span className="font-inter text-[10px] uppercase tracking-[0.2em] text-white/70 mb-3">{o.title}</span>
-                <p className="font-inter text-white/80 text-sm leading-relaxed mb-4">{o.desc}</p>
+                <p className="font-inter text-white/80 text-sm leading-relaxed mb-3">{o.desc}</p>
+                {o.features && (
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {o.features.map((f) => (
+                      <span key={f} className="font-inter text-[10px] text-white/60 border border-white/20 px-2 py-0.5 rounded-full">{f}</span>
+                    ))}
+                  </div>
+                )}
                 <div className="flex items-center gap-3">
                   {o.link && (
                     <a href={o.link} target="_blank" rel="noopener noreferrer" className="font-inter text-xs text-accent hover:text-white transition-colors">

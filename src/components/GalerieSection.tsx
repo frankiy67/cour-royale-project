@@ -23,7 +23,7 @@ export default function GalerieSection() {
   const [index, setIndex] = useState(-1);
 
   return (
-    <section className="bg-white">
+    <section id="galerie" className="bg-white relative">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -31,6 +31,8 @@ export default function GalerieSection() {
         viewport={{ once: true, amount: 0.1 }}
         className="max-w-7xl mx-auto px-6 py-20 md:py-32"
       >
+        <span className="absolute top-12 left-12 font-playfair text-[120px] leading-none text-foreground/[0.06] select-none hidden md:block">06</span>
+
         <motion.div variants={fadeInUp} className="text-center mb-16">
           <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">GALERIE</p>
           <h2 className="font-playfair text-foreground text-3xl md:text-[48px]">Découvrez nos espaces</h2>

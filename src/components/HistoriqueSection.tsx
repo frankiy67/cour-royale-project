@@ -35,6 +35,12 @@ const TIMELINE = [
     accent: false,
   },
   {
+    year: "1989",
+    title: "Réhabilitation",
+    desc: "Les locaux sont entièrement réhabilités et rénovés, tout en conservant leur cachet architectural d'origine. La cour se transforme en parc d'entreprises. Des fresques céramiques commémorant l'histoire agricole du site sont installées.",
+    accent: false,
+  },
+  {
     year: "Années 1990",
     title: "Naissance du parc d'entreprises",
     desc: "Les anciens bâtiments agricoles — Moulin, Horloge, Halle — sont réhabilités et transformés en espaces de travail modulables, accueillant les premières entreprises du secteur tertiaire.",

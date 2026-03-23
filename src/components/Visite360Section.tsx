@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
 
-// Google Maps Street View embed — coordinates for La Cour de la Semeuse
-// layer=c activates the Street View layer; no API key required for this embed format
-const STREET_VIEW_SRC =
-  "https://maps.google.com/maps?q=48.6066812,7.7535506&layer=c&output=embed&hl=fr";
+// Google Maps Street View embed — La Cour de la Semeuse
+const STREET_VIEW_SRC = "https://maps.app.goo.gl/yi94hrcCaxgUnxpY6";
 
 // Direct link to open Street View in Google Maps
 const STREET_VIEW_LINK =
@@ -36,12 +34,12 @@ export default function Visite360Section() {
         {/* Street View iframe */}
         <motion.div
           variants={fadeInUp}
-          className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-border/30"
-          style={{ aspectRatio: "16/9" }}
+          className="w-full rounded-2xl overflow-hidden shadow-2xl border border-border/30"
         >
           <iframe
             src={STREET_VIEW_SRC}
-            className="absolute inset-0 w-full h-full"
+            width="100%"
+            height="500"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"

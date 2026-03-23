@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: "NOS OFFRES", href: "#nosoffres",  id: "nosoffres" },
   { label: "SALLES",     href: "#salles",     id: "salles" },
   { label: "SITUATION",  href: "#situation",  id: "situation" },
+  { label: "GALERIE",    href: "#galerie",    id: "galerie" },
   { label: "ACTUALITÉS", href: "#actualites", id: "actualites" },
   { label: "VISITE 360°",href: "#visite360",  id: "visite360" },
   { label: "CONTACT",    href: "#contact",    id: "contact" },
