@@ -14,7 +14,7 @@ export default function SituationSection() {
   return (
     <section
       id="situation"
-      className="relative bg-cover bg-center bg-fixed"
+      className="relative bg-cover bg-center bg-scroll md:bg-fixed"
       style={{ backgroundImage: `url(${BG})` }}
     >
       <div className="absolute inset-0" style={{ background: "rgba(28,16,8,0.78)" }} />
