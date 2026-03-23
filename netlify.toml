@@ -12,9 +12,12 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options        = "DENY"
+    # Prevent our pages from being embedded in iframes on other domains
+    X-Frame-Options        = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy        = "strict-origin-when-cross-origin"
+    # Note: no frame-src CSP is set here so the Google Maps 360° modal iframe
+    # (google.com/maps/embed) can load freely inside our own pages.
     Permissions-Policy     = "camera=(), microphone=(), geolocation=()"
 
 # Long-term cache for hashed assets (JS/CSS bundles from Vite)
