@@ -5,18 +5,12 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
 const IMAGES = [
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/interieur1_idllc0", alt: "Intérieur bureau 1", sepia: false },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/interieur2_c6cvtm", alt: "Intérieur bureau 2", sepia: false },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_032_gkt87f", alt: "Vue des locaux", sepia: false },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_033_giqqp6", alt: "Bâtiment de l'Horloge", sepia: false },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_039_ioasxr", alt: "Bâtiment de la Halle", sepia: false },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_040_rsdern", alt: "Bâtiment du Moulin", sepia: false },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_041_qi8egu", alt: "Halle intérieure", sepia: false },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_031_l0tnhc", alt: "Bureau individuel", sepia: false },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/coursintermediaire_wkg8ni", alt: "Cour intermédiaire", sepia: false },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_034_ezo57h", alt: "Photo historique 1930", sepia: true },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_035_mkantt", alt: "Façade historique", sepia: true },
-  { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_037_ylhtwp", alt: "Cour historique", sepia: true },
+  { src: "/galerie/galerie-1.png", alt: "La Cour de la Semeuse — vue intérieure" },
+  { src: "/galerie/galerie-2.png", alt: "La Cour de la Semeuse — espace de travail" },
+  { src: "/galerie/galerie-3.png", alt: "La Cour de la Semeuse — bureaux" },
+  { src: "/galerie/galerie-4.png", alt: "La Cour de la Semeuse — cour" },
+  { src: "/galerie/galerie-5.png", alt: "La Cour de la Semeuse — bâtiments" },
+  { src: "/galerie/seumeuse.png", alt: "La Semeuse — vue d'ensemble" },
 ];
 
 export default function GalerieSection() {
@@ -50,9 +44,7 @@ export default function GalerieSection() {
                 src={img.src}
                 alt={img.alt}
                 loading="lazy"
-                className={`w-full object-cover transition-all duration-500 group-hover:scale-[1.03] group-hover:brightness-105 ${
-                  img.sepia ? "sepia hover:sepia-0" : ""
-                }`}
+                className="w-full object-cover transition-all duration-500 group-hover:scale-[1.03] group-hover:brightness-105"
               />
             </motion.div>
           ))}

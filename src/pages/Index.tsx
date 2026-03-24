@@ -1,11 +1,12 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import StreetViewSection from "@/components/StreetViewSection";
 import AccueilSection from "@/components/AccueilSection";
 import HistoriqueSection from "@/components/HistoriqueSection";
-import OffresSection from "@/components/OffresSection";
+import BureauxSection from "@/components/BureauxSection";
 import SallesSection from "@/components/SallesSection";
-import SituationSection from "@/components/SituationSection";
 import GalerieSection from "@/components/GalerieSection";
+import SituationSection from "@/components/SituationSection";
 import ActualitesSection from "@/components/ActualitesSection";
 import ContactSection from "@/components/ContactSection";
 import Visite360Section from "@/components/Visite360Section";
@@ -15,12 +16,13 @@ const Index = () => (
   <>
     <Navbar />
     <HeroSection />
+    <StreetViewSection />
     <AccueilSection />
     <HistoriqueSection />
-    <OffresSection />
+    <BureauxSection />
     <SallesSection />
-    <SituationSection />
     <GalerieSection />
+    <SituationSection />
     <ActualitesSection />
     <ContactSection />
     <Visite360Section />

@@ -1,108 +1,125 @@
 import { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { Users, Monitor, Coffee, Accessibility } from "lucide-react";
 
 const PLAN_MODAL_IMG = "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LOCATION_SALLES_002_bxkza1";
 
 const SALLES = [
   {
     img: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/sallereunion1_b2ftou",
-    badge: "45 m²", badgeColor: "bg-accent",
-    title: "Salle 1",
+    surface: "45 m²",
+    name: "Grande Salle",
     capacities: [
-      { h: "RÉUNION", v: "14 pers. max" },
-      { h: "CONFÉRENCE", v: "30 pers. max" },
-      { h: "SANS TABLES", v: "25 pers. max" },
+      { h: "RÉUNION", v: "14 pers." },
+      { h: "CONFÉRENCE", v: "30 pers." },
+      { h: "SANS TABLES", v: "25 pers." },
     ],
-    text: "Avec un espace convivial de 35 m² comprenant une petite cuisine équipée pour vos pauses et repas et 2 cabinets de toilette. Accès de plain-pied / Accès handicapé.",
-    equipment: "📽 Vidéoprojecteur · 📋 2 Tableaux blancs · 🪟 Porte-fenêtre sur la cour · 🚗 Parking week-end · ♿ Accès PMR",
-    ctaColor: "bg-accent hover:bg-accent/90",
+    features: [
+      "Espace convivial de 35 m² avec cuisine équipée",
+      "2 cabinets de toilette",
+      "Accès de plain-pied / Accès handicapé",
+      "Porte-fenêtre sur la cour · Parking week-end",
+    ],
   },
   {
     img: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/salle_reunion2_jlivyx",
-    badge: "30 m²", badgeColor: "bg-[#1A5C8B]",
-    title: "Salle 2",
+    surface: "30 m²",
+    name: "Salle Atelier",
     capacities: [
-      { h: "RÉUNION", v: "10 pers. max" },
-      { h: "CONFÉRENCE", v: "16 pers. max" },
-      { h: "SANS TABLES", v: "14 pers. max" },
+      { h: "RÉUNION", v: "10 pers." },
+      { h: "CONFÉRENCE", v: "16 pers." },
+      { h: "SANS TABLES", v: "14 pers." },
     ],
-    text: "Avec un espace convivial de 35 m² comprenant une petite cuisine équipée pour vos pauses et repas et 2 cabinets de toilette. Accès de plain-pied / Accès handicapé.",
-    equipment: "📽 Vidéoprojecteur · 📋 2 Tableaux blancs · ☕ Cuisine équipée (frigo, plaques, cafetière) · 🚗 2 places semaine · ♿ Accès PMR",
-    ctaColor: "bg-[#1A5C8B] hover:bg-[#1A5C8B]/90",
+    features: [
+      "Espace convivial de 35 m² avec cuisine équipée",
+      "2 cabinets de toilette",
+      "Accès de plain-pied / Accès handicapé",
+      "2 places de parking semaine",
+    ],
   },
-];
-
-const STRIP = [
-  "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_029_blanc_ertkh3",
-  "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/sallereunion1_b2ftou",
-  "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/salle_reunion2_jlivyx",
 ];
 
 export default function SallesSection() {
   const [planOpen, setPlanOpen] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="salles" className="bg-light-grey relative">
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        className="max-w-7xl mx-auto px-6 py-20 md:py-32"
-      >
-        <span className="absolute top-12 left-12 font-playfair text-[120px] leading-none text-foreground/[0.06] select-none hidden md:block">04</span>
-
-        <motion.div variants={fadeInUp} className="text-center mb-16">
-          <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">SALLES DE RÉUNION ÉQUIPÉES</p>
-          <h2 className="font-playfair text-foreground text-3xl md:text-[48px] leading-tight mb-6">
-            Vos événements professionnels,<br />dans un cadre unique
+    <section id="salles" className="bg-card" ref={ref}>
+      <div className="max-w-6xl mx-auto px-6 py-20 md:py-32">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">NOS ESPACES</p>
+          <h2 className="font-playfair text-foreground text-3xl md:text-5xl lg:text-6xl font-light tracking-tight mb-6">
+            Salles de réunion équipées
           </h2>
-          <p className="font-inter text-muted-foreground text-[17px] max-w-2xl mx-auto">
-            Location de salles à la journée et au week-end pour évènements professionnels,
+          <p className="font-inter text-muted-foreground text-lg font-light leading-relaxed max-w-2xl mx-auto">
+            Location de salles à la journée et au week-end pour événements professionnels,
             réunions, ateliers et séminaires.
           </p>
         </motion.div>
 
-        <motion.div variants={fadeInUp} className="flex flex-col items-center mb-16">
-          <img
-            src="https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LOCATION_SALLES_001_atanln"
-            alt="Localisation des salles de réunion"
-            className="max-w-[760px] w-full rounded-xl shadow-lg"
-            loading="lazy"
-          />
-          <p className="font-inter text-muted-foreground text-sm mt-3">Localisation des salles · Bâtiment du Moulin</p>
-        </motion.div>
-
-        {/* Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {SALLES.map((s) => (
-            <motion.div key={s.title} variants={fadeInUp} className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="relative">
-                <img src={s.img} alt={s.title} className="w-full h-[320px] object-cover" loading="lazy" />
-                <span className={`absolute top-4 right-4 ${s.badgeColor} text-white font-inter text-sm px-4 py-1.5 rounded-full`}>
-                  {s.badge}
-                </span>
+        <div className="grid lg:grid-cols-2 gap-8">
+          {SALLES.map((s, i) => (
+            <motion.div
+              key={s.name}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + i * 0.2 }}
+              className="group bg-background rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow duration-500"
+            >
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={s.img}
+                  alt={s.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
               </div>
               <div className="p-8">
-                <h3 className="font-playfair text-foreground text-[28px] mb-6">{s.title}</h3>
-                <div className="grid grid-cols-3 gap-4 mb-6">
+                <div className="flex items-center justify-between mb-5">
+                  <h3 className="font-playfair text-3xl font-medium">{s.name}</h3>
+                  <span className="bg-secondary px-4 py-1.5 rounded text-sm font-medium text-muted-foreground font-inter">
+                    {s.surface}
+                  </span>
+                </div>
+
+                {/* Capacities */}
+                <div className="grid grid-cols-3 gap-3 mb-5 pb-5 border-b border-border">
                   {s.capacities.map((c) => (
                     <div key={c.h} className="text-center">
-                      <p className="font-inter text-[10px] uppercase tracking-wider text-muted-foreground mb-1">{c.h}</p>
+                      <p className="font-inter text-[9px] uppercase tracking-wider text-muted-foreground mb-1">{c.h}</p>
                       <p className="font-inter text-sm font-semibold text-foreground">{c.v}</p>
                     </div>
                   ))}
                 </div>
-                <p className="font-inter text-muted-foreground text-sm leading-relaxed mb-4">{s.text}</p>
-                <p className="font-inter text-foreground/70 text-xs leading-relaxed mb-6">{s.equipment}</p>
+
+                {/* Features */}
+                <ul className="space-y-3 mb-6">
+                  {s.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-muted-foreground">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      <span className="font-inter font-light text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
                 <div className="flex flex-wrap items-center gap-3">
-                  <button onClick={() => setPlanOpen(true)} className="font-inter text-sm border border-border text-foreground px-5 py-2 rounded-lg hover:bg-secondary transition-colors">
+                  <button
+                    onClick={() => setPlanOpen(true)}
+                    className="font-inter text-sm border border-border text-foreground px-5 py-2 rounded hover:bg-secondary transition-colors"
+                  >
                     Voir le plan 📐
                   </button>
-                  <a href="#contact" className={`font-inter text-sm text-white px-6 py-2 rounded-lg transition-colors ${s.ctaColor}`}>
-                    Demander un devis
+                  <a
+                    href="#contact"
+                    className="font-inter text-sm bg-foreground text-white px-6 py-2 rounded hover:bg-foreground/90 transition-opacity uppercase tracking-wider"
+                  >
+                    Réserver
                   </a>
                 </div>
               </div>
@@ -110,40 +127,49 @@ export default function SallesSection() {
           ))}
         </div>
 
-        {/* Configurations */}
-        <motion.div variants={fadeInUp} className="flex flex-col items-center mb-16">
-          <img
-            src="https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LOCATION_SALLES_003_whviyq"
-            alt="Configurations disponibles"
-            className="max-w-[800px] w-full rounded-xl shadow-lg"
-            loading="lazy"
-          />
-          <p className="font-inter text-muted-foreground text-sm mt-3">Configurations disponibles selon vos besoins</p>
-        </motion.div>
-
-        {/* Horizontal strip */}
-        <div ref={scrollRef} className="flex gap-4 overflow-x-auto pb-4 mb-12 cursor-grab" style={{ scrollbarWidth: "none" }}>
-          {STRIP.map((src, i) => (
-            <img key={i} src={src} alt="Salle de réunion" className="h-[280px] w-auto object-cover rounded-xl flex-shrink-0" loading="lazy" />
+        {/* Equipment icons */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.8 }}
+          className="mt-12 flex flex-wrap justify-center gap-6 text-muted-foreground"
+        >
+          {[
+            { icon: Monitor, label: "Vidéoprojecteur" },
+            { icon: Coffee, label: "Espace café" },
+            { icon: Accessibility, label: "Accès PMR" },
+            { icon: Users, label: "Modulable" },
+          ].map((item) => (
+            <div key={item.label} className="flex items-center gap-2 text-sm font-inter">
+              <item.icon className="w-4 h-4 text-accent" />
+              {item.label}
+            </div>
           ))}
-        </div>
-
-        <motion.div variants={fadeInUp} className="text-center">
-          <a href="#contact" className="inline-block font-inter text-sm border-2 border-accent text-accent px-8 py-3 rounded-lg hover:bg-accent hover:text-white transition-all">
-            Nous contacter pour une réservation
-          </a>
         </motion.div>
-      </motion.div>
+      </div>
 
       <AnimatePresence>
         {planOpen && (
           <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="fixed inset-0 z-[70] bg-black/80 flex items-center justify-center p-4"
             onClick={() => setPlanOpen(false)}
           >
-            <img src={PLAN_MODAL_IMG} alt="Plan des salles" className="max-w-3xl w-full max-h-[80vh] object-contain rounded-xl" onClick={(e) => e.stopPropagation()} />
-            <button onClick={() => setPlanOpen(false)} className="absolute top-6 right-6 text-white text-3xl" aria-label="Fermer">✕</button>
+            <img
+              src={PLAN_MODAL_IMG}
+              alt="Plan des salles"
+              className="max-w-3xl w-full max-h-[80vh] object-contain rounded-xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={() => setPlanOpen(false)}
+              className="absolute top-6 right-6 text-white text-3xl"
+              aria-label="Fermer"
+            >
+              ✕
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
