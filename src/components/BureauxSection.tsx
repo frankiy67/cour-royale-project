@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -19,56 +19,29 @@ const LOTS = [
     surface: "80 m²",
     title: "BÂTIMENT DU MOULIN · CB9 & CB10",
     desc: "2 grandes salles avec chacune sa porte donnant sur l'extérieur.",
-    plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/MOULIN_002_jrv9yh",
     link: "/lots/cb9-cb10",
   },
   {
     surface: "17 m²",
     title: "BÂTIMENT DE LA HALLE · H4",
     desc: "1 bureau de 12 m² au rez-de-chaussée + parties communes de 5 m² comprenant 1 cabinet de toilette et 1 coin café.",
-    plan: null,
     link: "/lots/h4",
   },
   {
     surface: "122 m²",
     title: "BÂTIMENT DE L'HORLOGE · D14",
     desc: "Au rez-de-chaussée 11 m² (entrée + dégagement). À l'étage 111 m² (6 bureaux + dégagement + 2 cabinets de toilette).",
-    plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HORLOGE_002_dwursl",
     link: "/lots/d14",
   },
   {
     surface: "99 m²",
     title: "BÂTIMENT DE LA HALLE · H7",
     desc: "Au rez-de-chaussée, 2 bureaux cloisonnés + 1 open space + 1 salle de réunion vitrée + 2 cabinets de toilette.",
-    plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HALLE_lot7_002_cpwrsp",
     link: "/lots/h7",
   },
 ];
 
-function PlanModal({ src, onClose }: { src: string; onClose: () => void }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[70] bg-black/80 flex items-center justify-center p-4"
-      onClick={onClose}
-    >
-      <motion.img
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        src={src}
-        alt="Plan du lot"
-        className="max-w-3xl w-full max-h-[80vh] object-contain rounded-xl shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      />
-      <button onClick={onClose} className="absolute top-6 right-6 text-white text-3xl" aria-label="Fermer">✕</button>
-    </motion.div>
-  );
-}
-
 export default function BureauxSection() {
-  const [planSrc, setPlanSrc] = useState<string | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -130,9 +103,10 @@ export default function BureauxSection() {
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {LOTS.map((lot, i) => (
-            <div
+            <Link
               key={i}
-              className="p-6 bg-card rounded-lg border border-border hover:shadow-md transition-shadow"
+              to={lot.link}
+              className="relative block p-6 bg-card rounded-lg border border-border hover:shadow-md transition-shadow cursor-pointer"
             >
               <span className="font-playfair text-3xl font-semibold text-accent block mb-3">
                 {lot.surface}
@@ -140,25 +114,10 @@ export default function BureauxSection() {
               <p className="font-inter text-sm text-muted-foreground font-light leading-relaxed mb-4">
                 {lot.desc}
               </p>
-              <div className="flex items-center gap-3">
-                {lot.plan && (
-                  <button
-                    onClick={() => setPlanSrc(lot.plan!)}
-                    className="font-inter text-xs text-accent hover:underline"
-                  >
-                    Voir le plan 📐
-                  </button>
-                )}
-                {lot.link && (
-                  <Link
-                    to={lot.link}
-                    className="font-inter text-xs text-muted-foreground hover:text-foreground ml-auto"
-                  >
-                    En savoir plus →
-                  </Link>
-                )}
-              </div>
-            </div>
+              <span className="font-inter text-xs text-muted-foreground hover:text-foreground">
+                En savoir plus →
+              </span>
+            </Link>
           ))}
         </motion.div>
       </div>
