@@ -110,11 +110,11 @@ export default function LotH4Page() {
           <h2 className="font-playfair text-foreground text-2xl mb-6">Photos</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {PHOTOS.map((p) => (
-              <div key={p.src} className="aspect-video rounded-xl overflow-hidden bg-muted">
+              <div key={p.src} className="rounded-xl overflow-hidden bg-[#f5f5f0]">
                 <img
                   src={p.src}
                   alt={p.alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto block"
                   loading="lazy"
                 />
               </div>
