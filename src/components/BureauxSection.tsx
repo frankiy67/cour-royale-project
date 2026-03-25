@@ -122,9 +122,6 @@ export default function BureauxSection() {
         </motion.div>
       </div>
 
-      <AnimatePresence>
-        {planSrc && <PlanModal src={planSrc} onClose={() => setPlanSrc(null)} />}
-      </AnimatePresence>
     </section>
   );
 }
