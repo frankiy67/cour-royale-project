@@ -9,9 +9,9 @@ const PLAN_MASSE = `${CLD}HORLOGE_001_ncbrpf`;
 const PLAN_SOL   = `${CLD}HORLOGE_002_dwursl`;
 
 const PHOTOS = [
-  { src: `${CLD}LA_SEMEUSE_032_gkt87f`, alt: "Façade — Bâtiment de l'Horloge" },
-  { src: `${CLD}LA_SEMEUSE_033_giqqp6`, alt: "Intérieur — charpente apparente" },
-  { src: `${CLD}LA_SEMEUSE_016_a9puue`, alt: "Intérieur — carrelé et lumineux" },
+  { src: "/lots/122m2-1.jpg", alt: "Façade bâtiment de l'Horloge (colombages)" },
+  { src: "/lots/122m2-2.jpg", alt: "Intérieur sol carrelé lumineux" },
+  { src: "/lots/122m2-3.jpg", alt: "Intérieur avec charpente / rampants apparents" },
 ];
 
 const EQUIPEMENTS = [
@@ -125,11 +125,8 @@ export default function LotD14Page() {
         <motion.div variants={fadeInUp} className="mb-12">
           <h2 className="font-playfair text-foreground text-2xl mb-6">Photos</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {PHOTOS.map((p, i) => (
-              <div
-                key={p.src}
-                className={`rounded-xl overflow-hidden bg-muted ${i === 0 ? "md:col-span-2 aspect-video" : "aspect-square"}`}
-              >
+            {PHOTOS.map((p) => (
+              <div key={p.src} className="aspect-video rounded-xl overflow-hidden bg-muted">
                 <img
                   src={p.src}
                   alt={p.alt}

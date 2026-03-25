@@ -9,8 +9,9 @@ const PLAN_MASSE = `${CLD}HALLE_001_p3hisg`;
 const PLAN_SOL   = `${CLD}HALLE_002_hudnb2`;
 
 const PHOTOS = [
-  { src: `${CLD}LA_SEMEUSE_009_bmozjp`, alt: "Façade extérieure — Bâtiment de la Halle" },
-  { src: `${CLD}LA_SEMEUSE_016_a9puue`, alt: "Intérieur lumineux — carrelage" },
+  { src: "/lots/17m2-1.jpg", alt: "Vue extérieure / façade bâtiment Halle" },
+  { src: "/lots/17m2-2.jpg", alt: "Intérieur lumineux sol clair" },
+  { src: "/lots/17m2-3.jpg", alt: "Intérieur avec lumière rasante / porte" },
 ];
 
 const EQUIPEMENTS = [
@@ -107,7 +108,7 @@ export default function LotH4Page() {
         {/* Photos */}
         <motion.div variants={fadeInUp} className="mb-12">
           <h2 className="font-playfair text-foreground text-2xl mb-6">Photos</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {PHOTOS.map((p) => (
               <div key={p.src} className="aspect-video rounded-xl overflow-hidden bg-muted">
                 <img

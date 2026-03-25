@@ -9,10 +9,9 @@ const PLAN_MASSE = `${CLD}MOULIN_001_lidweb`;
 const PLAN_SOL   = `${CLD}MOULIN_002_jrv9yh`;
 
 const PHOTOS = [
-  { src: `${CLD}LA_SEMEUSE_014_kv9vb9`, alt: "Entrée vitrée blanche" },
-  { src: `${CLD}LA_SEMEUSE_011_tivnb1`, alt: "Façade du bâtiment du Moulin" },
-  { src: `${CLD}LA_SEMEUSE_030_ae5zus`, alt: "Intérieur — sol blanc" },
-  { src: `${CLD}LA_SEMEUSE_031_l0tnhc`, alt: "Intérieur — porte et accès" },
+  { src: "/lots/80m2-1.jpg", alt: "Entrée vitrée / fenêtres" },
+  { src: "/lots/80m2-2.jpg", alt: "Vue de la cour / ensemble du bâtiment" },
+  { src: "/lots/80m2-3.jpg", alt: "Façade avec enseignes" },
 ];
 
 const EQUIPEMENTS = [
@@ -109,9 +108,9 @@ export default function LotCB9CB10Page() {
         {/* Photos */}
         <motion.div variants={fadeInUp} className="mb-12">
           <h2 className="font-playfair text-foreground text-2xl mb-6">Photos</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {PHOTOS.map((p) => (
-              <div key={p.src} className="aspect-square rounded-xl overflow-hidden bg-muted">
+              <div key={p.src} className="aspect-video rounded-xl overflow-hidden bg-muted">
                 <img
                   src={p.src}
                   alt={p.alt}
