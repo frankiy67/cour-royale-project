@@ -55,8 +55,10 @@ const TIMELINE = [
 
 export default function HistoriqueSection() {
   const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const [carouselPaused, setCarouselPaused] = useState(false);
+  const [timelineIdx, setTimelineIdx] = useState(0);
+  const [timelinePaused, setTimelinePaused] = useState(false);
+  const pauseRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -64,13 +66,26 @@ export default function HistoriqueSection() {
   const prev = useCallback(() => setCurrent((c) => (c - 1 + CAROUSEL_SLIDES.length) % CAROUSEL_SLIDES.length), []);
 
   useEffect(() => {
-    if (paused) return;
+    if (carouselPaused) return;
     const id = setInterval(next, 4000);
     return () => clearInterval(id);
-  }, [paused, next]);
+  }, [carouselPaused, next]);
 
-  const toggleYear = (idx: number) => {
-    setActiveIdx((prev) => (prev === idx ? null : idx));
+  const advanceTimeline = useCallback(() => {
+    setTimelineIdx((i) => (i + 1) % TIMELINE.length);
+  }, []);
+
+  useEffect(() => {
+    if (timelinePaused) return;
+    const id = setInterval(advanceTimeline, 3000);
+    return () => clearInterval(id);
+  }, [timelinePaused, advanceTimeline]);
+
+  const handleTimelineClick = (idx: number) => {
+    setTimelineIdx(idx);
+    setTimelinePaused(true);
+    if (pauseRef.current) clearTimeout(pauseRef.current);
+    pauseRef.current = setTimeout(() => setTimelinePaused(false), 6000);
   };
 
   return (
@@ -113,8 +128,8 @@ export default function HistoriqueSection() {
           >
             <div
               className="relative group overflow-hidden rounded-lg shadow-xl aspect-[4/3]"
-              onMouseEnter={() => setPaused(true)}
-              onMouseLeave={() => setPaused(false)}
+              onMouseEnter={() => setCarouselPaused(true)}
+              onMouseLeave={() => setCarouselPaused(false)}
             >
               <AnimatePresence mode="wait">
                 <motion.img
@@ -193,34 +208,30 @@ export default function HistoriqueSection() {
                 <div key={idx} className="relative flex flex-col items-center flex-1">
                   {/* Dot */}
                   <button
-                    onClick={() => toggleYear(idx)}
-                    aria-expanded={activeIdx === idx}
+                    onClick={() => handleTimelineClick(idx)}
+                    aria-label={`${item.year} — ${item.title}`}
                     className={`relative z-10 w-9 h-9 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
-                      item.accent || activeIdx === idx
-                        ? "bg-accent border-accent shadow-lg shadow-accent/30"
+                      timelineIdx === idx
+                        ? "bg-accent border-accent shadow-lg shadow-accent/30 scale-110"
                         : "bg-transparent border-stone/40 hover:border-stone"
                     }`}
-                  >
-                    <span className="font-inter text-[8px] text-white/90 leading-none text-center font-medium">
-                      {item.accent ? "●" : ""}
-                    </span>
-                  </button>
+                  />
 
                   {/* Year + title — clickable label */}
                   <button
-                    onClick={() => toggleYear(idx)}
+                    onClick={() => handleTimelineClick(idx)}
                     className="mt-3 text-center cursor-pointer px-1 w-full"
                   >
                     <span
                       className={`font-inter text-[10px] uppercase tracking-[0.15em] block transition-colors ${
-                        activeIdx === idx ? "text-accent" : "text-stone/70"
+                        timelineIdx === idx ? "text-accent" : "text-stone/70"
                       }`}
                     >
                       {item.year}
                     </span>
                     <span
                       className={`font-playfair text-[13px] block mt-0.5 transition-colors leading-tight ${
-                        activeIdx === idx ? "text-white" : "text-white/60"
+                        timelineIdx === idx ? "text-white" : "text-white/60"
                       }`}
                     >
                       {item.title}
@@ -231,27 +242,26 @@ export default function HistoriqueSection() {
             </div>
           </div>
 
-          {/* Description panel */}
-          <AnimatePresence>
-            {activeIdx !== null && (
+          {/* Description panel — always visible, transitions on step change */}
+          <div className="mt-6 max-w-2xl mx-auto">
+            <AnimatePresence mode="wait">
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.35 }}
-                className="overflow-hidden"
+                key={timelineIdx}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/10 rounded-xl p-6 border border-white/10"
               >
-                <div className="mt-6 bg-white/10 rounded-xl p-6 max-w-2xl mx-auto border border-white/10">
-                  <h4 className="font-playfair text-white text-xl mb-2">
-                    {TIMELINE[activeIdx].year} · {TIMELINE[activeIdx].title}
-                  </h4>
-                  <p className="font-inter text-white/70 text-sm leading-relaxed">
-                    {TIMELINE[activeIdx].desc}
-                  </p>
-                </div>
+                <h4 className="font-playfair text-white text-xl mb-2">
+                  {TIMELINE[timelineIdx].year} · {TIMELINE[timelineIdx].title}
+                </h4>
+                <p className="font-inter text-white/70 text-sm leading-relaxed">
+                  {TIMELINE[timelineIdx].desc}
+                </p>
               </motion.div>
-            )}
-          </AnimatePresence>
+            </AnimatePresence>
+          </div>
         </motion.div>
       </div>
     </section>

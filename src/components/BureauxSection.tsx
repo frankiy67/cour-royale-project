@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Check } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const OFFICE_IMAGE = "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/interieur2_c6cvtm";
 
@@ -19,28 +20,28 @@ const LOTS = [
     title: "BÂTIMENT DU MOULIN · CB9 & CB10",
     desc: "2 grandes salles avec chacune sa porte donnant sur l'extérieur.",
     plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/MOULIN_002_jrv9yh",
-    link: "https://www.semeuse.eu/fr/articles.php?id=15075551344292",
+    link: "/lots/cb9-cb10",
   },
   {
     surface: "17 m²",
-    title: "BUREAU INDIVIDUEL",
+    title: "BÂTIMENT DE LA HALLE · H4",
     desc: "1 bureau de 12 m² au rez-de-chaussée + parties communes de 5 m² comprenant 1 cabinet de toilette et 1 coin café.",
     plan: null,
-    link: "https://www.semeuse.eu/fr/articles.php?id=15075551594292",
+    link: "/lots/h4",
   },
   {
     surface: "122 m²",
     title: "BÂTIMENT DE L'HORLOGE · D14",
     desc: "Au rez-de-chaussée 11 m² (entrée + dégagement). À l'étage 111 m² (6 bureaux + dégagement + 2 cabinets de toilette).",
     plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HORLOGE_002_dwursl",
-    link: "https://www.semeuse.eu/fr/articles.php?id=15075551094292",
+    link: "/lots/d14",
   },
   {
     surface: "99 m²",
     title: "BÂTIMENT DE LA HALLE · H7",
     desc: "Au rez-de-chaussée, 2 bureaux cloisonnés + 1 open space + 1 salle de réunion vitrée + 2 cabinets de toilette.",
     plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HALLE_lot7_002_cpwrsp",
-    link: "https://www.semeuse.eu/fr/articles.php?id=152104165720835",
+    link: "/lots/h7",
   },
 ];
 
@@ -149,14 +150,12 @@ export default function BureauxSection() {
                   </button>
                 )}
                 {lot.link && (
-                  <a
-                    href={lot.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to={lot.link}
                     className="font-inter text-xs text-muted-foreground hover:text-foreground ml-auto"
                   >
-                    Détails →
-                  </a>
+                    En savoir plus →
+                  </Link>
                 )}
               </div>
             </div>

@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
 
 // Google Maps Street View embed — La Cour de la Semeuse
-const STREET_VIEW_SRC = "https://maps.app.goo.gl/yi94hrcCaxgUnxpY6";
+const STREET_VIEW_SRC =
+  "https://www.google.com/maps/embed?pb=!4v1700000000000!6m8!1m7!1sCAoSLEFGMVFpcE0wNUVCMzRQdHdPRnJfTUJKbHhCZnZGN3lwRHI3RjJ2OGxIYkg3!2m2!1d48.6066812!2d7.7535506!3f0!4f0!5f0.7820865974627469&output=embed";
 
 // Direct link to open Street View in Google Maps
 const STREET_VIEW_LINK =
@@ -39,8 +40,8 @@ export default function Visite360Section() {
           <iframe
             src={STREET_VIEW_SRC}
             width="100%"
-            height="500"
-            style={{ border: 0 }}
+            height="520"
+            style={{ border: "none", display: "block" }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

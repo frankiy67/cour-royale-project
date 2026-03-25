@@ -17,7 +17,8 @@
       "Read(//d//**)",
       "Bash(powershell.exe -Command \"Get-Item ''''D:\\\\seumeuse photos'''' -ErrorAction SilentlyContinue | Select-Object FullName\")",
       "Bash(mkdir -p \"C:/Users/francois V/cour-royale-project/public/galerie\")",
-      "Bash(powershell.exe -Command \":*)"
+      "Bash(powershell.exe -Command \":*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }
