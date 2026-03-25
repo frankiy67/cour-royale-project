@@ -25,10 +25,10 @@ export default function AccueilSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="max-w-7xl mx-auto px-6 py-20 md:py-32 grid grid-cols-1 lg:grid-cols-5 gap-12 items-center"
+        className="max-w-7xl mx-auto px-6 py-20 md:py-32 grid grid-cols-1 lg:grid-cols-5 gap-12 items-start"
       >
-        {/* Left 60% */}
-        <motion.div variants={fadeInUp} className="lg:col-span-3 relative">
+        {/* Left 40% */}
+        <motion.div variants={fadeInUp} className="lg:col-span-2 relative">
           <span className="absolute -top-8 -left-4 font-playfair text-[120px] leading-none text-foreground/[0.06] select-none">
             01
           </span>
@@ -52,9 +52,9 @@ export default function AccueilSection() {
           </a>
         </motion.div>
 
-        {/* Right 40% — Street View interactif */}
-        <motion.div variants={fadeInUp} className="lg:col-span-2">
-          <div className="w-full h-[400px] lg:h-[520px] rounded-tl-3xl overflow-hidden shadow-xl">
+        {/* Right 60% — Street View interactif */}
+        <motion.div variants={fadeInUp} className="lg:col-span-3">
+          <div className="w-full h-[400px] lg:h-[600px] rounded-tl-3xl overflow-hidden shadow-xl">
             <iframe
               src={STREET_VIEW_SRC}
               width="100%"
