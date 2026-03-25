@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
 import { useCountUp } from "@/hooks/useCountUp";
 
-const IMG = "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/coursintermediaire_wkg8ni";
+const STREET_VIEW_SRC =
+  "https://www.google.com/maps/embed?pb=!4v1700000000000!6m8!1m7!1sCAoSLEFGMVFpcE0wNUVCMzRQdHdPRnJfTUJKbHhCZnZGN3lwRHI3RjJ2OGxIYkg3!2m2!1d48.6066812!2d7.7535506!3f0!4f0!5f0.7820865974627469&output=embed";
 
 function StatCounter({ target, suffix, label }: { target: number; suffix: string; label: string }) {
   const { count, ref } = useCountUp(target);
@@ -51,14 +52,20 @@ export default function AccueilSection() {
           </a>
         </motion.div>
 
-        {/* Right 40% */}
+        {/* Right 40% — Street View interactif */}
         <motion.div variants={fadeInUp} className="lg:col-span-2">
-          <img
-            src={IMG}
-            alt="Cour intérieure de La Semeuse"
-            className="w-full h-[400px] lg:h-[520px] object-cover rounded-tl-3xl"
-            loading="lazy"
-          />
+          <div className="w-full h-[400px] lg:h-[520px] rounded-tl-3xl overflow-hidden shadow-xl">
+            <iframe
+              src={STREET_VIEW_SRC}
+              width="100%"
+              height="100%"
+              style={{ border: "none", borderRadius: "inherit", display: "block" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Google Street View — La Cour de la Semeuse, Schiltigheim"
+            />
+          </div>
         </motion.div>
       </motion.div>
 

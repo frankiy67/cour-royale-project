@@ -1,21 +1,17 @@
 import { motion } from "framer-motion";
 
-const STREET_VIEW_SRC =
-  "https://www.google.com/maps/embed?pb=!4v1700000000000!6m8!1m7!1sCAoSLEFGMVFpcE0wNUVCMzRQdHdPRnJfTUJKbHhCZnZGN3lwRHI3RjJ2OGxIYkg3!2m2!1d48.6066812!2d7.7535506!3f0!4f0!5f0.7820865974627469&output=embed";
+const HERO_IMG =
+  "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto,w_1920/v1774301412/interieur1_idllc0.png";
 
 export default function HeroSection() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Street View iframe as hero background */}
-      <iframe
-        src={STREET_VIEW_SRC}
-        width="100%"
-        height="100%"
-        style={{ border: "none", position: "absolute", inset: 0, display: "block" }}
-        allowFullScreen
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        title="Google Street View — La Cour de la Semeuse, Schiltigheim"
+      {/* Hero background image */}
+      <img
+        src={HERO_IMG}
+        alt="Cour intérieure de La Cour de la Semeuse, Schiltigheim"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        fetchPriority="high"
       />
 
       {/* Dark overlay for text readability */}
