@@ -3,7 +3,7 @@ import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
 import { useCountUp } from "@/hooks/useCountUp";
 
 const STREET_VIEW_SRC =
-  "https://www.google.com/maps/embed?pb=!4v1700000000000!6m8!1m7!1sCAoSLEFGMVFpcE0wNUVCMzRQdHdPRnJfTUJKbHhCZnZGN3lwRHI3RjJ2OGxIYkg3!2m2!1d48.6066812!2d7.7535506!3f0!4f0!5f0.7820865974627469&output=embed";
+  "https://www.google.com/maps/embed?pb=!1m0!3m2!1sfr!2sfr!4v1711000000000!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQzRfLVdlcUFF!2m2!1d48.6069155571112!2d7.753805796110078!3f59.815569287643115!4f4.637306181296552!5f0.7820865974627469";
 
 function StatCounter({ target, suffix, label }: { target: number; suffix: string; label: string }) {
   const { count, ref } = useCountUp(target);
@@ -25,10 +25,10 @@ export default function AccueilSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="max-w-7xl mx-auto px-6 py-20 md:py-32 grid grid-cols-1 lg:grid-cols-5 gap-12 items-start"
+        className="max-w-7xl mx-auto px-6 py-20 md:py-32 grid grid-cols-1 gap-12 items-start lg:[grid-template-columns:35%_65%]"
       >
-        {/* Left 40% */}
-        <motion.div variants={fadeInUp} className="lg:col-span-2 relative">
+        {/* Left 35% */}
+        <motion.div variants={fadeInUp} className="relative">
           <span className="absolute -top-8 -left-4 font-playfair text-[120px] leading-none text-foreground/[0.06] select-none">
             01
           </span>
@@ -52,14 +52,12 @@ export default function AccueilSection() {
           </a>
         </motion.div>
 
-        {/* Right 60% — Street View interactif */}
-        <motion.div variants={fadeInUp} className="lg:col-span-3">
-          <div className="w-full h-[400px] lg:h-[600px] rounded-tl-3xl overflow-hidden shadow-xl">
+        {/* Right 65% — Street View interactif */}
+        <motion.div variants={fadeInUp}>
+          <div className="w-full aspect-[4/3] max-h-[350px] lg:aspect-[16/10] lg:max-h-[520px] rounded-2xl overflow-hidden shadow-xl">
             <iframe
               src={STREET_VIEW_SRC}
-              width="100%"
-              height="100%"
-              style={{ border: "none", borderRadius: "inherit", display: "block" }}
+              style={{ border: "none", width: "100%", height: "100%", display: "block" }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
