@@ -24,21 +24,18 @@ export default function AccueilSection() {
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="max-w-7xl mx-auto px-6 py-20 md:py-32 grid grid-cols-1 gap-12 items-start lg:[grid-template-columns:35%_65%]"
+        viewport={{ once: true, amount: 0.15 }}
+        className="max-w-7xl mx-auto px-6 pt-20 md:pt-32 pb-10"
       >
-        {/* Left 35% */}
-        <motion.div variants={fadeInUp} className="relative">
-          <span className="absolute -top-8 -left-4 font-playfair text-[120px] leading-none text-foreground/[0.06] select-none">
-            01
-          </span>
+        {/* Bloc 1 — Texte centré pleine largeur */}
+        <motion.div variants={fadeInUp} className="text-center max-w-3xl mx-auto mb-12">
           <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">BIENVENUE</p>
-          <h2 className="font-playfair italic text-foreground text-3xl md:text-[42px] leading-snug mb-8">
+          <h2 className="font-playfair italic text-foreground text-3xl md:text-[44px] leading-snug mb-8">
             Au cœur de l'Alsace,<br />
             dans un endroit calme et original,<br />
             profitez d'une opportunité exceptionnelle.
           </h2>
-          <p className="font-inter text-muted-foreground text-[17px] leading-[1.8] mb-8 max-w-xl">
+          <p className="font-inter text-muted-foreground text-[17px] leading-[1.8] mb-10 max-w-2xl mx-auto">
             La Cour de la Semeuse, à Schiltigheim, vous propose en location des espaces
             adaptables et évolutifs pour implanter votre entreprise ou pour l'organisation
             de rencontres ponctuelles. Idéalement située au plus proche de Strasbourg et
@@ -52,9 +49,9 @@ export default function AccueilSection() {
           </a>
         </motion.div>
 
-        {/* Right 65% — Street View interactif */}
+        {/* Bloc 2 — Street View pleine largeur */}
         <motion.div variants={fadeInUp}>
-          <div className="w-full aspect-[4/3] max-h-[350px] lg:aspect-[16/10] lg:max-h-[520px] rounded-2xl overflow-hidden shadow-xl">
+          <div className="w-full aspect-[16/9] max-h-[300px] md:aspect-[21/9] md:max-h-[520px] rounded-2xl overflow-hidden shadow-xl">
             <iframe
               src={STREET_VIEW_SRC}
               style={{ border: "none", width: "100%", height: "100%", display: "block" }}
