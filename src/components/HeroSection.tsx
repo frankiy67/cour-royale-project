@@ -21,7 +21,7 @@ export default function HeroSection() {
       />
 
       {/* Main content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-end pb-14 md:pb-24 px-6 pointer-events-none">
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pointer-events-none">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

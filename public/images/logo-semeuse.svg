@@ -1,4 +1,4 @@
-<svg width="400" height="160" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+<svg width="400" height="168" viewBox="0 0 400 168" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;display=swap');
@@ -28,20 +28,20 @@
   >SEMEUSE</text>
 
   <!-- Traits encadrant SCHILTIGHEIM -->
-  <line x1="20" y1="122" x2="118" y2="122" stroke="#8B1515" stroke-width="1"/>
-  <line x1="282" y1="122" x2="380" y2="122" stroke="#8B1515" stroke-width="1"/>
+  <line x1="20" y1="122" x2="112" y2="122" stroke="#8B1515" stroke-width="1"/>
+  <line x1="288" y1="122" x2="380" y2="122" stroke="#8B1515" stroke-width="1"/>
 
   <!-- SCHILTIGHEIM -->
   <text
-    x="200" y="136"
+    x="200" y="138"
     text-anchor="middle"
     font-family="'Playfair Display', 'Times New Roman', serif"
     font-weight="400"
-    font-size="13"
+    font-size="16"
     fill="#8B1515"
-    letter-spacing="8"
+    letter-spacing="6"
   >SCHILTIGHEIM</text>
 
   <!-- Trait bas -->
-  <line x1="20" y1="148" x2="380" y2="148" stroke="#8B1515" stroke-width="0.6"/>
+  <line x1="20" y1="152" x2="380" y2="152" stroke="#8B1515" stroke-width="0.6"/>
 </svg>
