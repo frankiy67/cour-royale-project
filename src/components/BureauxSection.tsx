@@ -1,21 +1,8 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Check, ChevronLeft, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Check } from "lucide-react";
 
-const CAROUSEL_IMAGES = [
-  { src: "/caroussel/1.jpg" },
-  { src: "/caroussel/2.png" },
-  { src: "/caroussel/3.png" },
-  { src: "/caroussel/4.png" },
-  { src: "/caroussel/5.png" },
-  { src: "/caroussel/6.jpg" },
-  { src: "/caroussel/7.jpg" },
-  { src: "/caroussel/8.jpg" },
-  { src: "/caroussel/9.jpg" },
-  { src: "/caroussel/10.jpg" },
-  { src: "/caroussel/11.jpg" },
-];
+const OFFICE_IMAGE = "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/interieur2_c6cvtm";
 
 const BENEFITS = [
   "Parking privé central",
@@ -31,47 +18,63 @@ const LOTS = [
     surface: "80 m²",
     title: "BÂTIMENT DU MOULIN · CB9 & CB10",
     desc: "2 grandes salles avec chacune sa porte donnant sur l'extérieur.",
-    link: "/lots/cb9-cb10",
+    plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/MOULIN_002_jrv9yh",
+    link: "https://www.semeuse.eu/fr/articles.php?id=15075551344292",
   },
   {
     surface: "17 m²",
-    title: "BÂTIMENT DE LA HALLE · H4",
+    title: "BUREAU INDIVIDUEL",
     desc: "1 bureau de 12 m² au rez-de-chaussée + parties communes de 5 m² comprenant 1 cabinet de toilette et 1 coin café.",
-    link: "/lots/h4",
+    plan: null,
+    link: "https://www.semeuse.eu/fr/articles.php?id=15075551594292",
   },
   {
     surface: "122 m²",
     title: "BÂTIMENT DE L'HORLOGE · D14",
     desc: "Au rez-de-chaussée 11 m² (entrée + dégagement). À l'étage 111 m² (6 bureaux + dégagement + 2 cabinets de toilette).",
-    link: "/lots/d14",
+    plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HORLOGE_002_dwursl",
+    link: "https://www.semeuse.eu/fr/articles.php?id=15075551094292",
   },
   {
     surface: "99 m²",
     title: "BÂTIMENT DE LA HALLE · H7",
     desc: "Au rez-de-chaussée, 2 bureaux cloisonnés + 1 open space + 1 salle de réunion vitrée + 2 cabinets de toilette.",
-    link: "/lots/h7",
+    plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HALLE_lot7_002_cpwrsp",
+    link: "https://www.semeuse.eu/fr/articles.php?id=152104165720835",
   },
 ];
 
+function PlanModal({ src, onClose }: { src: string; onClose: () => void }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[70] bg-black/80 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <motion.img
+        initial={{ scale: 0.9 }}
+        animate={{ scale: 1 }}
+        src={src}
+        alt="Plan du lot"
+        className="max-w-3xl w-full max-h-[80vh] object-contain rounded-xl shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      />
+      <button onClick={onClose} className="absolute top-6 right-6 text-white text-3xl" aria-label="Fermer">✕</button>
+    </motion.div>
+  );
+}
+
 export default function BureauxSection() {
+  const [planSrc, setPlanSrc] = useState<string | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  const next = useCallback(() => setCurrent((c) => (c + 1) % CAROUSEL_IMAGES.length), []);
-  const prev = useCallback(() => setCurrent((c) => (c - 1 + CAROUSEL_IMAGES.length) % CAROUSEL_IMAGES.length), []);
-
-  useEffect(() => {
-    if (paused) return;
-    const id = setInterval(next, 4000);
-    return () => clearInterval(id);
-  }, [paused, next]);
 
   return (
     <section id="nosoffres" className="bg-background" ref={ref}>
       <div className="max-w-6xl mx-auto px-6 py-20 md:py-32">
-        {/* Top: text left + carousel right */}
+        {/* Top: text left + image right */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -104,73 +107,19 @@ export default function BureauxSection() {
             </a>
           </motion.div>
 
-          {/* Carousel */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div
-              className="relative group rounded-xl shadow-xl bg-[#f5f0eb] overflow-hidden flex items-center justify-center"
-              style={{ aspectRatio: "4/3", maxHeight: "480px" }}
-              onMouseEnter={() => setPaused(true)}
-              onMouseLeave={() => setPaused(false)}
-            >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={current}
-                  src={CAROUSEL_IMAGES[current].src}
-                  alt={`Bureaux La Cour de la Semeuse — vue ${current + 1}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 w-full h-full object-contain object-center"
-                />
-              </AnimatePresence>
-
-              {/* Arrows */}
-              <button
-                onClick={prev}
-                aria-label="Photo précédente"
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 backdrop-blur-sm p-2 rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity z-10"
-              >
-                <ChevronLeft className="w-4 h-4 text-white" />
-              </button>
-              <button
-                onClick={next}
-                aria-label="Photo suivante"
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 backdrop-blur-sm p-2 rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity z-10"
-              >
-                <ChevronRight className="w-4 h-4 text-white" />
-              </button>
-
-              {/* Dots */}
-              <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
-                {CAROUSEL_IMAGES.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    aria-label={`Photo ${i + 1}`}
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                      i === current ? "bg-white scale-125" : "bg-white/40 hover:bg-white/70"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
+            <img
+              src={OFFICE_IMAGE}
+              alt="Bureaux professionnels — La Cour de la Semeuse"
+              className="w-full rounded-lg shadow-xl"
+              loading="lazy"
+            />
           </motion.div>
         </div>
-
-        {/* Intro text before lot cards */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="font-inter text-muted-foreground text-center mt-8 mb-4"
-        >
-          Découvrez ci-dessous quelques unes de nos propositions :
-        </motion.p>
 
         {/* Surface cards */}
         <motion.div
@@ -180,10 +129,9 @@ export default function BureauxSection() {
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {LOTS.map((lot, i) => (
-            <Link
+            <div
               key={i}
-              to={lot.link}
-              className="relative block p-6 bg-card rounded-lg border border-border hover:shadow-md transition-shadow cursor-pointer"
+              className="p-6 bg-card rounded-lg border border-border hover:shadow-md transition-shadow"
             >
               <span className="font-playfair text-3xl font-semibold text-accent block mb-3">
                 {lot.surface}
@@ -191,13 +139,34 @@ export default function BureauxSection() {
               <p className="font-inter text-sm text-muted-foreground font-light leading-relaxed mb-4">
                 {lot.desc}
               </p>
-              <span className="font-inter text-xs text-muted-foreground hover:text-foreground">
-                En savoir plus →
-              </span>
-            </Link>
+              <div className="flex items-center gap-3">
+                {lot.plan && (
+                  <button
+                    onClick={() => setPlanSrc(lot.plan!)}
+                    className="font-inter text-xs text-accent hover:underline"
+                  >
+                    Voir le plan 📐
+                  </button>
+                )}
+                {lot.link && (
+                  <a
+                    href={lot.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-inter text-xs text-muted-foreground hover:text-foreground ml-auto"
+                  >
+                    Détails →
+                  </a>
+                )}
+              </div>
+            </div>
           ))}
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {planSrc && <PlanModal src={planSrc} onClose={() => setPlanSrc(null)} />}
+      </AnimatePresence>
     </section>
   );
 }
