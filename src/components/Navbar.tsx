@@ -7,7 +7,6 @@ const NAV_LINKS = [
   { label: "BUREAUX",    href: "#nosoffres",  id: "nosoffres" },
   { label: "SALLES",     href: "#salles",     id: "salles" },
   { label: "SITUATION",  href: "#situation",  id: "situation" },
-  { label: "GALERIE",    href: "#galerie",    id: "galerie" },
   { label: "CONTACT",    href: "#contact",    id: "contact" },
 ];
 

@@ -1,46 +1,42 @@
-import { useState, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Users, Monitor, Coffee, Accessibility } from "lucide-react";
-
-const PLAN_MODAL_IMG = "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LOCATION_SALLES_002_bxkza1";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Monitor, Coffee, Accessibility, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SALLES = [
   {
-    img: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/sallereunion1_b2ftou",
+    streetView: "https://www.google.com/maps/embed?pb=!3m2!1sfr!2ses!4v1774528258171!5m2!1sfr!2ses!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQzRfN1dHdHdF!2m2!1d48.60727012360972!2d7.754067003094562!3f241.6594706068541!4f-16.674969401854767!5f0.7820865974627469",
     surface: "45 m²",
     name: "Grande Salle",
+    href: "/salles/grande-salle",
     capacities: [
       { h: "RÉUNION", v: "14 pers." },
       { h: "CONFÉRENCE", v: "30 pers." },
       { h: "SANS TABLES", v: "25 pers." },
     ],
     features: [
-      "Espace convivial de 35 m² avec cuisine équipée",
-      "2 cabinets de toilette",
-      "Accès de plain-pied / Accès handicapé",
-      "Porte-fenêtre sur la cour · Parking week-end",
+      "Avec un espace convivial de 35 m² comprenant une petite cuisine équipée pour vos pauses et repas et 2 cabinets de toilette.",
+      "Accès de plain-pied / Accès handicapé.",
     ],
   },
   {
-    img: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/salle_reunion2_jlivyx",
+    streetView: "https://www.google.com/maps/embed?pb=!4v1774528306559!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQzRfNVh0OXdF!2m2!1d48.60726489968282!2d7.754183046163066!3f221.6485153129953!4f-20.353343534820198!5f0.7820865974627469",
     surface: "30 m²",
     name: "Salle Atelier",
+    href: "/salles/salle-atelier",
     capacities: [
       { h: "RÉUNION", v: "10 pers." },
       { h: "CONFÉRENCE", v: "16 pers." },
       { h: "SANS TABLES", v: "14 pers." },
     ],
     features: [
-      "Espace convivial de 35 m² avec cuisine équipée",
-      "2 cabinets de toilette",
-      "Accès de plain-pied / Accès handicapé",
-      "2 places de parking semaine",
+      "Avec un espace convivial de 35 m² comprenant une petite cuisine équipée pour vos pauses et repas et 2 cabinets de toilette.",
+      "Accès de plain-pied / Accès handicapé.",
     ],
   },
 ];
 
 export default function SallesSection() {
-  const [planOpen, setPlanOpen] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -58,7 +54,7 @@ export default function SallesSection() {
             Salles de réunion équipées
           </h2>
           <p className="font-inter text-muted-foreground text-lg font-light leading-relaxed max-w-2xl mx-auto">
-            Location de salles à la journée et au week-end pour événements professionnels,
+            Location de salles à la journée et au week-end pour évènements professionnels,
             réunions, ateliers et séminaires.
           </p>
         </motion.div>
@@ -70,17 +66,22 @@ export default function SallesSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.2 }}
-              className="group bg-background rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow duration-500"
+              className="bg-background rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow duration-500"
             >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={s.img}
-                  alt={s.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              {/* Street View iframe — not wrapped in Link so it stays interactive */}
+              <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", overflow: "hidden" }}>
+                <iframe
+                  src={s.streetView}
+                  style={{ border: 0, width: "100%", height: "100%", position: "absolute", top: 0, left: 0 }}
+                  allowFullScreen
                   loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Street View — ${s.name}`}
                 />
               </div>
-              <div className="p-8">
+
+              {/* Card body — wrapped in Link so clicking title/text navigates */}
+              <Link to={s.href} className="block p-8 hover:bg-secondary/30 transition-colors">
                 <div className="flex items-center justify-between mb-5">
                   <h3 className="font-playfair text-3xl font-medium">{s.name}</h3>
                   <span className="bg-secondary px-4 py-1.5 rounded text-sm font-medium text-muted-foreground font-inter">
@@ -108,21 +109,10 @@ export default function SallesSection() {
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap items-center gap-3">
-                  <button
-                    onClick={() => setPlanOpen(true)}
-                    className="font-inter text-sm border border-border text-foreground px-5 py-2 rounded hover:bg-secondary transition-colors"
-                  >
-                    Voir le plan 📐
-                  </button>
-                  <a
-                    href="#contact"
-                    className="font-inter text-sm bg-foreground text-white px-6 py-2 rounded hover:bg-foreground/90 transition-opacity uppercase tracking-wider"
-                  >
-                    Réserver
-                  </a>
-                </div>
-              </div>
+                <span className="font-inter text-sm text-accent">
+                  En savoir plus →
+                </span>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -147,32 +137,6 @@ export default function SallesSection() {
           ))}
         </motion.div>
       </div>
-
-      <AnimatePresence>
-        {planOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] bg-black/80 flex items-center justify-center p-4"
-            onClick={() => setPlanOpen(false)}
-          >
-            <img
-              src={PLAN_MODAL_IMG}
-              alt="Plan des salles"
-              className="max-w-3xl w-full max-h-[80vh] object-contain rounded-xl"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <button
-              onClick={() => setPlanOpen(false)}
-              className="absolute top-6 right-6 text-white text-3xl"
-              aria-label="Fermer"
-            >
-              ✕
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

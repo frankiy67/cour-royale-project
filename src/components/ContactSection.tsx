@@ -28,10 +28,8 @@ export default function ContactSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="max-w-5xl mx-auto px-6 py-20 md:py-32"
+        className="max-w-5xl mx-auto px-6 py-10 md:py-16"
       >
-        <span className="font-playfair text-[120px] leading-none text-foreground/[0.06] select-none hidden md:block">06</span>
-
         <motion.div variants={fadeInUp} className="text-center mb-12">
           <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">CONTACT</p>
           <h2 className="font-playfair text-foreground text-3xl md:text-[48px] mb-4">Prenons contact</h2>

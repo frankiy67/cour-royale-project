@@ -10,6 +10,8 @@ import LotCB9CB10Page from "./pages/LotCB9CB10Page.tsx";
 import LotH4Page from "./pages/LotH4Page.tsx";
 import LotD14Page from "./pages/LotD14Page.tsx";
 import LotH7Page from "./pages/LotH7Page.tsx";
+import GrandeSallePage from "./pages/GrandeSallePage.tsx";
+import SalleAtelierPage from "./pages/SalleAtelierPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/lots/h4" element={<LotH4Page />} />
           <Route path="/lots/d14" element={<LotD14Page />} />
           <Route path="/lots/h7" element={<LotH7Page />} />
+          <Route path="/salles/grande-salle" element={<GrandeSallePage />} />
+          <Route path="/salles/salle-atelier" element={<SalleAtelierPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

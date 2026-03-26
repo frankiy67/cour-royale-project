@@ -77,7 +77,7 @@ export default function HistoriqueSection() {
 
   useEffect(() => {
     if (timelinePaused) return;
-    const id = setInterval(advanceTimeline, 3000);
+    const id = setInterval(advanceTimeline, 6000);
     return () => clearInterval(id);
   }, [timelinePaused, advanceTimeline]);
 
@@ -199,7 +199,7 @@ export default function HistoriqueSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <div className="overflow-x-auto pb-2">
+          <div className="overflow-x-auto pb-2 pt-4">
             <div className="relative flex items-start justify-between min-w-[640px] px-2">
               {/* Horizontal line */}
               <div className="absolute top-[18px] left-8 right-8 h-px bg-white/20" />

@@ -1,9 +1,21 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { Check } from "lucide-react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const OFFICE_IMAGE = "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/interieur2_c6cvtm";
+const CAROUSEL_IMAGES = [
+  { src: "/caroussel/1.jpg" },
+  { src: "/caroussel/2.png" },
+  { src: "/caroussel/3.png" },
+  { src: "/caroussel/4.png" },
+  { src: "/caroussel/5.png" },
+  { src: "/caroussel/6.jpg" },
+  { src: "/caroussel/7.jpg" },
+  { src: "/caroussel/8.jpg" },
+  { src: "/caroussel/9.jpg" },
+  { src: "/caroussel/10.jpg" },
+  { src: "/caroussel/11.jpg" },
+];
 
 const BENEFITS = [
   "Parking privé central",
@@ -44,11 +56,22 @@ const LOTS = [
 export default function BureauxSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const next = useCallback(() => setCurrent((c) => (c + 1) % CAROUSEL_IMAGES.length), []);
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + CAROUSEL_IMAGES.length) % CAROUSEL_IMAGES.length), []);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(next, 4000);
+    return () => clearInterval(id);
+  }, [paused, next]);
 
   return (
     <section id="nosoffres" className="bg-background" ref={ref}>
       <div className="max-w-6xl mx-auto px-6 py-20 md:py-32">
-        {/* Top: text left + image right */}
+        {/* Top: text left + carousel right */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -81,19 +104,73 @@ export default function BureauxSection() {
             </a>
           </motion.div>
 
+          {/* Carousel */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <img
-              src={OFFICE_IMAGE}
-              alt="Bureaux professionnels — La Cour de la Semeuse"
-              className="w-full rounded-lg shadow-xl"
-              loading="lazy"
-            />
+            <div
+              className="relative group rounded-xl shadow-xl bg-[#f5f0eb] overflow-hidden flex items-center justify-center"
+              style={{ aspectRatio: "4/3", maxHeight: "480px" }}
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={current}
+                  src={CAROUSEL_IMAGES[current].src}
+                  alt={`Bureaux La Cour de la Semeuse — vue ${current + 1}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 w-full h-full object-contain object-center"
+                />
+              </AnimatePresence>
+
+              {/* Arrows */}
+              <button
+                onClick={prev}
+                aria-label="Photo précédente"
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 backdrop-blur-sm p-2 rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity z-10"
+              >
+                <ChevronLeft className="w-4 h-4 text-white" />
+              </button>
+              <button
+                onClick={next}
+                aria-label="Photo suivante"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 backdrop-blur-sm p-2 rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity z-10"
+              >
+                <ChevronRight className="w-4 h-4 text-white" />
+              </button>
+
+              {/* Dots */}
+              <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
+                {CAROUSEL_IMAGES.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    aria-label={`Photo ${i + 1}`}
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                      i === current ? "bg-white scale-125" : "bg-white/40 hover:bg-white/70"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
+
+        {/* Intro text before lot cards */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="font-inter text-muted-foreground text-center mt-8 mb-4"
+        >
+          Découvrez ci-dessous quelques unes de nos propositions :
+        </motion.p>
 
         {/* Surface cards */}
         <motion.div
@@ -121,7 +198,6 @@ export default function BureauxSection() {
           ))}
         </motion.div>
       </div>
-
     </section>
   );
 }
