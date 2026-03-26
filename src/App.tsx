@@ -12,6 +12,7 @@ import LotD14Page from "./pages/LotD14Page.tsx";
 import LotH7Page from "./pages/LotH7Page.tsx";
 import GrandeSallePage from "./pages/GrandeSallePage.tsx";
 import SalleAtelierPage from "./pages/SalleAtelierPage.tsx";
+import MentionsLegalesPage from "./pages/MentionsLegalesPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/lots/h7" element={<LotH7Page />} />
           <Route path="/salles/grande-salle" element={<GrandeSallePage />} />
           <Route path="/salles/salle-atelier" element={<SalleAtelierPage />} />
+          <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

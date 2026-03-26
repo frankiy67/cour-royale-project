@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function FooterSection() {
   return (
     <footer className="bg-foreground">
@@ -49,14 +51,12 @@ export default function FooterSection() {
           >
             LinkedIn
           </a>
-          <a
-            href="https://www.semeuse.eu/fr/articles.php?id=12940708363620"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/mentions-legales"
             className="font-inter text-white/55 text-sm hover:text-white transition-colors"
           >
             Mentions légales
-          </a>
+          </Link>
           <a
             href="https://www.google.fr/maps/place/La+Semeuse/@48.6066812,7.7535506,15z"
             target="_blank"
