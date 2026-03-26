@@ -144,8 +144,19 @@ export default function BureauxSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="nosoffres" className="bg-background" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6 py-20 md:py-32">
+    <section
+      id="nosoffres"
+      className="relative"
+      style={{
+        backgroundImage: "url('/images/bureaux-bg.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+      ref={ref}
+    >
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(245, 240, 235, 0.88)" }} />
+      <div className="relative z-[1] max-w-6xl mx-auto px-6 py-20 md:py-32">
         {/* Top: text left + image right */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <motion.div
@@ -187,6 +198,11 @@ export default function BureauxSection() {
             <BureauxCarousel />
           </motion.div>
         </div>
+
+        {/* Intro cartes */}
+        <p className="font-inter text-muted-foreground text-base mt-8 mb-4">
+          Découvrez ci-dessous quelques unes de nos propositions :
+        </p>
 
         {/* Surface cards */}
         <motion.div
@@ -235,5 +251,6 @@ export default function BureauxSection() {
         {planSrc && <PlanModal src={planSrc} onClose={() => setPlanSrc(null)} />}
       </AnimatePresence>
     </section>
+
   );
 }

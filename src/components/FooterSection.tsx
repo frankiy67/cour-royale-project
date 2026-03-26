@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function FooterSection() {
   return (
-    <footer className="bg-foreground">
-      <div className="h-0.5 bg-accent" />
+    <footer className="bg-accent">
+      <div className="h-0.5 bg-white/20" />
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
 
         {/* Brand */}
@@ -44,7 +44,7 @@ export default function FooterSection() {
         {/* Links */}
         <div className="flex flex-col items-center md:items-end gap-2">
           <a
-            href="https://www.linkedin.com/company/la-cour-de-la-semeuse/"
+            href="https://www.linkedin.com/in/fixari-vallat-elisabeth-68ab57116/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-inter text-white/55 text-sm hover:text-white transition-colors"
@@ -58,7 +58,7 @@ export default function FooterSection() {
             Mentions légales
           </Link>
           <a
-            href="https://www.google.fr/maps/place/La+Semeuse/@48.6066812,7.7535506,15z"
+            href="https://maps.app.goo.gl/PpYypRFnj4y5LKq96"
             target="_blank"
             rel="noopener noreferrer"
             className="font-inter text-white/55 text-sm hover:text-white transition-colors"
