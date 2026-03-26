@@ -223,24 +223,14 @@ export default function BureauxSection() {
               <p className="font-inter text-sm text-muted-foreground font-light leading-relaxed mb-4">
                 {lot.desc}
               </p>
-              <div className="flex items-center gap-3">
-                {lot.plan && (
-                  <button
-                    onClick={() => setPlanSrc(lot.plan!)}
-                    className="font-inter text-xs text-accent hover:underline"
-                  >
-                    Voir le plan 📐
-                  </button>
-                )}
-                {lot.link && (
-                  <Link
-                    to={lot.link}
-                    className="font-inter text-xs text-muted-foreground hover:text-foreground ml-auto"
-                  >
-                    Détails →
-                  </Link>
-                )}
-              </div>
+              {lot.link && (
+                <Link
+                  to={lot.link}
+                  className="font-inter text-xs text-accent hover:underline"
+                >
+                  En savoir plus →
+                </Link>
+              )}
             </div>
           ))}
         </motion.div>
