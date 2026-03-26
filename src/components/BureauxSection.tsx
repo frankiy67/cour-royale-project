@@ -1,8 +1,80 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 
-const OFFICE_IMAGE = "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/interieur2_c6cvtm";
+const CAROUSEL_IMAGES = [
+  "/caroussel/2.png",
+  "/caroussel/3.png",
+  "/caroussel/4.png",
+  "/caroussel/5.png",
+];
+
+function BureauxCarousel() {
+  const [current, setCurrent] = useState(0);
+  const [hovered, setHovered] = useState(false);
+
+  const prev = useCallback(() =>
+    setCurrent((c) => (c - 1 + CAROUSEL_IMAGES.length) % CAROUSEL_IMAGES.length), []);
+  const next = useCallback(() =>
+    setCurrent((c) => (c + 1) % CAROUSEL_IMAGES.length), []);
+
+  useEffect(() => {
+    if (hovered) return;
+    const id = setInterval(next, 4000);
+    return () => clearInterval(id);
+  }, [hovered, next]);
+
+  return (
+    <div
+      className="relative overflow-hidden rounded-xl bg-[#f5f0eb] group"
+      style={{ height: "420px" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={current}
+          src={CAROUSEL_IMAGES[current]}
+          alt={`Bureaux — vue ${current + 1}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full h-full object-cover object-center block"
+          loading="lazy"
+        />
+      </AnimatePresence>
+
+      {/* Flèches */}
+      <button
+        onClick={prev}
+        aria-label="Image précédente"
+        className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={next}
+        aria-label="Image suivante"
+        className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+
+      {/* Points */}
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+        {CAROUSEL_IMAGES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            aria-label={`Aller à l'image ${i + 1}`}
+            className={`w-2 h-2 rounded-full transition-colors ${i === current ? "bg-white" : "bg-white/50"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const BENEFITS = [
   "Parking privé central",
@@ -112,12 +184,7 @@ export default function BureauxSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <img
-              src={OFFICE_IMAGE}
-              alt="Bureaux professionnels — La Cour de la Semeuse"
-              className="w-full rounded-lg shadow-xl"
-              loading="lazy"
-            />
+            <BureauxCarousel />
           </motion.div>
         </div>
 
