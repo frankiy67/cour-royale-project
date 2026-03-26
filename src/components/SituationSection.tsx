@@ -3,10 +3,10 @@ import { Car, Bus, Train, Plane } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
 
 const TRANSPORTS = [
-  { Icon: Car,   label: "Autoroute",  detail: "Accès direct depuis l'autoroute" },
-  { Icon: Bus,   label: "Tram & Bus", detail: "Réseau Eurométropole à proximité" },
-  { Icon: Train, label: "Gare TGV",   detail: "Strasbourg à 15 minutes" },
-  { Icon: Plane, label: "Aéroport",   detail: "Entzheim à 30 minutes" },
+  { Icon: Car,   label: "Autoroute",  detail: "Accès direct depuis l'autoroute",    href: "https://maps.app.goo.gl/Ah12SLQPovQmF8C26" },
+  { Icon: Bus,   label: "Tram & Bus", detail: "Réseau Eurométropole à proximité",   href: "https://maps.app.goo.gl/P9haAyoEikpAeEri6" },
+  { Icon: Train, label: "Gare TGV",   detail: "Strasbourg à 15 minutes",            href: "https://maps.app.goo.gl/crosncjNEQRZxSVi8" },
+  { Icon: Plane, label: "Aéroport",   detail: "Entzheim à 30 minutes",              href: "https://maps.app.goo.gl/VE74Kz61WFJYPevk9" },
 ];
 
 export default function SituationSection() {
@@ -36,17 +36,20 @@ export default function SituationSection() {
 
         {/* Transport cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          {TRANSPORTS.map(({ Icon, label, detail }, i) => (
-            <motion.div
+          {TRANSPORTS.map(({ Icon, label, detail, href }, i) => (
+            <motion.a
               key={label}
               variants={fadeInUp}
               custom={i}
-              className="text-center p-8 rounded-xl border border-border bg-card"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-center p-8 rounded-xl border border-border bg-card hover:shadow-md transition-shadow cursor-pointer"
             >
               <Icon className="w-8 h-8 mx-auto mb-4 text-accent" />
               <h4 className="font-playfair text-foreground text-xl font-medium mb-2">{label}</h4>
               <p className="font-inter text-sm text-foreground/60">{detail}</p>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
