@@ -213,9 +213,10 @@ export default function BureauxSection() {
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {LOTS.map((lot, i) => (
-            <div
+            <Link
               key={i}
-              className="p-6 bg-card rounded-lg border border-border hover:shadow-md transition-shadow"
+              to={lot.link}
+              className="block p-6 bg-card rounded-lg border border-border hover:shadow-md transition-shadow cursor-pointer"
             >
               <span className="font-playfair text-3xl font-semibold text-accent block mb-3">
                 {lot.surface}
@@ -223,15 +224,10 @@ export default function BureauxSection() {
               <p className="font-inter text-sm text-muted-foreground font-light leading-relaxed mb-4">
                 {lot.desc}
               </p>
-              {lot.link && (
-                <Link
-                  to={lot.link}
-                  className="font-inter text-xs text-accent hover:underline"
-                >
-                  En savoir plus →
-                </Link>
-              )}
-            </div>
+              <span className="font-inter text-xs text-accent hover:underline">
+                En savoir plus →
+              </span>
+            </Link>
           ))}
         </motion.div>
       </div>
