@@ -55,11 +55,13 @@ export default function Navbar() {
   const desktopLinkClass = (id: string) => {
     const isActive = activeSection === id;
     return [
-      "font-inter text-[10px] uppercase tracking-[0.2em] transition-all duration-300",
+      "font-inter text-[15px] font-medium uppercase tracking-[0.05em] transition-all duration-300",
       "pb-0.5 border-b",
       isActive
-        ? "text-white border-white"
-        : "text-white/75 border-transparent hover:text-white hover:border-white/40",
+        ? scrolled ? "text-accent border-accent" : "text-white border-white"
+        : scrolled
+          ? "text-foreground border-transparent hover:text-accent hover:border-accent/40"
+          : "text-white/80 border-transparent hover:text-white hover:border-white/40",
     ].join(" ");
   };
 
@@ -68,12 +70,20 @@ export default function Navbar() {
       <nav
         role="navigation"
         aria-label="Navigation principale"
-        className="fixed top-0 left-0 right-0 z-50 bg-accent shadow-[0_2px_8px_rgba(0,0,0,0.25)]"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-[0_1px_0_rgba(139,21,21,0.15),0_2px_20px_rgba(0,0,0,0.06)]"
+            : "bg-transparent"
+        }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
           {/* Logo — links to top */}
           <a href="#" aria-label="La Semeuse — retour en haut de page">
-            <img src="/images/logo-semeuse-white.svg" alt="La Semeuse — Schiltigheim" className="h-12 w-auto" />
+            <img
+              src={scrolled ? "/images/logo-semeuse.svg" : "/images/logo-semeuse-white.svg"}
+              alt="La Semeuse — Schiltigheim"
+              className="h-16 w-auto"
+            />
           </a>
 
           {/* Desktop navigation */}
@@ -94,13 +104,13 @@ export default function Navbar() {
             aria-controls="mobile-nav"
           >
             <span
-              className={`block w-6 h-[2px] rounded-full bg-white transition-all duration-300 origin-center ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`}
+              className={`block w-6 h-[2px] rounded-full transition-all duration-300 origin-center ${scrolled ? "bg-foreground" : "bg-white"} ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`}
             />
             <span
-              className={`block w-6 h-[2px] rounded-full bg-white transition-all duration-300 ${mobileOpen ? "opacity-0 scale-x-0" : ""}`}
+              className={`block w-6 h-[2px] rounded-full transition-all duration-300 ${scrolled ? "bg-foreground" : "bg-white"} ${mobileOpen ? "opacity-0 scale-x-0" : ""}`}
             />
             <span
-              className={`block w-6 h-[2px] rounded-full bg-white transition-all duration-300 origin-center ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""}`}
+              className={`block w-6 h-[2px] rounded-full transition-all duration-300 origin-center ${scrolled ? "bg-foreground" : "bg-white"} ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""}`}
             />
           </button>
         </div>

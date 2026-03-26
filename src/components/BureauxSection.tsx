@@ -155,7 +155,7 @@ export default function BureauxSection() {
       }}
       ref={ref}
     >
-      <div className="absolute inset-0" style={{ backgroundColor: "rgba(245, 240, 235, 0.88)" }} />
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(235, 228, 220, 0.82)" }} />
       <div className="relative z-[1] max-w-6xl mx-auto px-6 py-20 md:py-32">
         {/* Top: text left + image right */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
