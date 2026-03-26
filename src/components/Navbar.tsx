@@ -72,11 +72,8 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
           {/* Logo — links to top */}
-          <a
-            href="#"
-            aria-label="La Cour de la Semeuse — retour en haut de page"
-          >
-            <img src="/images/logo-semeuse.jpg" alt="La Semeuse" className="h-10 w-auto" />
+          <a href="#" aria-label="La Semeuse — retour en haut de page">
+            <img src="/images/logo-semeuse-white.svg" alt="La Semeuse — Schiltigheim" className="h-12 w-auto" />
           </a>
 
           {/* Desktop navigation */}
