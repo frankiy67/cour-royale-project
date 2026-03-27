@@ -2,10 +2,30 @@ import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const LANGS = [
-  { code: 'fr', flag: '🇫🇷', label: 'Français' },
-  { code: 'en', flag: '🇬🇧', label: 'English' },
-  { code: 'de', flag: '🇩🇪', label: 'Deutsch' },
+  {
+    code: 'fr',
+    label: 'Français',
+    flag: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/fr.svg',
+  },
+  {
+    code: 'en',
+    label: 'English',
+    flag: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/gb.svg',
+  },
+  {
+    code: 'de',
+    label: 'Deutsch',
+    flag: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/de.svg',
+  },
 ];
+
+const Flag = ({ src, alt }: { src: string; alt: string }) => (
+  <img
+    src={src}
+    alt={alt}
+    style={{ width: 22, height: 16, objectFit: 'cover', borderRadius: 2, flexShrink: 0 }}
+  />
+);
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
@@ -20,12 +40,9 @@ export default function LanguageSwitcher() {
     setOpen(false);
   };
 
-  // Fermer si clic en dehors
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     };
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
@@ -39,22 +56,22 @@ export default function LanguageSwitcher() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 6,
+          gap: 7,
           background: 'none',
-          border: '1px solid rgba(255,255,255,0.3)',
+          border: '1px solid rgba(139,21,21,0.3)',
           borderRadius: 6,
-          padding: '4px 10px',
+          padding: '5px 10px',
           cursor: 'pointer',
           color: 'inherit',
-          fontSize: 14,
-          transition: 'border-color 0.2s',
+          fontSize: 13,
+          fontWeight: 500,
         }}
       >
-        <span style={{ fontSize: 18, lineHeight: 1 }}>{current.flag}</span>
-        <span style={{ fontWeight: 500 }}>{current.code.toUpperCase()}</span>
+        <Flag src={current.flag} alt={current.label} />
+        <span>{current.code.toUpperCase()}</span>
         <span style={{
-          fontSize: 10,
-          opacity: 0.7,
+          fontSize: 9,
+          opacity: 0.6,
           transform: open ? 'rotate(180deg)' : 'none',
           transition: 'transform 0.2s',
           display: 'inline-block',
@@ -69,9 +86,9 @@ export default function LanguageSwitcher() {
           right: 0,
           background: 'white',
           borderRadius: 8,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+          boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
           overflow: 'hidden',
-          minWidth: 140,
+          minWidth: 150,
           border: '1px solid rgba(0,0,0,0.08)',
         }}>
           {LANGS.map(({ code, flag, label }) => (
@@ -91,15 +108,12 @@ export default function LanguageSwitcher() {
                 color: '#2c1810',
                 fontWeight: i18n.language === code ? 600 : 400,
                 textAlign: 'left',
-                transition: 'background 0.15s',
               }}
-              onMouseEnter={e => { if (i18n.language !== code) (e.currentTarget as HTMLElement).style.background = '#faf7f4'; }}
-              onMouseLeave={e => { if (i18n.language !== code) (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
             >
-              <span style={{ fontSize: 20, lineHeight: 1 }}>{flag}</span>
+              <Flag src={flag} alt={label} />
               <span>{label}</span>
               {i18n.language === code && (
-                <span style={{ marginLeft: 'auto', color: '#8B1515', fontSize: 12 }}>✓</span>
+                <span style={{ marginLeft: 'auto', color: '#8B1515', fontSize: 13 }}>✓</span>
               )}
             </button>
           ))}
