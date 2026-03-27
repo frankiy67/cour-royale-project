@@ -76,13 +76,21 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          {/* Logo — links to top */}
-          <a href="#" aria-label="La Semeuse — retour en haut de page">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
+          {/* Logo — portrait + texte SVG */}
+          <a href="#" aria-label="La Semeuse — retour en haut de page" className="flex items-center gap-3">
+            <img
+              src="/images/semeuse-portrait.jpg"
+              alt=""
+              aria-hidden="true"
+              className={`h-20 w-20 rounded-full object-cover object-top transition-all duration-500 ${
+                scrolled ? "border-2 border-accent/40" : "border-2 border-white/30"
+              }`}
+            />
             <img
               src={scrolled ? "/images/logo-semeuse.svg" : "/images/logo-semeuse-white.svg"}
               alt="La Semeuse — Schiltigheim"
-              className="h-16 w-auto"
+              className="h-12 w-auto"
             />
           </a>
 
