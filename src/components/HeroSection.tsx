@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import DoorAnimation from "./DoorAnimation";
 
 const HERO_IMG =
   "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto,w_1920/v1774301412/interieur1_idllc0.png";
@@ -71,15 +72,14 @@ export default function HeroSection() {
           </a>
         </motion.div>
 
-        {/* Scroll hint */}
+        {/* Door animation */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="flex flex-col items-center gap-1.5 animate-bounce-arrow"
+          className="pointer-events-auto"
         >
-          <span className="text-white/70 text-xl leading-none">↓</span>
-          <span className="font-inter text-white/40 text-[11px] tracking-widest uppercase">Découvrir</span>
+          <DoorAnimation />
         </motion.div>
       </div>
     </section>
