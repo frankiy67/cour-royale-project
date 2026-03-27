@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import DoorAnimation from "./DoorAnimation";
 
 const HERO_IMG =
   "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto,w_1920/v1774301412/interieur1_idllc0.png";
@@ -72,15 +71,23 @@ export default function HeroSection() {
           </a>
         </motion.div>
 
-        {/* Door animation */}
-        <motion.div
+        {/* Scroll hint */}
+        <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="pointer-events-auto"
+          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}
+          className="flex flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors mt-8 pointer-events-auto"
+          style={{ background: "none", border: "none", cursor: "pointer" }}
+          aria-label="Découvrir le contenu"
         >
-          <DoorAnimation />
-        </motion.div>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span style={{ fontSize: 11, letterSpacing: "3px", textTransform: "uppercase" }}>
+            Découvrir
+          </span>
+        </motion.button>
       </div>
     </section>
   );
