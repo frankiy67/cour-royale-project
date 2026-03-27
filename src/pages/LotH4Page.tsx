@@ -55,7 +55,7 @@ export default function LotH4Page() {
             Bâtiment de la Halle · H4
           </span>
           <span className="font-inter text-xs uppercase tracking-[0.2em] text-muted-foreground bg-muted px-3 py-1 rounded-full">
-            Accès plain-pied
+            {t('pages_lots.acces_plain_pied')}
           </span>
         </motion.div>
 

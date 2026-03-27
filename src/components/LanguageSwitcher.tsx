@@ -27,7 +27,11 @@ const Flag = ({ src, alt }: { src: string; alt: string }) => (
   />
 );
 
-export default function LanguageSwitcher() {
+interface Props {
+  scrolled?: boolean;
+}
+
+export default function LanguageSwitcher({ scrolled = false }: Props) {
   const { i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -48,6 +52,10 @@ export default function LanguageSwitcher() {
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
+  const btnColor    = scrolled ? '#2c1810'               : 'white';
+  const btnBorder   = scrolled ? '1px solid rgba(139,21,21,0.3)' : '1px solid rgba(255,255,255,0.5)';
+  const btnBg       = scrolled ? 'rgba(245,240,235,0.9)' : 'rgba(255,255,255,0.15)';
+
   return (
     <div ref={ref} style={{ position: 'relative', zIndex: 100 }}>
       {/* Bouton principal */}
@@ -57,14 +65,17 @@ export default function LanguageSwitcher() {
           display: 'flex',
           alignItems: 'center',
           gap: 7,
-          background: 'none',
-          border: '1px solid rgba(139,21,21,0.3)',
+          background: btnBg,
+          backdropFilter: 'blur(4px)',
+          border: btnBorder,
           borderRadius: 6,
           padding: '5px 10px',
           cursor: 'pointer',
-          color: 'inherit',
+          color: btnColor,
           fontSize: 13,
-          fontWeight: 500,
+          fontWeight: 600,
+          letterSpacing: '0.5px',
+          transition: 'background 0.3s, border-color 0.3s, color 0.3s',
         }}
       >
         <Flag src={current.flag} alt={current.label} />

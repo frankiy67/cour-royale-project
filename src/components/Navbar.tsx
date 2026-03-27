@@ -104,7 +104,7 @@ export default function Navbar() {
                 {l.label}
               </a>
             ))}
-            <LanguageSwitcher />
+            <LanguageSwitcher scrolled={scrolled} />
           </div>
 
           {/* Mobile hamburger — animates into ✕ when open */}
@@ -164,7 +164,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: NAV_LINKS.length * 0.07, duration: 0.35, ease: "easeOut" }}
             >
-              <LanguageSwitcher />
+              <LanguageSwitcher scrolled={scrolled} />
             </motion.div>
           </motion.div>
         )}

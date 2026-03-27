@@ -49,7 +49,7 @@ export default function SalleAtelierPage() {
             className="flex items-center gap-2 font-inter text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            {t('pages_lots.retour_salles')}
+            {t('pages_salles.retour')}
           </Link>
           <span className="font-playfair text-foreground text-lg hidden sm:block">
             La Cour de la Semeuse
@@ -58,7 +58,7 @@ export default function SalleAtelierPage() {
             href="/#contact"
             className="font-inter text-xs bg-accent text-white px-4 py-2 rounded hover:bg-accent/90 transition-colors"
           >
-            {t('pages_lots.demander_visite')}
+            {t('pages_salles.demander_visite')}
           </a>
         </div>
       </nav>
@@ -76,7 +76,7 @@ export default function SalleAtelierPage() {
               Bâtiment du Moulin · Salle Atelier
             </span>
             <span className="font-inter text-xs uppercase tracking-[0.2em] text-muted-foreground bg-muted px-3 py-1 rounded-full">
-              Accès plain-pied
+              {t('pages_salles.acces_plain_pied')}
             </span>
           </div>
           <h1 className="font-playfair text-foreground text-3xl md:text-5xl font-light tracking-tight mb-4">
@@ -98,14 +98,14 @@ export default function SalleAtelierPage() {
               <div key={p.src} className="bg-card rounded-xl border border-border">
                 <div className="px-4 py-3 border-b border-border rounded-t-xl">
                   <p className="font-inter text-xs uppercase tracking-wider text-muted-foreground">
-                    {t(`pages_lots.${p.labelKey}`)}
+                    {t(`pages_salles.${p.labelKey}`)}
                   </p>
                   <p className="font-inter text-sm text-foreground font-medium mt-0.5">{p.caption}</p>
                 </div>
                 <div className="p-4 bg-white rounded-b-xl">
                   <img
                     src={p.src}
-                    alt={`${t(`pages_lots.${p.labelKey}`)} — Salle Atelier`}
+                    alt={`${t(`pages_salles.${p.labelKey}`)} — Salle Atelier`}
                     className="w-full h-auto block"
                     loading="lazy"
                   />
@@ -117,7 +117,7 @@ export default function SalleAtelierPage() {
 
         {/* Photos */}
         <motion.div variants={fadeInUp} className="mb-12">
-          <h2 className="font-playfair text-foreground text-2xl mb-6">{t('pages_lots.photos')}</h2>
+          <h2 className="font-playfair text-foreground text-2xl mb-6">{t('pages_salles.photos')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {PHOTOS.map((p) => (
               <div key={p.src} className="rounded-xl overflow-hidden bg-[#f5f5f0]">
@@ -135,7 +135,7 @@ export default function SalleAtelierPage() {
         {/* Équipements + Contact */}
         <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-8">
           <div className="bg-card rounded-xl border border-border p-6">
-            <h2 className="font-playfair text-foreground text-2xl mb-5">{t('pages_lots.equipements')}</h2>
+            <h2 className="font-playfair text-foreground text-2xl mb-5">{t('pages_salles.equipements')}</h2>
             <ul className="space-y-3">
               {EQUIPEMENTS.map((eq) => (
                 <li key={eq} className="flex items-start gap-3 font-inter text-sm text-muted-foreground">
@@ -148,9 +148,9 @@ export default function SalleAtelierPage() {
 
           <div className="bg-foreground rounded-xl p-6 flex flex-col justify-between">
             <div>
-              <h2 className="font-playfair text-white text-2xl mb-3">{t('pages_lots.interesse_salle')}</h2>
+              <h2 className="font-playfair text-white text-2xl mb-3">{t('pages_salles.interesse')}</h2>
               <p className="font-inter text-white/70 text-sm leading-relaxed mb-6">
-                {t('pages_lots.contactez')}
+                {t('pages_salles.contactez')}
               </p>
               <div className="space-y-3 mb-6">
                 <a
@@ -170,7 +170,7 @@ export default function SalleAtelierPage() {
               href="/#contact"
               className="block text-center font-inter text-sm bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors"
             >
-              {t('pages_lots.demander_visite')}
+              {t('pages_salles.demander_visite')}
             </a>
           </div>
         </motion.div>

@@ -137,6 +137,10 @@
   "pages_lots": {
     "retour": "← Zurück zu den Angeboten",
     "retour_salles": "Zurück zu den Räumen",
+    "acces_plain_pied": "Ebenerdiger Zugang",
+    "deux_niveaux": "Zwei Etagen",
+    "rez_chaussee": "Erdgeschoss",
+    "etage": "Obergeschoss",
     "demander_visite": "Besichtigung anfragen",
     "plans": "Grundrisse",
     "plan_masse": "Lageplan",
@@ -146,5 +150,22 @@
     "interesse": "Interesse an diesen Räumlichkeiten?",
     "interesse_salle": "Interesse an diesem Raum?",
     "contactez": "Kontaktieren Sie uns, um eine Besichtigung zu arrangieren oder weitere Informationen zu den Mietkonditionen zu erhalten."
+  },
+  "pages_salles": {
+    "retour": "← Zurück zu den Sälen",
+    "demander_visite": "Buchung anfragen",
+    "plans": "Grundrisse",
+    "plan_masse": "Lageplan",
+    "plan_sol": "Grundriss",
+    "photos": "Fotos",
+    "equipements": "Ausstattung",
+    "interesse": "Interesse an diesem Raum?",
+    "contactez": "Kontaktieren Sie uns für weitere Informationen.",
+    "acces_plain_pied": "Ebenerdiger Zugang",
+    "grande_salle": "Großer Saal",
+    "salle_atelier": "Workshopraum",
+    "reunion": "Besprechung",
+    "conference": "Konferenz",
+    "sans_tables": "Ohne Tische"
   }
 }

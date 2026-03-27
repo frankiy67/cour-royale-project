@@ -145,6 +145,27 @@
     "equipements": "Équipements",
     "interesse": "Intéressé par ce local ?",
     "interesse_salle": "Intéressé par cette salle ?",
-    "contactez": "Contactez-nous pour organiser une visite ou obtenir plus d'informations sur les conditions de location."
+    "contactez": "Contactez-nous pour organiser une visite ou obtenir plus d'informations sur les conditions de location.",
+    "acces_plain_pied": "Accès plain-pied",
+    "deux_niveaux": "Deux niveaux",
+    "rez_chaussee": "Rez-de-chaussée",
+    "etage": "Étage"
+  },
+  "pages_salles": {
+    "retour": "← Retour aux salles",
+    "demander_visite": "Demander une visite",
+    "plans": "Plans",
+    "plan_masse": "Plan de masse",
+    "plan_sol": "Plan de sol",
+    "photos": "Photos",
+    "equipements": "Équipements",
+    "interesse": "Intéressé par cette salle ?",
+    "contactez": "Contactez-nous pour organiser une visite ou obtenir plus d'informations.",
+    "acces_plain_pied": "Accès plain-pied",
+    "grande_salle": "Grande Salle",
+    "salle_atelier": "Salle Atelier",
+    "reunion": "Réunion",
+    "conference": "Conférence",
+    "sans_tables": "Sans tables"
   }
 }

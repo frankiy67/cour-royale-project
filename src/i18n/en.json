@@ -137,6 +137,10 @@
   "pages_lots": {
     "retour": "← Back to offers",
     "retour_salles": "Back to rooms",
+    "acces_plain_pied": "Ground floor access",
+    "deux_niveaux": "Two levels",
+    "rez_chaussee": "Ground floor",
+    "etage": "Upper floor",
     "demander_visite": "Request a visit",
     "plans": "Floor plans",
     "plan_masse": "Site plan",
@@ -146,5 +150,22 @@
     "interesse": "Interested in this premises?",
     "interesse_salle": "Interested in this room?",
     "contactez": "Contact us to arrange a visit or to get more information on rental terms."
+  },
+  "pages_salles": {
+    "retour": "← Back to meeting rooms",
+    "demander_visite": "Request a booking",
+    "plans": "Floor plans",
+    "plan_masse": "Site plan",
+    "plan_sol": "Floor plan",
+    "photos": "Photos",
+    "equipements": "Features",
+    "interesse": "Interested in this room?",
+    "contactez": "Contact us to arrange a visit or get more information.",
+    "acces_plain_pied": "Ground floor access",
+    "grande_salle": "Large Room",
+    "salle_atelier": "Workshop Room",
+    "reunion": "Meeting",
+    "conference": "Conference",
+    "sans_tables": "Without tables"
   }
 }

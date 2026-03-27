@@ -7,8 +7,8 @@ import { useTranslation } from "react-i18next";
 const CLD = "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/";
 
 const NIVEAUX = [
-  { etage: "REZ-DE-CHAUSSÉE", surface: "11 m²",  desc: "Entrée + dégagement" },
-  { etage: "ÉTAGE",           surface: "111 m²", desc: "6 bureaux · dégagement · 2 toilettes" },
+  { etageKey: "rez_chaussee" as const, surface: "11 m²",  desc: "Entrée + dégagement" },
+  { etageKey: "etage"        as const, surface: "111 m²", desc: "6 bureaux · dégagement · 2 toilettes" },
 ];
 
 const PLANS = [
@@ -60,7 +60,7 @@ export default function LotD14Page() {
             Bâtiment de l'Horloge · D14
           </span>
           <span className="font-inter text-xs uppercase tracking-[0.2em] text-muted-foreground bg-muted px-3 py-1 rounded-full">
-            Deux niveaux
+            {t('pages_lots.deux_niveaux')}
           </span>
         </motion.div>
 
@@ -79,8 +79,8 @@ export default function LotD14Page() {
         {/* Niveaux */}
         <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-4 mb-12">
           {NIVEAUX.map((n) => (
-            <div key={n.etage} className="bg-card rounded-xl border border-border p-5">
-              <p className="font-inter text-xs uppercase tracking-widest text-muted-foreground mb-1">{n.etage}</p>
+            <div key={n.etageKey} className="bg-card rounded-xl border border-border p-5">
+              <p className="font-inter text-xs uppercase tracking-widest text-muted-foreground mb-1">{t(`pages_lots.${n.etageKey}`)}</p>
               <p className="font-playfair text-2xl text-accent font-semibold mb-1">{n.surface}</p>
               <p className="font-inter text-sm text-muted-foreground">{n.desc}</p>
             </div>
