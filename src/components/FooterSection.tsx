@@ -11,11 +11,19 @@ export default function FooterSection() {
 
           {/* Col 1 — Brand */}
           <div className="md:col-span-1">
-            <img
-              src="/images/logo-semeuse-white.svg"
-              alt="La Semeuse"
-              className="h-14 w-auto mb-5 mx-auto md:mx-0"
-            />
+            <div className="flex items-center gap-3 mb-5 justify-center md:justify-start">
+              <img
+                src="/images/semeuse-portrait.jpg"
+                alt="La Semeuse"
+                className="h-20 w-20 rounded-full object-cover border-2 border-white/30 flex-shrink-0"
+                style={{ objectPosition: "center top" }}
+              />
+              <img
+                src="/images/logo-semeuse-white.svg"
+                alt="La Semeuse — Schiltigheim"
+                className="h-12 w-auto"
+              />
+            </div>
             <p className="font-inter text-white/55 text-[13px] leading-relaxed">
               20 Place de la Liberté · BP 70123<br />F-67303 Schiltigheim
             </p>
