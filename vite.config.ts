@@ -18,9 +18,15 @@ export default defineConfig({
     },
   },
   build: {
-    // Emit source maps for easier debugging in production
     sourcemap: false,
-    // Raise the warning threshold slightly — framer-motion is intentionally large
-    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          animations: ["framer-motion"],
+          ui: ["lucide-react"],
+        },
+      },
+    },
   },
 });
