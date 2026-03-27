@@ -151,6 +151,67 @@
     "interesse_salle": "Interested in this room?",
     "contactez": "Contact us to arrange a visit or to get more information on rental terms."
   },
+  "local_pro": "Professional premises",
+  "locaux_pro": "Professional premises",
+  "location_salle": "Meeting room rental",
+  "sur_deux_etages": "across two floors",
+  "equipements_cb9": [
+    "Bright premises",
+    "Central oil heating",
+    "Air conditioning",
+    "Mechanical ventilation",
+    "Excellent insulation",
+    "Fibre optic access on request"
+  ],
+  "equipements_h4": [
+    "Excellent insulation",
+    "Electric underfloor heating",
+    "Air conditioning",
+    "Mechanical ventilation",
+    "Ground floor access",
+    "Parking in courtyard: 1 dedicated space"
+  ],
+  "equipements_d14": [
+    "Excellent insulation",
+    "Efficient radiant heating",
+    "Air conditioning",
+    "Mechanical ventilation",
+    "Fibre optic access on request",
+    "Parking in courtyard: 3 dedicated spaces"
+  ],
+  "equipements_h7": [
+    "Flexible open space",
+    "2 enclosed offices",
+    "Meeting room",
+    "Private restrooms",
+    "Ground floor access",
+    "Courtyard parking"
+  ],
+  "equipements_grande_salle": [
+    "2 whiteboards, projector, screen",
+    "35 m² convivial area with equipped kitchen for your breaks and meals",
+    "Kitchenette: fridge, two hobs, coffee machines and crockery",
+    "Courtyard parking at weekends (weekdays: 2 dedicated spaces)",
+    "Ground floor access, disabled access",
+    "French door opening onto the courtyard",
+    "Quiet setting in the inner courtyard",
+    "Flexible room configuration",
+    "Option to eat on the premises",
+    "Many restaurants a few minutes' walk away",
+    "Direct access to the old Schiltigheim pedestrian area"
+  ],
+  "equipements_salle_atelier": [
+    "2 whiteboards, projector, screen",
+    "35 m² convivial area with equipped kitchen for your breaks and meals",
+    "Kitchenette: fridge, two hobs, coffee machines and crockery",
+    "Courtyard parking at weekends (weekdays: 2 dedicated spaces)",
+    "Ground floor access, disabled access",
+    "Quiet setting in the inner courtyard",
+    "Flexible room configuration",
+    "Option to eat on the premises",
+    "Many restaurants a few minutes' walk away",
+    "Direct access to the old Schiltigheim pedestrian area"
+  ],
   "pages_salles": {
     "retour": "← Back to meeting rooms",
     "demander_visite": "Request a booking",

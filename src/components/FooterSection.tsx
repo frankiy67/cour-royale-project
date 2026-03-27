@@ -8,9 +8,9 @@ export default function FooterSection() {
     <footer className="bg-accent">
       <div className="h-px bg-white/20" />
 
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-0">
+      <div className="max-w-[1100px] mx-auto px-8 pt-10 pb-0">
         {/* 4-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 text-center md:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-5 text-center md:text-left" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
 
           {/* Col 1 — Brand */}
           <div className="md:col-span-1">
@@ -108,7 +108,7 @@ export default function FooterSection() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 border-t border-white/15 py-6 text-center">
+        <div className="mt-8 border-t border-white/15 py-4 text-center">
           <p className="font-inter text-white/50 text-xs">
             {t('footer.copyright')}
           </p>

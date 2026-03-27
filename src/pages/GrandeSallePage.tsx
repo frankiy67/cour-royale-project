@@ -23,22 +23,9 @@ const PHOTOS = [
   { src: "/salles/grande-salle-6.jpg", alt: "Grande Salle — configuration conférence" },
 ];
 
-const EQUIPEMENTS = [
-  "2 paper boards, vidéoprojecteur, écran",
-  "Espace convivial de 35 m² avec petite cuisine équipée pour vos pauses et repas",
-  "Kitchenette : réfrigérateur, deux plaques de cuisson, machines à café et vaisselle",
-  "Parking dans la cour le week-end (en semaine : 2 places dédiées)",
-  "Accès de plain-pied, accès handicapé",
-  "Porte-fenêtre donnant sur la cour",
-  "Situation au calme dans la cour intérieure",
-  "Configuration des salles à la carte",
-  "Possibilité de prendre les repas sur place",
-  "Nombreux restaurants à quelques minutes à pied",
-  "Accès direct à la zone piétonne du vieux Schiltigheim",
-];
-
 export default function GrandeSallePage() {
   const { t } = useTranslation();
+  const equipements = t('equipements_grande_salle', { returnObjects: true }) as string[];
 
   return (
     <div className="min-h-screen bg-background">
@@ -81,7 +68,7 @@ export default function GrandeSallePage() {
             </span>
           </div>
           <h1 className="font-playfair text-foreground text-3xl md:text-5xl font-light tracking-tight mb-4">
-            Location de salle — <span className="text-accent">45 m²</span>
+            {t('location_salle')} — <span className="text-accent">45 m²</span>
           </h1>
           <p className="font-inter text-muted-foreground text-lg leading-relaxed max-w-2xl">
             Au cœur de la Semeuse, en accès de plain-pied, 2 salles sont disponibles en location
@@ -138,8 +125,8 @@ export default function GrandeSallePage() {
           <div className="bg-card rounded-xl border border-border p-6">
             <h2 className="font-playfair text-foreground text-2xl mb-5">{t('pages_salles.equipements')}</h2>
             <ul className="space-y-3">
-              {EQUIPEMENTS.map((eq) => (
-                <li key={eq} className="flex items-start gap-3 font-inter text-sm text-muted-foreground">
+              {equipements.map((eq, i) => (
+                <li key={i} className="flex items-start gap-3 font-inter text-sm text-muted-foreground">
                   <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                   {eq}
                 </li>

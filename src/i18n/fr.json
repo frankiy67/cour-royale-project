@@ -151,6 +151,67 @@
     "rez_chaussee": "Rez-de-chaussée",
     "etage": "Étage"
   },
+  "local_pro": "Local professionnel",
+  "locaux_pro": "Locaux professionnels",
+  "location_salle": "Location de salle",
+  "sur_deux_etages": "sur deux étages",
+  "equipements_cb9": [
+    "Locaux lumineux",
+    "Chauffage central fuel",
+    "Climatisation",
+    "VMC",
+    "Très bonne isolation",
+    "Accès fibre optique sur demande"
+  ],
+  "equipements_h4": [
+    "Très bonne isolation",
+    "Chauffage électrique au sol",
+    "Climatisation",
+    "VMC",
+    "Accès de plain-pied",
+    "Stationnement dans la cour : 1 place dédiée"
+  ],
+  "equipements_d14": [
+    "Très bonne isolation",
+    "Chauffage radiant économique",
+    "Climatisation",
+    "VMC",
+    "Accès fibre optique sur demande",
+    "Stationnement dans la cour : 3 places dédiées"
+  ],
+  "equipements_h7": [
+    "Open space modulable",
+    "2 bureaux fermés",
+    "Salle de réunions",
+    "Toilettes privatifs",
+    "Accès plain-pied",
+    "Stationnement dans la cour"
+  ],
+  "equipements_grande_salle": [
+    "2 paper boards, vidéoprojecteur, écran",
+    "Espace convivial de 35 m² avec petite cuisine équipée pour vos pauses et repas",
+    "Kitchenette : réfrigérateur, deux plaques de cuisson, machines à café et vaisselle",
+    "Parking dans la cour le week-end (en semaine : 2 places dédiées)",
+    "Accès de plain-pied, accès handicapé",
+    "Porte-fenêtre donnant sur la cour",
+    "Situation au calme dans la cour intérieure",
+    "Configuration des salles à la carte",
+    "Possibilité de prendre les repas sur place",
+    "Nombreux restaurants à quelques minutes à pied",
+    "Accès direct à la zone piétonne du vieux Schiltigheim"
+  ],
+  "equipements_salle_atelier": [
+    "2 paper boards, vidéoprojecteur, écran",
+    "Espace convivial de 35 m² avec petite cuisine équipée pour vos pauses et repas",
+    "Kitchenette : réfrigérateur, deux plaques de cuisson, machines à café et vaisselle",
+    "Parking dans la cour le week-end (en semaine : 2 places dédiées)",
+    "Accès de plain-pied, accès handicapé",
+    "Situation au calme dans la cour intérieure",
+    "Configuration des salles à la carte",
+    "Possibilité de prendre les repas sur place",
+    "Nombreux restaurants à quelques minutes à pied",
+    "Accès direct à la zone piétonne du vieux Schiltigheim"
+  ],
   "pages_salles": {
     "retour": "← Retour aux salles",
     "demander_visite": "Demander une visite",

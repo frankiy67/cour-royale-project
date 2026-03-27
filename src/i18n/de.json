@@ -151,6 +151,67 @@
     "interesse_salle": "Interesse an diesem Raum?",
     "contactez": "Kontaktieren Sie uns, um eine Besichtigung zu arrangieren oder weitere Informationen zu den Mietkonditionen zu erhalten."
   },
+  "local_pro": "Gewerbefläche",
+  "locaux_pro": "Gewerbeflächen",
+  "location_salle": "Raumvermietung",
+  "sur_deux_etages": "auf zwei Etagen",
+  "equipements_cb9": [
+    "Helle Räumlichkeiten",
+    "Öl-Zentralheizung",
+    "Klimaanlage",
+    "Mechanische Lüftung",
+    "Sehr gute Isolierung",
+    "Glasfaseranschluss auf Anfrage"
+  ],
+  "equipements_h4": [
+    "Sehr gute Isolierung",
+    "Elektrische Fußbodenheizung",
+    "Klimaanlage",
+    "Mechanische Lüftung",
+    "Ebenerdiger Zugang",
+    "Parkplatz im Hof: 1 fester Stellplatz"
+  ],
+  "equipements_d14": [
+    "Sehr gute Isolierung",
+    "Effiziente Strahlungsheizung",
+    "Klimaanlage",
+    "Mechanische Lüftung",
+    "Glasfaseranschluss auf Anfrage",
+    "Parkplatz im Hof: 3 feste Stellplätze"
+  ],
+  "equipements_h7": [
+    "Flexibler Open Space",
+    "2 geschlossene Büros",
+    "Besprechungsraum",
+    "Private Sanitäranlagen",
+    "Ebenerdiger Zugang",
+    "Hofparkplatz"
+  ],
+  "equipements_grande_salle": [
+    "2 Whiteboards, Beamer, Leinwand",
+    "35 m² Gemeinschaftsbereich mit ausgestatteter Küche für Pausen und Mahlzeiten",
+    "Küchenzeile: Kühlschrank, zwei Kochplatten, Kaffeemaschinen und Geschirr",
+    "Hofparkplatz am Wochenende (unter der Woche: 2 feste Stellplätze)",
+    "Ebenerdiger Zugang, behindertengerechter Zugang",
+    "Terrassentür zum Hof",
+    "Ruhige Lage im Innenhof",
+    "Flexible Raumkonfiguration",
+    "Möglichkeit, vor Ort zu essen",
+    "Viele Restaurants in wenigen Gehminuten",
+    "Direkter Zugang zur Fußgängerzone von Alt-Schiltigheim"
+  ],
+  "equipements_salle_atelier": [
+    "2 Whiteboards, Beamer, Leinwand",
+    "35 m² Gemeinschaftsbereich mit ausgestatteter Küche für Pausen und Mahlzeiten",
+    "Küchenzeile: Kühlschrank, zwei Kochplatten, Kaffeemaschinen und Geschirr",
+    "Hofparkplatz am Wochenende (unter der Woche: 2 feste Stellplätze)",
+    "Ebenerdiger Zugang, behindertengerechter Zugang",
+    "Ruhige Lage im Innenhof",
+    "Flexible Raumkonfiguration",
+    "Möglichkeit, vor Ort zu essen",
+    "Viele Restaurants in wenigen Gehminuten",
+    "Direkter Zugang zur Fußgängerzone von Alt-Schiltigheim"
+  ],
   "pages_salles": {
     "retour": "← Zurück zu den Sälen",
     "demander_visite": "Buchung anfragen",

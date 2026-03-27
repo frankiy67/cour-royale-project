@@ -22,17 +22,9 @@ const PHOTOS = [
   { src: "/images/lots/122m2-3.jpg", alt: "Vue sur la cour — fenêtres hauteur intégrale" },
 ];
 
-const EQUIPEMENTS = [
-  "Très bonne isolation",
-  "Chauffage radiant économique",
-  "Climatisation",
-  "VMC",
-  "Accès fibre optique sur demande",
-  "Stationnement dans la cour : 3 places dédiées",
-];
-
 export default function LotD14Page() {
   const { t } = useTranslation();
+  const equipements = t('equipements_d14', { returnObjects: true }) as string[];
 
   return (
     <div className="min-h-screen bg-background">
@@ -67,7 +59,7 @@ export default function LotD14Page() {
         {/* Titre + description */}
         <motion.div variants={fadeInUp} className="mb-10">
           <h1 className="font-playfair text-foreground text-3xl md:text-5xl font-light tracking-tight mb-4">
-            Locaux professionnels — <span className="text-accent">122 m²</span> sur deux étages
+            {t('locaux_pro')} — <span className="text-accent">122 m²</span> {t('sur_deux_etages')}
           </h1>
           <p className="font-inter text-muted-foreground text-lg leading-relaxed max-w-2xl">
             Lot D14 : 11 m² au rez-de-chaussée (entrée + dégagement) + 111 m² à l'étage (6 bureaux +
@@ -122,8 +114,8 @@ export default function LotD14Page() {
           <div className="bg-card rounded-xl border border-border p-6">
             <h2 className="font-playfair text-foreground text-2xl mb-5">{t('pages_lots.equipements')}</h2>
             <ul className="space-y-3">
-              {EQUIPEMENTS.map((eq) => (
-                <li key={eq} className="flex items-center gap-3 font-inter text-sm text-muted-foreground">
+              {equipements.map((eq, i) => (
+                <li key={i} className="flex items-center gap-3 font-inter text-sm text-muted-foreground">
                   <Check className="w-4 h-4 text-accent flex-shrink-0" />
                   {eq}
                 </li>
