@@ -146,7 +146,7 @@ export default function BureauxSection() {
 
   return (
     <section
-      id="nosoffres"
+      id="bureaux"
       className="relative"
       style={{
         backgroundImage: "url('/images/bureaux-bg.jpg')",

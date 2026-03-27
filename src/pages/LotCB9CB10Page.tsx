@@ -30,7 +30,7 @@ export default function LotCB9CB10Page() {
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="font-inter text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/#bureaux" className="font-inter text-sm text-muted-foreground hover:text-foreground transition-colors">
             ← Retour aux offres
           </Link>
           <span className="font-playfair text-lg font-medium hidden sm:block">La Cour de la Semeuse</span>
