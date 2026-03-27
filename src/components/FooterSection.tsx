@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function FooterSection() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-accent">
       <div className="h-px bg-white/20" />
@@ -32,7 +35,7 @@ export default function FooterSection() {
           {/* Col 2 — Bureaux */}
           <div>
             <p className="font-inter text-[10px] uppercase tracking-[0.2em] text-white/55 mb-3">
-              Bureaux
+              {t('footer.bureaux_label')}
             </p>
             <p className="font-inter text-white text-[15px] font-semibold mb-2">
               Bernard VALLAT
@@ -54,7 +57,7 @@ export default function FooterSection() {
           {/* Col 3 — Salles */}
           <div>
             <p className="font-inter text-[10px] uppercase tracking-[0.2em] text-white/55 mb-3">
-              Salles de réunion
+              {t('footer.salles_label')}
             </p>
             <p className="font-inter text-white text-[15px] font-semibold mb-2">
               Elisabeth FIXARI-VALLAT
@@ -84,13 +87,13 @@ export default function FooterSection() {
               rel="noopener noreferrer"
               className="block font-inter text-white/75 text-[13px] hover:text-white transition-colors mb-2"
             >
-              LinkedIn
+              {t('footer.linkedin')}
             </a>
             <Link
               to="/mentions-legales"
               className="block font-inter text-white/75 text-[13px] hover:text-white transition-colors mb-2"
             >
-              Mentions légales
+              {t('footer.mentions')}
             </Link>
             <a
               href="https://maps.app.goo.gl/PpYypRFnj4y5LKq96"
@@ -98,7 +101,7 @@ export default function FooterSection() {
               rel="noopener noreferrer"
               className="block font-inter text-white/75 text-[13px] hover:text-white transition-colors mb-2"
             >
-              Google Maps
+              {t('footer.maps')}
             </a>
           </div>
 
@@ -107,7 +110,7 @@ export default function FooterSection() {
         {/* Bottom bar */}
         <div className="mt-10 border-t border-white/15 py-6 text-center">
           <p className="font-inter text-white/50 text-xs">
-            © 2026 La Cour de la Semeuse · Tous droits réservés
+            {t('footer.copyright')}
           </p>
         </div>
       </div>

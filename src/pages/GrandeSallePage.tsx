@@ -2,22 +2,20 @@ import { ArrowLeft, Check, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeInUp } from "@/hooks/useFadeInUp";
-
-const CLD = "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/";
+import { useTranslation } from "react-i18next";
 
 const PLANS = [
   {
     src: "/salles/grande-salle-1.jpg",
-    label: "Plan de masse",
+    labelKey: "plan_masse",
     caption: "Bâtiment du Moulin — Grande Salle",
   },
   {
     src: "/salles/grande-salle-2.jpg",
-    label: "Plan de sol",
+    labelKey: "plan_sol",
     caption: "Salle 1 + Salle 2 + Espace pause",
   },
 ];
-
 
 const PHOTOS = [
   { src: "/salles/grande-salle-4.jpg", alt: "Grande Salle — salle lumineuse avec porte-fenêtre" },
@@ -40,6 +38,8 @@ const EQUIPEMENTS = [
 ];
 
 export default function GrandeSallePage() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navbar */}
@@ -50,7 +50,7 @@ export default function GrandeSallePage() {
             className="flex items-center gap-2 font-inter text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Retour aux salles
+            {t('pages_lots.retour_salles')}
           </Link>
           <span className="font-playfair text-foreground text-lg hidden sm:block">
             La Cour de la Semeuse
@@ -59,7 +59,7 @@ export default function GrandeSallePage() {
             href="/#contact"
             className="font-inter text-xs bg-accent text-white px-4 py-2 rounded hover:bg-accent/90 transition-colors"
           >
-            Demander une visite
+            {t('pages_lots.demander_visite')}
           </a>
         </div>
       </nav>
@@ -93,18 +93,20 @@ export default function GrandeSallePage() {
 
         {/* Plans */}
         <motion.div variants={fadeInUp} className="mb-12">
-          <h2 className="font-playfair text-foreground text-2xl mb-6">Plans</h2>
+          <h2 className="font-playfair text-foreground text-2xl mb-6">{t('pages_lots.plans')}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {PLANS.map((p) => (
               <div key={p.src} className="bg-card rounded-xl border border-border">
                 <div className="px-4 py-3 border-b border-border rounded-t-xl">
-                  <p className="font-inter text-xs uppercase tracking-wider text-muted-foreground">{p.label}</p>
+                  <p className="font-inter text-xs uppercase tracking-wider text-muted-foreground">
+                    {t(`pages_lots.${p.labelKey}`)}
+                  </p>
                   <p className="font-inter text-sm text-foreground font-medium mt-0.5">{p.caption}</p>
                 </div>
                 <div className="p-4 bg-white rounded-b-xl">
                   <img
                     src={p.src}
-                    alt={`${p.label} — Grande Salle`}
+                    alt={`${t(`pages_lots.${p.labelKey}`)} — Grande Salle`}
                     className="w-full h-auto block"
                     loading="lazy"
                   />
@@ -116,7 +118,7 @@ export default function GrandeSallePage() {
 
         {/* Photos */}
         <motion.div variants={fadeInUp} className="mb-12">
-          <h2 className="font-playfair text-foreground text-2xl mb-6">Photos</h2>
+          <h2 className="font-playfair text-foreground text-2xl mb-6">{t('pages_lots.photos')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {PHOTOS.map((p) => (
               <div key={p.src} className="rounded-xl overflow-hidden bg-[#f5f5f0]">
@@ -134,7 +136,7 @@ export default function GrandeSallePage() {
         {/* Équipements + Contact */}
         <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-8">
           <div className="bg-card rounded-xl border border-border p-6">
-            <h2 className="font-playfair text-foreground text-2xl mb-5">Équipements</h2>
+            <h2 className="font-playfair text-foreground text-2xl mb-5">{t('pages_lots.equipements')}</h2>
             <ul className="space-y-3">
               {EQUIPEMENTS.map((eq) => (
                 <li key={eq} className="flex items-start gap-3 font-inter text-sm text-muted-foreground">
@@ -147,10 +149,9 @@ export default function GrandeSallePage() {
 
           <div className="bg-foreground rounded-xl p-6 flex flex-col justify-between">
             <div>
-              <h2 className="font-playfair text-white text-2xl mb-3">Intéressé par cette salle ?</h2>
+              <h2 className="font-playfair text-white text-2xl mb-3">{t('pages_lots.interesse_salle')}</h2>
               <p className="font-inter text-white/70 text-sm leading-relaxed mb-6">
-                Contactez-nous pour organiser une visite ou obtenir plus d'informations sur
-                les conditions de location.
+                {t('pages_lots.contactez')}
               </p>
               <div className="space-y-3 mb-6">
                 <a
@@ -170,7 +171,7 @@ export default function GrandeSallePage() {
               href="/#contact"
               className="block text-center font-inter text-sm bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors"
             >
-              Demander une visite
+              {t('pages_lots.demander_visite')}
             </a>
           </div>
         </motion.div>

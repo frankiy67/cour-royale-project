@@ -1,0 +1,150 @@
+{
+  "nav": {
+    "accueil": "Accueil",
+    "historique": "Historique",
+    "bureaux": "Bureaux",
+    "salles": "Salles",
+    "situation": "Situation",
+    "contact": "Contact"
+  },
+  "hero": {
+    "location": "Schiltigheim · Alsace · France",
+    "soustitre": "Espaces professionnels en location · depuis 1910",
+    "cta_offres": "Voir nos offres",
+    "cta_contact": "Nous contacter",
+    "decouvrir": "Découvrir"
+  },
+  "bienvenue": {
+    "label": "Bienvenue",
+    "titre": "Au cœur de l'Alsace, dans un endroit calme et original, profitez d'une opportunité exceptionnelle.",
+    "texte": "La Cour de la Semeuse, à Schiltigheim, vous propose en location des espaces adaptables et évolutifs pour implanter votre entreprise ou pour l'organisation de rencontres ponctuelles. Idéalement située au plus proche de Strasbourg et des institutions européennes, avec tous les avantages urbains de l'Eurométropole.",
+    "cta": "Voir nos offres"
+  },
+  "stats": {
+    "surface": "Surface totale",
+    "lots": "Espaces modulables",
+    "salles": "Salles de réunion équipées"
+  },
+  "historique": {
+    "label": "Historique",
+    "titre": "Depuis 1910, une histoire alsacienne",
+    "texte": "Juste avant la Première Guerre mondiale, en 1910, est créée La Compagnie des Produits Agricoles « La Semeuse » à Schiltigheim. Plus d'un siècle plus tard, ses bâtiments historiques — réhabilités, vivants, connectés — accueillent une nouvelle génération d'entrepreneurs alsaciens.",
+    "aujourd_hui": "Aujourd'hui",
+    "etapes": {
+      "fondation": {
+        "titre": "Fondation",
+        "texte": "Création de La Compagnie des Produits Agricoles « La Semeuse » à Schiltigheim. La coopérative sert les nombreuses petites exploitations agricoles de la commune : vaches, poulets, porcs élevés dans les fermes environnantes."
+      },
+      "essor": {
+        "titre": "Essor",
+        "texte": "La Semeuse s'impose comme un centre névralgique du commerce agricole alsacien. Le Moulin, le Bâtiment de l'Horloge et la Halle sont construits et animés par des dizaines d'ouvriers et d'artisans."
+      },
+      "transition": {
+        "titre": "Transition",
+        "texte": "L'urbanisation croissante et la mécanisation transforment le paysage agricole de Schiltigheim. La coopérative entame sa reconversion tout en préservant son patrimoine bâti remarquable."
+      },
+      "rehabilitation": {
+        "titre": "Réhabilitation",
+        "texte": "Les locaux sont entièrement réhabilités et rénovés, tout en conservant leur cachet architectural d'origine. La cour se transforme en parc d'entreprises. Des fresques céramiques commémorant l'histoire agricole du site sont installées."
+      },
+      "parc": {
+        "titre": "Parc d'entreprises",
+        "texte": "Les anciens bâtiments agricoles — Moulin, Horloge, Halle — sont réhabilités et transformés en espaces de travail modulables, accueillant les premières entreprises du secteur tertiaire."
+      },
+      "vivant": {
+        "titre": "Lieu vivant",
+        "texte": "22 lots professionnels sur 3 500 m² accueillent des entreprises dans un cadre historique unique, à deux pas de Strasbourg et des institutions européennes."
+      }
+    }
+  },
+  "bureaux": {
+    "label": "Locaux professionnels",
+    "titre": "Bureaux & espaces de travail",
+    "texte": "Implantez votre entreprise dans un cadre unique. La Cour de la Semeuse propose 22 lots modulables destinés aux entreprises du secteur tertiaire.",
+    "avantages": {
+      "parking": "Parking privé central",
+      "cadre": "Cadre calme et verdoyant",
+      "proximite": "Proximité Strasbourg",
+      "modulable": "Espaces modulables",
+      "charges": "Charges maîtrisées",
+      "environnement": "Environnement professionnel"
+    },
+    "cta_devis": "Demander un devis",
+    "decouvrir": "Découvrez ci-dessous quelques unes de nos propositions :",
+    "en_savoir_plus": "En savoir plus →",
+    "lots": {
+      "cb9": { "surface": "80 m²", "desc": "2 grandes salles avec chacune sa porte donnant sur l'extérieur." },
+      "h4": { "surface": "17 m²", "desc": "1 bureau de 12 m² au rez-de-chaussée + parties communes de 5 m² comprenant 1 cabinet de toilette et 1 coin café." },
+      "d14": { "surface": "122 m²", "desc": "Au rez-de-chaussée 11 m² (entrée + dégagement). À l'étage 111 m² (6 bureaux + dégagement + 2 cabinets de toilette)." },
+      "h7": { "surface": "99 m²", "desc": "Au rez-de-chaussée, 2 bureaux cloisonnés + 1 open space + 1 salle de réunion vitrée + 2 cabinets de toilette." }
+    }
+  },
+  "salles": {
+    "label": "Nos espaces",
+    "titre": "Salles de réunion équipées",
+    "texte": "Location de salles à la journée et au week-end pour évènements professionnels, réunions, ateliers et séminaires.",
+    "grande": {
+      "nom": "Grande Salle",
+      "surface": "45 m²",
+      "reunion": "Réunion",
+      "conference": "Conférence",
+      "sans_tables": "Sans tables"
+    },
+    "atelier": {
+      "nom": "Salle Atelier",
+      "surface": "30 m²",
+      "reunion": "Réunion",
+      "conference": "Conférence",
+      "sans_tables": "Sans tables"
+    },
+    "feature_1": "Avec un espace convivial de 35 m² comprenant une petite cuisine équipée pour vos pauses et repas et 2 cabinets de toilette.",
+    "feature_2": "Accès de plain-pied / Accès handicapé.",
+    "equipements": {
+      "videoprojecteur": "Vidéoprojecteur",
+      "cafe": "Espace café",
+      "pmr": "Accès PMR",
+      "modulable": "Modulable"
+    },
+    "en_savoir_plus": "En savoir plus →"
+  },
+  "situation": {
+    "label": "Accessibilité",
+    "titre": "Idéalement situé",
+    "texte": "La Cour de la Semeuse est située dans le quartier historique de Schiltigheim, au centre de cette ville de 31 450 habitants. Vous profitez d'un environnement urbain calme et convivial avec tous les avantages de l'Eurométropole.",
+    "autoroute": { "titre": "Autoroute", "desc": "Accès direct depuis l'autoroute" },
+    "tram": { "titre": "Tram & Bus", "desc": "Réseau Eurométropole à proximité" },
+    "tgv": { "titre": "Gare TGV", "desc": "Strasbourg à 15 minutes" },
+    "aeroport": { "titre": "Aéroport", "desc": "Entzheim à 30 minutes" },
+    "parking": "L'accès est facilité par la présence d'un grand parking privé central donnant directement sur les locaux. De nombreux restaurants et hôtels sont situés à proximité immédiate du site.",
+    "voir_maps": "📍 Voir sur Google Maps"
+  },
+  "contact": {
+    "label": "Contact",
+    "titre": "Prenons contact",
+    "adresse": "20 Place de la Liberté · BP 70123 · F-67303 Schiltigheim",
+    "bureaux_label": "Location de bureaux",
+    "salles_label": "Location de salles de réunions",
+    "voir_maps": "📍 Voir sur Google Maps"
+  },
+  "footer": {
+    "copyright": "© 2026 La Cour de la Semeuse · Tous droits réservés",
+    "mentions": "Mentions légales",
+    "linkedin": "LinkedIn",
+    "maps": "Google Maps",
+    "bureaux_label": "Bureaux",
+    "salles_label": "Salles de réunion"
+  },
+  "pages_lots": {
+    "retour": "← Retour aux offres",
+    "retour_salles": "Retour aux salles",
+    "demander_visite": "Demander une visite",
+    "plans": "Plans",
+    "plan_masse": "Plan de masse",
+    "plan_sol": "Plan de sol",
+    "photos": "Photos",
+    "equipements": "Équipements",
+    "interesse": "Intéressé par ce local ?",
+    "interesse_salle": "Intéressé par cette salle ?",
+    "contactez": "Contactez-nous pour organiser une visite ou obtenir plus d'informations sur les conditions de location."
+  }
+}

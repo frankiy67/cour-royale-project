@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const NAV_LINKS = [
-  { label: "ACCUEIL",    href: "#accueil",    id: "accueil" },
-  { label: "HISTORIQUE", href: "#historique", id: "historique" },
-  { label: "BUREAUX",    href: "#bureaux",    id: "bureaux" },
-  { label: "SALLES",     href: "#salles",     id: "salles" },
-  { label: "SITUATION",  href: "#situation",  id: "situation" },
-  { label: "CONTACT",    href: "#contact",    id: "contact" },
-];
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
+
+  const NAV_LINKS = [
+    { label: t('nav.accueil'),    href: "#accueil",    id: "accueil" },
+    { label: t('nav.historique'), href: "#historique", id: "historique" },
+    { label: t('nav.bureaux'),    href: "#bureaux",    id: "bureaux" },
+    { label: t('nav.salles'),     href: "#salles",     id: "salles" },
+    { label: t('nav.situation'),  href: "#situation",  id: "situation" },
+    { label: t('nav.contact'),    href: "#contact",    id: "contact" },
+  ];
 
   // Detect scroll to switch navbar background
   useEffect(() => {
@@ -101,6 +104,7 @@ export default function Navbar() {
                 {l.label}
               </a>
             ))}
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile hamburger — animates into ✕ when open */}
@@ -155,6 +159,13 @@ export default function Navbar() {
                 {l.label}
               </motion.a>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: NAV_LINKS.length * 0.07, duration: 0.35, ease: "easeOut" }}
+            >
+              <LanguageSwitcher />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

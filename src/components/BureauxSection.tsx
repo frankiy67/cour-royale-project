@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const CAROUSEL_IMAGES = [
   "/caroussel/2.png",
@@ -77,46 +78,6 @@ function BureauxCarousel() {
   );
 }
 
-const BENEFITS = [
-  "Parking privé central",
-  "Cadre calme et verdoyant",
-  "Proximité Strasbourg",
-  "Espaces modulables",
-  "Charges maîtrisées",
-  "Environnement professionnel",
-];
-
-const LOTS = [
-  {
-    surface: "80 m²",
-    title: "BÂTIMENT DU MOULIN · CB9 & CB10",
-    desc: "2 grandes salles avec chacune sa porte donnant sur l'extérieur.",
-    plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/MOULIN_002_jrv9yh",
-    link: "/lots/cb9-cb10",
-  },
-  {
-    surface: "17 m²",
-    title: "BÂTIMENT DE LA HALLE · H4",
-    desc: "1 bureau de 12 m² au rez-de-chaussée + parties communes de 5 m² comprenant 1 cabinet de toilette et 1 coin café.",
-    plan: null,
-    link: "/lots/h4",
-  },
-  {
-    surface: "122 m²",
-    title: "BÂTIMENT DE L'HORLOGE · D14",
-    desc: "Au rez-de-chaussée 11 m² (entrée + dégagement). À l'étage 111 m² (6 bureaux + dégagement + 2 cabinets de toilette).",
-    plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HORLOGE_002_dwursl",
-    link: "/lots/d14",
-  },
-  {
-    surface: "99 m²",
-    title: "BÂTIMENT DE LA HALLE · H7",
-    desc: "Au rez-de-chaussée, 2 bureaux cloisonnés + 1 open space + 1 salle de réunion vitrée + 2 cabinets de toilette.",
-    plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HALLE_lot7_002_cpwrsp",
-    link: "/lots/h7",
-  },
-];
-
 function PlanModal({ src, onClose }: { src: string; onClose: () => void }) {
   return (
     <motion.div
@@ -139,7 +100,17 @@ function PlanModal({ src, onClose }: { src: string; onClose: () => void }) {
   );
 }
 
+const LOTS_CONFIG = [
+  { key: "cb9", plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/MOULIN_002_jrv9yh", link: "/lots/cb9-cb10" },
+  { key: "h4",  plan: null,                                                                                   link: "/lots/h4" },
+  { key: "d14", plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HORLOGE_002_dwursl", link: "/lots/d14" },
+  { key: "h7",  plan: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/HALLE_lot7_002_cpwrsp", link: "/lots/h7" },
+];
+
+const BENEFITS_KEYS = ["parking", "cadre", "proximite", "modulable", "charges", "environnement"] as const;
+
 export default function BureauxSection() {
+  const { t } = useTranslation();
   const [planSrc, setPlanSrc] = useState<string | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -165,20 +136,21 @@ export default function BureauxSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">LOCAUX PROFESSIONNELS</p>
+            <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">
+              {t('bureaux.label')}
+            </p>
             <h2 className="font-playfair text-foreground text-3xl md:text-5xl lg:text-6xl font-light tracking-tight mb-6">
-              Bureaux &amp; espaces<br />de travail
+              {t('bureaux.titre')}
             </h2>
             <p className="font-inter text-muted-foreground text-lg leading-relaxed mb-10 max-w-lg">
-              Implantez votre entreprise dans un cadre unique. La Cour de la Semeuse
-              propose 22 lots modulables destinés aux entreprises du secteur tertiaire.
+              {t('bureaux.texte')}
             </p>
 
             <div className="grid grid-cols-2 gap-3 mb-10">
-              {BENEFITS.map((b) => (
-                <div key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
+              {BENEFITS_KEYS.map((key) => (
+                <div key={key} className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                  <span>{b}</span>
+                  <span>{t(`bureaux.avantages.${key}`)}</span>
                 </div>
               ))}
             </div>
@@ -187,7 +159,7 @@ export default function BureauxSection() {
               href="#contact"
               className="inline-block font-inter bg-foreground text-white px-8 py-4 rounded text-sm uppercase tracking-wider hover:bg-foreground/90 transition-opacity"
             >
-              Demander un devis
+              {t('bureaux.cta_devis')}
             </a>
           </motion.div>
 
@@ -202,7 +174,7 @@ export default function BureauxSection() {
 
         {/* Intro cartes */}
         <p className="font-inter text-muted-foreground text-base mt-8 mb-4">
-          Découvrez ci-dessous quelques unes de nos propositions :
+          {t('bureaux.decouvrir')}
         </p>
 
         {/* Surface cards */}
@@ -212,20 +184,20 @@ export default function BureauxSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {LOTS.map((lot, i) => (
+          {LOTS_CONFIG.map((lot) => (
             <Link
-              key={i}
+              key={lot.key}
               to={lot.link}
               className="block p-6 bg-card rounded-lg border border-border hover:shadow-md transition-shadow cursor-pointer"
             >
               <span className="font-playfair text-3xl font-semibold text-accent block mb-3">
-                {lot.surface}
+                {t(`bureaux.lots.${lot.key}.surface`)}
               </span>
               <p className="font-inter text-sm text-muted-foreground font-light leading-relaxed mb-4">
-                {lot.desc}
+                {t(`bureaux.lots.${lot.key}.desc`)}
               </p>
               <span className="font-inter text-xs text-accent hover:underline">
-                En savoir plus →
+                {t('bureaux.en_savoir_plus')}
               </span>
             </Link>
           ))}
@@ -236,6 +208,5 @@ export default function BureauxSection() {
         {planSrc && <PlanModal src={planSrc} onClose={() => setPlanSrc(null)} />}
       </AnimatePresence>
     </section>
-
   );
 }

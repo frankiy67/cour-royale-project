@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
+import { useTranslation } from "react-i18next";
 
 const BG =
   "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_034_upscayl_4x_upscayl-standard-4x_pxdhb4";
@@ -14,46 +15,17 @@ const CAROUSEL_SLIDES = [
   { src: "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto/LA_SEMEUSE_038_bb25dj", caption: "Ouvrier au travail dans le moulin de La Semeuse" },
 ];
 
-const TIMELINE = [
-  {
-    year: "1910",
-    title: "Fondation",
-    desc: "Création de La Compagnie des Produits Agricoles « La Semeuse » à Schiltigheim. La coopérative sert les nombreuses petites exploitations agricoles de la commune : vaches, poulets, porcs élevés dans les fermes environnantes.",
-    accent: false,
-  },
-  {
-    year: "1920–30",
-    title: "Essor",
-    desc: "La Semeuse s'impose comme un centre névralgique du commerce agricole alsacien. Le Moulin, le Bâtiment de l'Horloge et la Halle sont construits et animés par des dizaines d'ouvriers et d'artisans.",
-    accent: false,
-  },
-  {
-    year: "1960–70",
-    title: "Transition",
-    desc: "L'urbanisation croissante et la mécanisation transforment le paysage agricole de Schiltigheim. La coopérative entame sa reconversion tout en préservant son patrimoine bâti remarquable.",
-    accent: false,
-  },
-  {
-    year: "1989",
-    title: "Réhabilitation",
-    desc: "Les locaux sont entièrement réhabilités et rénovés, tout en conservant leur cachet architectural d'origine. La cour se transforme en parc d'entreprises. Des fresques céramiques commémorant l'histoire agricole du site sont installées.",
-    accent: false,
-  },
-  {
-    year: "1990s",
-    title: "Parc d'entreprises",
-    desc: "Les anciens bâtiments agricoles — Moulin, Horloge, Halle — sont réhabilités et transformés en espaces de travail modulables, accueillant les premières entreprises du secteur tertiaire.",
-    accent: false,
-  },
-  {
-    year: "Aujourd'hui",
-    title: "Lieu vivant",
-    desc: "22 lots professionnels sur 3 500 m² accueillent des entreprises dans un cadre historique unique, à deux pas de Strasbourg et des institutions européennes.",
-    accent: true,
-  },
+const TIMELINE_KEYS = [
+  { year: "1910",        key: "fondation",     accent: false },
+  { year: "1920–30",     key: "essor",         accent: false },
+  { year: "1960–70",     key: "transition",    accent: false },
+  { year: "1989",        key: "rehabilitation", accent: false },
+  { year: "1990s",       key: "parc",          accent: false },
+  { year: "aujourd_hui", key: "vivant",        accent: true  },
 ];
 
 export default function HistoriqueSection() {
+  const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
   const [carouselPaused, setCarouselPaused] = useState(false);
   const [timelineIdx, setTimelineIdx] = useState(0);
@@ -72,7 +44,7 @@ export default function HistoriqueSection() {
   }, [carouselPaused, next]);
 
   const advanceTimeline = useCallback(() => {
-    setTimelineIdx((i) => (i + 1) % TIMELINE.length);
+    setTimelineIdx((i) => (i + 1) % TIMELINE_KEYS.length);
   }, []);
 
   useEffect(() => {
@@ -87,6 +59,11 @@ export default function HistoriqueSection() {
     if (pauseRef.current) clearTimeout(pauseRef.current);
     pauseRef.current = setTimeout(() => setTimelinePaused(false), 6000);
   };
+
+  const currentItem = TIMELINE_KEYS[timelineIdx];
+  const currentYear = currentItem.year === "aujourd_hui"
+    ? t('historique.aujourd_hui')
+    : currentItem.year;
 
   return (
     <section
@@ -108,15 +85,14 @@ export default function HistoriqueSection() {
             transition={{ duration: 0.8 }}
           >
             <span className="absolute -top-8 -left-4 font-playfair text-[120px] leading-none text-white/[0.06] select-none hidden md:block">02</span>
-            <p className="font-inter text-xs uppercase tracking-[0.25em] text-stone mb-4">HISTORIQUE</p>
+            <p className="font-inter text-xs uppercase tracking-[0.25em] text-stone mb-4">
+              {t('historique.label')}
+            </p>
             <h2 className="font-playfair text-white text-3xl md:text-[52px] leading-tight mb-6">
-              Depuis 1910,<br />une histoire alsacienne
+              {t('historique.titre')}
             </h2>
             <p className="font-inter text-white/70 text-[16px] leading-[1.9] max-w-lg">
-              Juste avant la Première Guerre mondiale, en 1910, est créée La Compagnie
-              des Produits Agricoles « La Semeuse » à Schiltigheim. Plus d'un siècle
-              plus tard, ses bâtiments historiques — réhabilités, vivants, connectés —
-              accueillent une nouvelle génération d'entrepreneurs alsaciens.
+              {t('historique.texte')}
             </p>
           </motion.div>
 
@@ -204,41 +180,47 @@ export default function HistoriqueSection() {
               {/* Horizontal line */}
               <div className="absolute top-[18px] left-8 right-8 h-px bg-white/20" />
 
-              {TIMELINE.map((item, idx) => (
-                <div key={idx} className="relative flex flex-col items-center flex-1">
-                  {/* Dot */}
-                  <button
-                    onClick={() => handleTimelineClick(idx)}
-                    aria-label={`${item.year} — ${item.title}`}
-                    className={`relative z-10 w-9 h-9 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
-                      timelineIdx === idx
-                        ? "bg-accent border-accent shadow-lg shadow-accent/30 scale-110"
-                        : "bg-transparent border-stone/40 hover:border-stone"
-                    }`}
-                  />
+              {TIMELINE_KEYS.map((item, idx) => {
+                const yearLabel = item.year === "aujourd_hui"
+                  ? t('historique.aujourd_hui')
+                  : item.year;
+                const titleLabel = t(`historique.etapes.${item.key}.titre`);
+                return (
+                  <div key={idx} className="relative flex flex-col items-center flex-1">
+                    {/* Dot */}
+                    <button
+                      onClick={() => handleTimelineClick(idx)}
+                      aria-label={`${yearLabel} — ${titleLabel}`}
+                      className={`relative z-10 w-9 h-9 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
+                        timelineIdx === idx
+                          ? "bg-accent border-accent shadow-lg shadow-accent/30 scale-110"
+                          : "bg-transparent border-stone/40 hover:border-stone"
+                      }`}
+                    />
 
-                  {/* Year + title — clickable label */}
-                  <button
-                    onClick={() => handleTimelineClick(idx)}
-                    className="mt-3 text-center cursor-pointer px-1 w-full"
-                  >
-                    <span
-                      className={`font-inter text-[10px] uppercase tracking-[0.15em] block transition-colors ${
-                        timelineIdx === idx ? "text-accent" : "text-stone/70"
-                      }`}
+                    {/* Year + title — clickable label */}
+                    <button
+                      onClick={() => handleTimelineClick(idx)}
+                      className="mt-3 text-center cursor-pointer px-1 w-full"
                     >
-                      {item.year}
-                    </span>
-                    <span
-                      className={`font-playfair text-[13px] block mt-0.5 transition-colors leading-tight ${
-                        timelineIdx === idx ? "text-white" : "text-white/60"
-                      }`}
-                    >
-                      {item.title}
-                    </span>
-                  </button>
-                </div>
-              ))}
+                      <span
+                        className={`font-inter text-[10px] uppercase tracking-[0.15em] block transition-colors ${
+                          timelineIdx === idx ? "text-accent" : "text-stone/70"
+                        }`}
+                      >
+                        {yearLabel}
+                      </span>
+                      <span
+                        className={`font-playfair text-[13px] block mt-0.5 transition-colors leading-tight ${
+                          timelineIdx === idx ? "text-white" : "text-white/60"
+                        }`}
+                      >
+                        {titleLabel}
+                      </span>
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -254,10 +236,10 @@ export default function HistoriqueSection() {
                 className="bg-white/10 rounded-xl p-6 border border-white/10"
               >
                 <h4 className="font-playfair text-white text-xl mb-2">
-                  {TIMELINE[timelineIdx].year} · {TIMELINE[timelineIdx].title}
+                  {currentYear} · {t(`historique.etapes.${currentItem.key}.titre`)}
                 </h4>
                 <p className="font-inter text-white/70 text-sm leading-relaxed">
-                  {TIMELINE[timelineIdx].desc}
+                  {t(`historique.etapes.${currentItem.key}.texte`)}
                 </p>
               </motion.div>
             </AnimatePresence>

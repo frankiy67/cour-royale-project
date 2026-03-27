@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const HERO_IMG =
   "https://res.cloudinary.com/di0psrssi/image/upload/f_auto,q_auto,w_1920/v1774301412/interieur1_idllc0.png";
 
 export default function HeroSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Hero background image */}
@@ -28,7 +31,7 @@ export default function HeroSection() {
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           className="font-inter uppercase text-[11px] md:text-[13px] tracking-[0.35em] text-stone mb-4 text-center"
         >
-          SCHILTIGHEIM · ALSACE · FRANCE
+          {t('hero.location')}
         </motion.p>
 
         <motion.h1
@@ -47,7 +50,7 @@ export default function HeroSection() {
           transition={{ delay: 0.58, duration: 0.8, ease: "easeOut" }}
           className="font-inter text-white/65 text-sm md:text-[17px] mb-10 text-center tracking-wide"
         >
-          Espaces professionnels en location · depuis 1910
+          {t('hero.soustitre')}
         </motion.p>
 
         {/* CTA buttons */}
@@ -61,13 +64,13 @@ export default function HeroSection() {
             href="#bureaux"
             className="font-inter text-sm bg-accent text-white px-8 py-3.5 rounded-lg hover:bg-accent/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-lg shadow-black/30 min-w-[180px] text-center"
           >
-            Voir nos offres
+            {t('hero.cta_offres')}
           </a>
           <a
             href="#contact"
             className="font-inter text-sm border border-white/70 text-white px-8 py-3.5 rounded-lg hover:bg-white hover:text-foreground hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 min-w-[180px] text-center"
           >
-            Nous contacter
+            {t('hero.cta_contact')}
           </a>
         </motion.div>
 
@@ -85,7 +88,7 @@ export default function HeroSection() {
             <path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
           <span style={{ fontSize: 11, letterSpacing: "3px", textTransform: "uppercase" }}>
-            Découvrir
+            {t('hero.decouvrir')}
           </span>
         </motion.button>
       </div>

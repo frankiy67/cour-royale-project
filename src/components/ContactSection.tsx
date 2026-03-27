@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
+import { useTranslation } from "react-i18next";
 
 const CONTACTS = [
   {
     icon: "🏢",
-    label: "LOCATION DE BUREAUX",
+    labelKey: "bureaux_label",
     name: "Bernard VALLAT",
     phone: "+33 (0)6 07 08 80 79",
     phoneTel: "tel:+33607088079",
@@ -12,7 +13,7 @@ const CONTACTS = [
   },
   {
     icon: "📋",
-    label: "LOCATION DE SALLES DE RÉUNIONS",
+    labelKey: "salles_label",
     name: "Elisabeth FIXARI-VALLAT",
     phone: "+33 (0)6 84 53 75 05",
     phoneTel: "tel:+33684537505",
@@ -21,6 +22,8 @@ const CONTACTS = [
 ];
 
 export default function ContactSection() {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="bg-background">
       <motion.div
@@ -31,10 +34,14 @@ export default function ContactSection() {
         className="max-w-5xl mx-auto px-6 py-10 md:py-16"
       >
         <motion.div variants={fadeInUp} className="text-center mb-12">
-          <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">CONTACT</p>
-          <h2 className="font-playfair text-foreground text-3xl md:text-[48px] mb-4">Prenons contact</h2>
+          <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">
+            {t('contact.label')}
+          </p>
+          <h2 className="font-playfair text-foreground text-3xl md:text-[48px] mb-4">
+            {t('contact.titre')}
+          </h2>
           <p className="font-inter text-muted-foreground">
-            20 Place de la Liberté · BP 70123 · F-67303 Schiltigheim
+            {t('contact.adresse')}
           </p>
         </motion.div>
 
@@ -46,7 +53,9 @@ export default function ContactSection() {
               className="bg-white rounded-2xl shadow-lg p-10 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
             >
               <span className="text-[40px] mb-4 block">{c.icon}</span>
-              <p className="font-inter text-[10px] uppercase tracking-[0.2em] text-accent mb-2">{c.label}</p>
+              <p className="font-inter text-[10px] uppercase tracking-[0.2em] text-accent mb-2">
+                {t(`contact.${c.labelKey}`)}
+              </p>
               <h3 className="font-playfair text-foreground text-2xl mb-4">{c.name}</h3>
               <a href={c.phoneTel} className="block font-inter text-muted-foreground hover:text-foreground transition-colors mb-1">
                 {c.phone}
@@ -65,7 +74,7 @@ export default function ContactSection() {
             rel="noopener noreferrer"
             className="inline-block font-inter text-sm border-2 border-accent text-accent px-8 py-3 rounded-lg hover:bg-accent hover:text-white transition-all"
           >
-            📍 Voir sur Google Maps
+            {t('contact.voir_maps')}
           </a>
         </motion.div>
       </motion.div>

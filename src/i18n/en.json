@@ -1,0 +1,150 @@
+{
+  "nav": {
+    "accueil": "Home",
+    "historique": "History",
+    "bureaux": "Offices",
+    "salles": "Meeting Rooms",
+    "situation": "Location",
+    "contact": "Contact"
+  },
+  "hero": {
+    "location": "Schiltigheim · Alsace · France",
+    "soustitre": "Professional spaces for rent · since 1910",
+    "cta_offres": "See our offers",
+    "cta_contact": "Contact us",
+    "decouvrir": "Discover"
+  },
+  "bienvenue": {
+    "label": "Welcome",
+    "titre": "At the heart of Alsace, in a calm and unique setting, seize an exceptional opportunity.",
+    "texte": "La Cour de la Semeuse, in Schiltigheim, offers flexible and scalable spaces for rent to establish your business or host one-time meetings. Ideally located close to Strasbourg and the European institutions, with all the urban advantages of the Eurometropolis.",
+    "cta": "See our offers"
+  },
+  "stats": {
+    "surface": "Total area",
+    "lots": "Modular spaces",
+    "salles": "Equipped meeting rooms"
+  },
+  "historique": {
+    "label": "History",
+    "titre": "Since 1910, an Alsatian story",
+    "texte": "Just before World War I, in 1910, La Compagnie des Produits Agricoles « La Semeuse » was founded in Schiltigheim. More than a century later, its historic buildings — restored, vibrant, connected — welcome a new generation of Alsatian entrepreneurs.",
+    "aujourd_hui": "Today",
+    "etapes": {
+      "fondation": {
+        "titre": "Foundation",
+        "texte": "Creation of La Compagnie des Produits Agricoles « La Semeuse » in Schiltigheim. The cooperative served the many small farms in the municipality: cows, chickens, and pigs raised on surrounding farms."
+      },
+      "essor": {
+        "titre": "Growth",
+        "texte": "La Semeuse became a vital hub of Alsatian agricultural trade. The Mill, the Clock Building and the Hall were built and staffed by dozens of workers and craftsmen."
+      },
+      "transition": {
+        "titre": "Transition",
+        "texte": "Growing urbanisation and mechanisation transformed Schiltigheim's agricultural landscape. The cooperative began its conversion while preserving its remarkable built heritage."
+      },
+      "rehabilitation": {
+        "titre": "Rehabilitation",
+        "texte": "The premises were fully rehabilitated and renovated while retaining their original architectural character. The courtyard was transformed into a business park. Ceramic frescoes commemorating the site's agricultural history were installed."
+      },
+      "parc": {
+        "titre": "Business park",
+        "texte": "The former agricultural buildings — Mill, Clock, Hall — were rehabilitated and converted into flexible workspaces, welcoming the first businesses in the service sector."
+      },
+      "vivant": {
+        "titre": "A living place",
+        "texte": "22 professional units across 3,500 m² welcome businesses in a unique historic setting, a stone's throw from Strasbourg and the European institutions."
+      }
+    }
+  },
+  "bureaux": {
+    "label": "Professional premises",
+    "titre": "Offices & workspaces",
+    "texte": "Establish your business in a unique setting. La Cour de la Semeuse offers 22 modular units for service-sector companies.",
+    "avantages": {
+      "parking": "Central private parking",
+      "cadre": "Calm, green surroundings",
+      "proximite": "Close to Strasbourg",
+      "modulable": "Modular spaces",
+      "charges": "Controlled service charges",
+      "environnement": "Professional environment"
+    },
+    "cta_devis": "Request a quote",
+    "decouvrir": "Discover some of our current listings below:",
+    "en_savoir_plus": "Learn more →",
+    "lots": {
+      "cb9": { "surface": "80 m²", "desc": "2 large rooms each with its own door opening onto the exterior." },
+      "h4": { "surface": "17 m²", "desc": "1 office of 12 m² on the ground floor + 5 m² of shared areas including a toilet and coffee corner." },
+      "d14": { "surface": "122 m²", "desc": "Ground floor: 11 m² (entrance + hallway). Upper floor: 111 m² (6 offices + hallway + 2 toilets)." },
+      "h7": { "surface": "99 m²", "desc": "Ground floor: 2 partitioned offices + 1 open space + 1 glazed meeting room + 2 toilets." }
+    }
+  },
+  "salles": {
+    "label": "Our spaces",
+    "titre": "Equipped meeting rooms",
+    "texte": "Daily and weekend room rental for professional events, meetings, workshops and seminars.",
+    "grande": {
+      "nom": "Grande Salle",
+      "surface": "45 m²",
+      "reunion": "Meeting",
+      "conference": "Conference",
+      "sans_tables": "No tables"
+    },
+    "atelier": {
+      "nom": "Salle Atelier",
+      "surface": "30 m²",
+      "reunion": "Meeting",
+      "conference": "Conference",
+      "sans_tables": "No tables"
+    },
+    "feature_1": "With a 35 m² convivial area including a small equipped kitchen for your breaks and meals, and 2 toilets.",
+    "feature_2": "Step-free access / Disabled access.",
+    "equipements": {
+      "videoprojecteur": "Projector",
+      "cafe": "Coffee area",
+      "pmr": "Disabled access",
+      "modulable": "Modular"
+    },
+    "en_savoir_plus": "Learn more →"
+  },
+  "situation": {
+    "label": "Accessibility",
+    "titre": "Ideally located",
+    "texte": "La Cour de la Semeuse is located in the historic district of Schiltigheim, in the centre of this city of 31,450 inhabitants. You benefit from a calm and friendly urban environment with all the advantages of the Eurometropolis.",
+    "autoroute": { "titre": "Motorway", "desc": "Direct motorway access" },
+    "tram": { "titre": "Tram & Bus", "desc": "Eurometropolis network nearby" },
+    "tgv": { "titre": "TGV Station", "desc": "Strasbourg in 15 minutes" },
+    "aeroport": { "titre": "Airport", "desc": "Entzheim in 30 minutes" },
+    "parking": "Access is made easy by a large central private car park leading directly to the premises. Many restaurants and hotels are located in the immediate vicinity of the site.",
+    "voir_maps": "📍 View on Google Maps"
+  },
+  "contact": {
+    "label": "Contact",
+    "titre": "Get in touch",
+    "adresse": "20 Place de la Liberté · BP 70123 · F-67303 Schiltigheim",
+    "bureaux_label": "Office rental",
+    "salles_label": "Meeting room rental",
+    "voir_maps": "📍 View on Google Maps"
+  },
+  "footer": {
+    "copyright": "© 2026 La Cour de la Semeuse · All rights reserved",
+    "mentions": "Legal notice",
+    "linkedin": "LinkedIn",
+    "maps": "Google Maps",
+    "bureaux_label": "Offices",
+    "salles_label": "Meeting rooms"
+  },
+  "pages_lots": {
+    "retour": "← Back to offers",
+    "retour_salles": "Back to rooms",
+    "demander_visite": "Request a visit",
+    "plans": "Floor plans",
+    "plan_masse": "Site plan",
+    "plan_sol": "Floor plan",
+    "photos": "Photos",
+    "equipements": "Equipment",
+    "interesse": "Interested in this premises?",
+    "interesse_salle": "Interested in this room?",
+    "contactez": "Contact us to arrange a visit or to get more information on rental terms."
+  }
+}

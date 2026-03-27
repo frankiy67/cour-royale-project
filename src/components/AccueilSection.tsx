@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
 import { useCountUp } from "@/hooks/useCountUp";
+import { useTranslation } from "react-i18next";
 
 const STREET_VIEW_SRC =
   "https://www.google.com/maps/embed?pb=!1m0!3m2!1sfr!2sfr!4v1711000000000!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQzRfLVdlcUFF!2m2!1d48.6069155571112!2d7.753805796110078!3f59.815569287643115!4f4.637306181296552!5f0.7820865974627469";
@@ -18,6 +19,8 @@ function StatCounter({ target, suffix, label }: { target: number; suffix: string
 }
 
 export default function AccueilSection() {
+  const { t } = useTranslation();
+
   return (
     <section id="accueil" className="bg-background">
       <motion.div
@@ -29,23 +32,20 @@ export default function AccueilSection() {
       >
         {/* Bloc 1 — Texte centré pleine largeur */}
         <motion.div variants={fadeInUp} className="text-center max-w-3xl mx-auto mb-12">
-          <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">BIENVENUE</p>
+          <p className="font-inter text-xs uppercase tracking-[0.25em] text-accent mb-4">
+            {t('bienvenue.label')}
+          </p>
           <h2 className="font-playfair italic text-foreground text-3xl md:text-[44px] leading-snug mb-8">
-            Au cœur de l'Alsace,<br />
-            dans un endroit calme et original,<br />
-            profitez d'une opportunité exceptionnelle.
+            {t('bienvenue.titre')}
           </h2>
           <p className="font-inter text-muted-foreground text-[17px] leading-[1.8] mb-10 max-w-2xl mx-auto">
-            La Cour de la Semeuse, à Schiltigheim, vous propose en location des espaces
-            adaptables et évolutifs pour implanter votre entreprise ou pour l'organisation
-            de rencontres ponctuelles. Idéalement située au plus proche de Strasbourg et
-            des institutions européennes, avec tous les avantages urbains de l'Eurométropole.
+            {t('bienvenue.texte')}
           </p>
           <a
             href="#nosoffres"
             className="inline-block font-inter text-sm bg-accent text-accent-foreground px-8 py-3 rounded-lg hover:bg-accent/90 transition-colors"
           >
-            Voir nos offres
+            {t('bienvenue.cta')}
           </a>
         </motion.div>
 
@@ -66,9 +66,9 @@ export default function AccueilSection() {
 
       {/* Stats */}
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-stone/40 pb-16">
-        <StatCounter target={3500} suffix="m²" label="Surface totale" />
-        <StatCounter target={22} suffix="lots" label="Espaces modulables" />
-        <StatCounter target={2} suffix="salles" label="De réunion équipées" />
+        <StatCounter target={3500} suffix="m²" label={t('stats.surface')} />
+        <StatCounter target={22} suffix="lots" label={t('stats.lots')} />
+        <StatCounter target={2} suffix="salles" label={t('stats.salles')} />
       </div>
     </section>
   );
