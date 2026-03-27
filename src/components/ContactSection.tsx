@@ -60,7 +60,7 @@ export default function ContactSection() {
 
         <motion.div variants={fadeInUp} className="text-center">
           <a
-            href="https://www.google.fr/maps/place/La+Semeuse/@48.6066812,7.7535506,15z"
+            href="https://maps.app.goo.gl/HkFNm8q4cKfhznJB6"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block font-inter text-sm border-2 border-accent text-accent px-8 py-3 rounded-lg hover:bg-accent hover:text-white transition-all"

@@ -58,7 +58,7 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row items-center gap-3 mb-12 pointer-events-auto"
         >
           <a
-            href="#nosoffres"
+            href="#bureaux"
             className="font-inter text-sm bg-accent text-white px-8 py-3.5 rounded-lg hover:bg-accent/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-lg shadow-black/30 min-w-[180px] text-center"
           >
             Voir nos offres
