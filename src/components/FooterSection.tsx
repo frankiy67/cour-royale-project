@@ -8,13 +8,13 @@ export default function FooterSection() {
     <footer className="bg-accent">
       <div className="h-px bg-white/20" />
 
-      <div className="max-w-4xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-0">
         {/* 4-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-5 text-center md:text-left" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 text-center md:text-left">
 
           {/* Col 1 — Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-4 justify-center md:justify-start">
+            <div className="flex items-center gap-3 mb-5 justify-center md:justify-start">
               <img
                 src="/images/semeuse-portrait.jpg"
                 alt="La Semeuse"
@@ -27,14 +27,8 @@ export default function FooterSection() {
                 className="h-12 w-auto"
               />
             </div>
-            <p className="font-inter text-white/75 text-[13px] mb-1">
-              20 Place de la Liberté · BP 70123
-            </p>
-            <p className="font-inter text-white/75 text-[13px] mb-3">
-              F-67303 Schiltigheim
-            </p>
-            <p className="font-inter text-white/50 text-[11px]">
-              {t('footer.copyright')}
+            <p className="font-inter text-white/55 text-[13px] leading-relaxed">
+              20 Place de la Liberté · BP 70123<br />F-67303 Schiltigheim
             </p>
           </div>
 
@@ -113,6 +107,12 @@ export default function FooterSection() {
 
         </div>
 
+        {/* Bottom bar */}
+        <div className="mt-10 border-t border-white/15 py-6 text-center">
+          <p className="font-inter text-white/50 text-xs">
+            {t('footer.copyright')}
+          </p>
+        </div>
       </div>
     </footer>
   );
