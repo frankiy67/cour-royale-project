@@ -7,19 +7,22 @@ import SallesSection from "@/components/SallesSection";
 import SituationSection from "@/components/SituationSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
+import { useScrollToHash } from "@/hooks/useScrollToHash";
 
-const Index = () => (
-  <>
-    <Navbar />
-    <HeroSection />
-    <AccueilSection />
-    <HistoriqueSection />
-    <BureauxSection />
-    <SallesSection />
-    <SituationSection />
-    <ContactSection />
-    <FooterSection />
-  </>
-);
+export default function Index() {
+  useScrollToHash();
 
-export default Index;
+  return (
+    <>
+      <Navbar />
+      <HeroSection />
+      <AccueilSection />
+      <HistoriqueSection />
+      <BureauxSection />
+      <SallesSection />
+      <SituationSection />
+      <ContactSection />
+      <FooterSection />
+    </>
+  );
+}
