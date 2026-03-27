@@ -71,10 +71,7 @@ export default function SalleAtelierPage() {
             {t('location_salle')} — <span className="text-accent">30 m²</span>
           </h1>
           <p className="font-inter text-muted-foreground text-lg leading-relaxed max-w-2xl">
-            Au cœur de la Semeuse, en accès de plain-pied, 2 salles sont disponibles en location
-            à la journée ou en week-end pour accueillir vos réunions, ateliers et séminaires.
-            Possibilité d'adapter la configuration des salles en fonction de votre évènement
-            (réunion, conférence, sans tables).
+            {t('desc_salle_atelier')}
           </p>
         </motion.div>
 

@@ -57,9 +57,7 @@ export default function LotH7Page() {
             {t('locaux_pro')} — <span className="text-accent">99 m²</span>
           </h1>
           <p className="font-inter text-muted-foreground text-lg leading-relaxed max-w-2xl">
-            Lot H7 : Open space, 2 bureaux fermés, salle de réunions, dégagement, toilettes. Entrée directe
-            depuis la cour. Configuration idéale pour une équipe de 8 à 12 personnes avec espaces de
-            collaboration et de concentration distincts.
+            {t('desc_h7')}
           </p>
         </motion.div>
 

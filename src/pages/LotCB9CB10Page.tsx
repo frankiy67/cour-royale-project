@@ -57,9 +57,7 @@ export default function LotCB9CB10Page() {
             {t('local_pro')} — <span className="text-accent">80 m²</span>
           </h1>
           <p className="font-inter text-muted-foreground text-lg leading-relaxed max-w-2xl">
-            Lot CB 9, CB 10 : 2 grandes salles avec chacune sa porte donnant sur l'extérieur (côté cour).
-            Dégagement et cabinet de toilette. Idéal pour une activité nécessitant deux espaces de travail
-            distincts avec accès indépendants.
+            {t('desc_cb9')}
           </p>
         </motion.div>
 

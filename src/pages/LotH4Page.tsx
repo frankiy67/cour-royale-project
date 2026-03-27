@@ -57,9 +57,7 @@ export default function LotH4Page() {
             {t('local_pro')} — <span className="text-accent">17 m²</span>
           </h1>
           <p className="font-inter text-muted-foreground text-lg leading-relaxed max-w-2xl">
-            Lot H4 : Bureau de 12 m² au rez-de-chaussée + 5 m² de parties communes. Les parties communes
-            comprennent des toilettes et un coin café. Simple et lumineux, le bureau bénéficie de larges
-            fenêtres donnant sur la cour.
+            {t('desc_h4')}
           </p>
         </motion.div>
 

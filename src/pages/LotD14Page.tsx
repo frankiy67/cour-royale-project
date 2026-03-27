@@ -62,9 +62,7 @@ export default function LotD14Page() {
             {t('locaux_pro')} — <span className="text-accent">122 m²</span> {t('sur_deux_etages')}
           </h1>
           <p className="font-inter text-muted-foreground text-lg leading-relaxed max-w-2xl">
-            Lot D14 : 11 m² au rez-de-chaussée (entrée + dégagement) + 111 m² à l'étage (6 bureaux +
-            dégagement + 2 toilettes). Bureaux conviviaux, lumineux, volumes intéressants, rampants
-            apparents. Fenêtres hauteur intégrale, vue sur la cour.
+            {t('desc_d14')}
           </p>
         </motion.div>
 
