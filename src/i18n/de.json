@@ -155,6 +155,12 @@
   "locaux_pro": "Gewerbeflächen",
   "location_salle": "Raumvermietung",
   "sur_deux_etages": "auf zwei Etagen",
+  "desc_cb9": "Mühlengebäude, ebenerdiger Zugang. 2 große Räume, jeder mit einer eigenen Tür zum Außenbereich.",
+  "desc_h4": "1 Büro von 12 m² im Erdgeschoss + 5 m² Gemeinschaftsflächen mit WC und Kaffeeecke.",
+  "desc_d14": "Erdgeschoss: 11 m² (Eingang + Flur). Obergeschoss: 111 m² (6 Büros + Flur + 2 WC).",
+  "desc_h7": "Erdgeschoss: 2 abgetrennte Büros + 1 Open Space + 1 verglaster Besprechungsraum + 2 WC.",
+  "desc_grande_salle": "Modularer 45 m² Saal im Erdgeschoss mit Terrassentür zum Innenhof. Ideal für Besprechungen, Konferenzen und Workshops.",
+  "desc_salle_atelier": "Modularer 30 m² Raum im Erdgeschoss im Innenhof. Ideal für Workshops, Schulungen und kleine Seminare.",
   "equipements_cb9": [
     "Helle Räumlichkeiten",
     "Öl-Zentralheizung",

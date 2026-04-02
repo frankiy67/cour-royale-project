@@ -155,6 +155,12 @@
   "locaux_pro": "Locaux professionnels",
   "location_salle": "Location de salle",
   "sur_deux_etages": "sur deux étages",
+  "desc_cb9": "Bâtiment du Moulin, accès de plain-pied. 2 grandes salles avec chacune sa porte donnant sur l'extérieur.",
+  "desc_h4": "1 bureau de 12 m² au rez-de-chaussée + parties communes de 5 m² comprenant 1 cabinet de toilette et 1 coin café.",
+  "desc_d14": "Au rez-de-chaussée 11 m² (entrée + dégagement). À l'étage 111 m² (6 bureaux + dégagement + 2 cabinets de toilette).",
+  "desc_h7": "Au rez-de-chaussée, 2 bureaux cloisonnés + 1 open space + 1 salle de réunion vitrée + 2 cabinets de toilette.",
+  "desc_grande_salle": "Salle modulable de 45 m² en plain-pied, avec porte-fenêtre donnant sur la cour intérieure. Idéale pour réunions, conférences et ateliers.",
+  "desc_salle_atelier": "Salle modulable de 30 m² en plain-pied, dans la cour intérieure. Idéale pour ateliers, formations et petits séminaires.",
   "equipements_cb9": [
     "Locaux lumineux",
     "Chauffage central fuel",
