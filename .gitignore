@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Alternative package manager lockfiles — project uses npm only
+pnpm-lock.yaml
+bun.lock
+bun.lockb
