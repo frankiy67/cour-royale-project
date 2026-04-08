@@ -22,9 +22,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ["react", "react-dom", "react-router-dom"],
-          animations: ["framer-motion"],
-          ui: ["lucide-react"],
+          vendor:         ["react", "react-dom", "react-router-dom", "@tanstack/react-query"],
+          "framer-motion": ["framer-motion"],
+          i18n:           ["i18next", "react-i18next"],
+          ui:             ["lucide-react", "sonner", "yet-another-react-lightbox"],
         },
       },
     },

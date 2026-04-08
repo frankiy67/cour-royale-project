@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { HERO_IMG } from "@/constants/images";
 
-const HERO_IMG = "/images/hero/hero.webp";
+
 
 export default function HeroSection() {
   const { t } = useTranslation();

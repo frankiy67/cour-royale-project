@@ -100,7 +100,12 @@ export default function Navbar() {
           {/* Desktop navigation */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {NAV_LINKS.map((l) => (
-              <a key={l.id} href={l.href} className={desktopLinkClass(l.id)}>
+              <a
+                key={l.id}
+                href={l.href}
+                className={desktopLinkClass(l.id)}
+                aria-current={activeSection === l.id ? "true" : undefined}
+              >
                 {l.label}
               </a>
             ))}

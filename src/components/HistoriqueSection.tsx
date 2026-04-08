@@ -3,16 +3,10 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
 import { useTranslation } from "react-i18next";
+import { HISTORIQUE_BG, HISTORIQUE_SLIDES } from "@/constants/images";
 
-const BG = "/images/historique/historique-bg.webp";
-
-const CAROUSEL_SLIDES = [
-  { src: "/images/historique/historique-1.webp", caption: "La Semeuse, années 1930" },
-  { src: "/images/historique/historique-2.webp", caption: "Façade de La Semeuse avec camion de livraison, années 1930" },
-  { src: "/images/historique/historique-3.webp", caption: "Machines de mouture de la coopérative agricole La Semeuse" },
-  { src: "/images/historique/historique-4.webp", caption: "Cour de La Semeuse avec cheval et charrette, début XXe siècle" },
-  { src: "/images/historique/historique-5.webp", caption: "Ouvrier au travail dans le moulin de La Semeuse" },
-];
+const BG = HISTORIQUE_BG;
+const CAROUSEL_SLIDES = [...HISTORIQUE_SLIDES];
 
 const TIMELINE_KEYS = [
   { year: "1910",        key: "fondation",     accent: false },

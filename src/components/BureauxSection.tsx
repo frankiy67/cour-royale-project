@@ -32,12 +32,17 @@ function BureauxCarousel() {
       style={{ height: "420px" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      role="region"
+      aria-label="Carousel de photos des bureaux"
     >
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        Image {current + 1} sur {CAROUSEL_IMAGES.length}
+      </div>
       <AnimatePresence mode="wait">
         <motion.img
           key={current}
           src={CAROUSEL_IMAGES[current]}
-          alt={`Bureaux — vue ${current + 1}`}
+          alt={`Bureaux — vue ${current + 1} sur ${CAROUSEL_IMAGES.length}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

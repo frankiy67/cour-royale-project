@@ -3,15 +3,9 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { GALERIE_IMAGES } from "@/constants/images";
 
-const IMAGES = [
-  { src: "/galerie/galerie-1.webp", alt: "La Cour de la Semeuse — vue intérieure" },
-  { src: "/galerie/galerie-2.webp", alt: "La Cour de la Semeuse — espace de travail" },
-  { src: "/galerie/galerie-3.webp", alt: "La Cour de la Semeuse — bureaux" },
-  { src: "/galerie/galerie-4.webp", alt: "La Cour de la Semeuse — cour" },
-  { src: "/galerie/galerie-5.webp", alt: "La Cour de la Semeuse — bâtiments" },
-  { src: "/galerie/seumeuse.webp", alt: "La Semeuse — vue d'ensemble" },
-];
+const IMAGES = [...GALERIE_IMAGES];
 
 export default function GalerieSection() {
   const [index, setIndex] = useState(-1);

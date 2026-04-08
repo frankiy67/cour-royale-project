@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeInUp } from "@/hooks/useFadeInUp";
 import { useTranslation } from "react-i18next";
+import Head from "@/components/Head";
 
 const PLANS = [
   {
@@ -52,6 +53,7 @@ export default function SalleAtelierPage() {
       </nav>
 
       <motion.main
+        role="main"
         variants={staggerContainer}
         initial="hidden"
         animate="visible"

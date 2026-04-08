@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.semeuse.eu/sitemap.xml
+Sitemap: https://semeuse.netlify.app/sitemap.xml
