@@ -7,16 +7,15 @@ import { Eye, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/hooks/useFadeInUp";
 import { useTranslation } from "react-i18next";
 
-// ── schema ───────────────────────────────────────────────────────────────────
+// ── schema (sans sujet — pré-déterminé par formulaire) ───────────────────────
 
 function buildSchema(t: (k: string) => string) {
   return z.object({
     "bot-field": z.string().max(0),
-    nom: z.string().min(1, t("contact.err_nom")),
-    email: z.string().email(t("contact.err_email")),
+    nom:       z.string().min(1,  t("contact.err_nom")),
+    email:     z.string().email(  t("contact.err_email")),
     telephone: z.string().optional(),
-    sujet: z.string().min(1, t("contact.err_sujet")),
-    message: z.string().min(20, t("contact.err_message")),
+    message:   z.string().min(20, t("contact.err_message")),
   });
 }
 
@@ -26,24 +25,30 @@ type FormValues = z.infer<ReturnType<typeof buildSchema>>;
 
 const CONTACTS = [
   {
-    icon: "🏢",
-    labelKey: "bureaux_label",
-    name: "Bernard VALLAT",
+    icon:        "🏢",
+    labelKey:    "bureaux_label",
+    name:        "Bernard VALLAT",
     phoneMasked: "+33 6 •• •• •• ••",
-    phone: "+33 (0)6 07 08 80 79",
-    phoneTel: "tel:+33607088079",
+    phone:       "+33 (0)6 07 08 80 79",
+    phoneTel:    "tel:+33607088079",
+    formName:    "contact-bureaux",
+    sujet:       "bureaux",
+    idPrefix:    "cf-b",
   },
   {
-    icon: "📋",
-    labelKey: "salles_label",
-    name: "Elisabeth FIXARI-VALLAT",
+    icon:        "📋",
+    labelKey:    "salles_label",
+    name:        "Elisabeth FIXARI-VALLAT",
     phoneMasked: "+33 6 •• •• •• ••",
-    phone: "+33 (0)6 84 53 75 05",
-    phoneTel: "tel:+33684537505",
+    phone:       "+33 (0)6 84 53 75 05",
+    phoneTel:    "tel:+33684537505",
+    formName:    "contact-salles",
+    sujet:       "salles",
+    idPrefix:    "cf-s",
   },
-];
+] as const;
 
-// ── phone reveal card ─────────────────────────────────────────────────────────
+// ── phone reveal ──────────────────────────────────────────────────────────────
 
 function PhoneReveal({ phoneMasked, phone, phoneTel }: {
   phoneMasked: string;
@@ -81,10 +86,7 @@ function PhoneReveal({ phoneMasked, phone, phoneTel }: {
             aria-label={t("contact.afficher_numero")}
           >
             <span>{phoneMasked}</span>
-            <Eye
-              size={14}
-              className="opacity-50 group-hover:opacity-100 transition-opacity"
-            />
+            <Eye size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -92,7 +94,7 @@ function PhoneReveal({ phoneMasked, phone, phoneTel }: {
   );
 }
 
-// ── field helpers ─────────────────────────────────────────────────────────────
+// ── shared styles ─────────────────────────────────────────────────────────────
 
 const inputCls =
   "w-full font-inter text-sm bg-background border border-border rounded-lg px-4 py-2.5 " +
@@ -100,24 +102,21 @@ const inputCls =
   "focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent " +
   "transition-colors";
 
-const labelCls =
-  "block font-inter text-xs uppercase tracking-widest text-muted-foreground mb-1.5";
-
+const labelCls = "block font-inter text-xs uppercase tracking-widest text-muted-foreground mb-1.5";
 const errorCls = "font-inter text-xs text-red-500 mt-1";
 
-// ── contact form ──────────────────────────────────────────────────────────────
+// ── inline contact form ───────────────────────────────────────────────────────
 
-function ContactForm() {
+function ContactForm({ formName, sujet, idPrefix }: {
+  formName: string;
+  sujet: string;
+  idPrefix: string;
+}) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const schema = buildSchema(t);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<FormValues>({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormValues>({
     resolver: zodResolver(schema),
     defaultValues: { "bot-field": "" },
   });
@@ -126,7 +125,8 @@ function ContactForm() {
     setStatus("loading");
     try {
       const body = new URLSearchParams({
-        "form-name": "contact",
+        "form-name": formName,
+        sujet,
         ...Object.fromEntries(
           Object.entries(data).map(([k, v]) => [k, v ?? ""])
         ),
@@ -144,32 +144,21 @@ function ContactForm() {
     }
   }
 
-  const SUJETS = [
-    { value: "bureaux", label: t("contact.sujet_bureaux") },
-    { value: "salles",  label: t("contact.sujet_salles") },
-    { value: "visite",  label: t("contact.sujet_visite") },
-    { value: "autre",   label: t("contact.sujet_autre") },
-  ];
-
   return (
-    <motion.div variants={fadeInUp} className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
-      <p className="font-inter text-xs uppercase tracking-[0.2em] text-accent mb-2">
-        {t("contact.label")}
-      </p>
-      <h3 className="font-playfair text-foreground text-2xl mb-8">
+    <div className="mt-6 pt-6 border-t border-border">
+      <p className="font-inter text-xs uppercase tracking-widest text-muted-foreground mb-5">
         {t("contact.form_titre")}
-      </h3>
+      </p>
 
-      {/* Success */}
       <AnimatePresence>
         {status === "success" && (
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="flex items-start gap-3 bg-green-50 border border-green-200 rounded-xl p-4 mb-6"
+            className="flex items-start gap-3 bg-green-50 border border-green-200 rounded-xl p-4 mb-5"
           >
-            <CheckCircle2 size={20} className="text-green-600 shrink-0 mt-0.5" />
+            <CheckCircle2 size={18} className="text-green-600 shrink-0 mt-0.5" />
             <p className="font-inter text-sm text-green-800">{t("contact.succes")}</p>
           </motion.div>
         )}
@@ -178,9 +167,9 @@ function ContactForm() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-xl p-4 mb-6"
+            className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-xl p-4 mb-5"
           >
-            <AlertCircle size={20} className="text-red-600 shrink-0 mt-0.5" />
+            <AlertCircle size={18} className="text-red-600 shrink-0 mt-0.5" />
             <p className="font-inter text-sm text-red-800">{t("contact.erreur")}</p>
           </motion.div>
         )}
@@ -189,97 +178,72 @@ function ContactForm() {
       <form
         onSubmit={handleSubmit(onSubmit)}
         data-netlify="true"
-        name="contact"
+        name={formName}
         data-netlify-honeypot="bot-field"
         noValidate
       >
-        {/* Honeypot — hidden from real users */}
+        {/* Honeypot */}
         <div className="hidden" aria-hidden="true">
           <input {...register("bot-field")} tabIndex={-1} autoComplete="off" />
         </div>
+        {/* Sujet caché — transmis avec la soumission */}
+        <input type="hidden" name="sujet" value={sujet} />
 
-        <div className="grid md:grid-cols-2 gap-5 mb-5">
-          {/* Nom */}
-          <div>
-            <label htmlFor="cf-nom" className={labelCls}>
-              {t("contact.nom")} <span className="text-accent">*</span>
-            </label>
-            <input
-              id="cf-nom"
-              {...register("nom")}
-              placeholder={t("contact.nom_placeholder")}
-              className={inputCls}
-              autoComplete="name"
-            />
-            {errors.nom && <p className={errorCls}>{errors.nom.message}</p>}
-          </div>
-
-          {/* Email */}
-          <div>
-            <label htmlFor="cf-email" className={labelCls}>
-              {t("contact.email")} <span className="text-accent">*</span>
-            </label>
-            <input
-              id="cf-email"
-              type="email"
-              {...register("email")}
-              placeholder={t("contact.email_placeholder")}
-              className={inputCls}
-              autoComplete="email"
-            />
-            {errors.email && <p className={errorCls}>{errors.email.message}</p>}
-          </div>
+        {/* Nom */}
+        <div className="mb-4">
+          <label htmlFor={`${idPrefix}-nom`} className={labelCls}>
+            {t("contact.nom")} <span className="text-accent">*</span>
+          </label>
+          <input
+            id={`${idPrefix}-nom`}
+            {...register("nom")}
+            placeholder={t("contact.nom_placeholder")}
+            className={inputCls}
+            autoComplete="name"
+          />
+          {errors.nom && <p className={errorCls}>{errors.nom.message}</p>}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5 mb-5">
-          {/* Téléphone */}
-          <div>
-            <label htmlFor="cf-telephone" className={labelCls}>
-              {t("contact.telephone")}
-            </label>
-            <input
-              id="cf-telephone"
-              type="tel"
-              {...register("telephone")}
-              placeholder={t("contact.telephone_placeholder")}
-              className={inputCls}
-              autoComplete="tel"
-            />
-          </div>
+        {/* Email */}
+        <div className="mb-4">
+          <label htmlFor={`${idPrefix}-email`} className={labelCls}>
+            {t("contact.email")} <span className="text-accent">*</span>
+          </label>
+          <input
+            id={`${idPrefix}-email`}
+            type="email"
+            {...register("email")}
+            placeholder={t("contact.email_placeholder")}
+            className={inputCls}
+            autoComplete="email"
+          />
+          {errors.email && <p className={errorCls}>{errors.email.message}</p>}
+        </div>
 
-          {/* Sujet */}
-          <div>
-            <label htmlFor="cf-sujet" className={labelCls}>
-              {t("contact.sujet")} <span className="text-accent">*</span>
-            </label>
-            <select
-              id="cf-sujet"
-              {...register("sujet")}
-              className={`${inputCls} cursor-pointer`}
-              defaultValue=""
-            >
-              <option value="" disabled>
-                {t("contact.sujet_placeholder")}
-              </option>
-              {SUJETS.map((s) => (
-                <option key={s.value} value={s.value}>
-                  {s.label}
-                </option>
-              ))}
-            </select>
-            {errors.sujet && <p className={errorCls}>{errors.sujet.message}</p>}
-          </div>
+        {/* Téléphone */}
+        <div className="mb-4">
+          <label htmlFor={`${idPrefix}-tel`} className={labelCls}>
+            {t("contact.telephone")}
+          </label>
+          <input
+            id={`${idPrefix}-tel`}
+            type="tel"
+            {...register("telephone")}
+            placeholder={t("contact.telephone_placeholder")}
+            className={inputCls}
+            autoComplete="tel"
+          />
         </div>
 
         {/* Message */}
-        <div className="mb-7">
-          <label htmlFor="cf-message" className={labelCls}>
+        <div className="mb-6">
+          <label htmlFor={`${idPrefix}-msg`} className={labelCls}>
             {t("contact.message")} <span className="text-accent">*</span>
           </label>
           <textarea
-            id="cf-message"
+            id={`${idPrefix}-msg`}
             {...register("message")}
-            rows={5}
+            rows={4}
             placeholder={t("contact.message_placeholder")}
             className={`${inputCls} resize-y`}
           />
@@ -291,16 +255,16 @@ function ContactForm() {
           type="submit"
           disabled={status === "loading" || status === "success"}
           className="inline-flex items-center gap-2 font-inter text-sm font-medium
-            bg-accent text-white px-8 py-3 rounded-lg
+            bg-accent text-white px-6 py-2.5 rounded-lg
             hover:bg-accent/90 active:scale-[0.98]
             disabled:opacity-60 disabled:cursor-not-allowed
             transition-all duration-200"
         >
-          {status === "loading" && <Loader2 size={16} className="animate-spin" />}
+          {status === "loading" && <Loader2 size={15} className="animate-spin" />}
           {status === "loading" ? t("contact.envoi_en_cours") : t("contact.envoyer")}
         </button>
       </form>
-    </motion.div>
+    </div>
   );
 }
 
@@ -329,14 +293,15 @@ export default function ContactSection() {
           <p className="font-inter text-muted-foreground">{t("contact.adresse")}</p>
         </motion.div>
 
-        {/* Contact cards */}
+        {/* Colonnes : carte + formulaire intégré */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {CONTACTS.map((c) => (
             <motion.div
               key={c.name}
               variants={fadeInUp}
-              className="bg-white rounded-2xl shadow-lg p-10 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-2xl shadow-lg p-10 hover:shadow-xl transition-shadow duration-300"
             >
+              {/* Carte contact */}
               <span className="text-[40px] mb-4 block">{c.icon}</span>
               <p className="font-inter text-[10px] uppercase tracking-[0.2em] text-accent mb-2">
                 {t(`contact.${c.labelKey}`)}
@@ -347,15 +312,19 @@ export default function ContactSection() {
                 phone={c.phone}
                 phoneTel={c.phoneTel}
               />
+
+              {/* Formulaire intégré */}
+              <ContactForm
+                formName={c.formName}
+                sujet={c.sujet}
+                idPrefix={c.idPrefix}
+              />
             </motion.div>
           ))}
         </div>
 
-        {/* Contact form */}
-        <ContactForm />
-
         {/* Google Maps CTA */}
-        <motion.div variants={fadeInUp} className="text-center mt-10">
+        <motion.div variants={fadeInUp} className="text-center">
           <a
             href="https://maps.app.goo.gl/HkFNm8q4cKfhznJB6"
             target="_blank"
