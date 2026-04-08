@@ -41,16 +41,10 @@ export default function FooterSection() {
               Bernard VALLAT
             </p>
             <a
-              href="tel:+33607088079"
+              href="/#contact"
               className="block font-inter text-white/75 text-[13px] hover:text-white transition-colors my-0.5"
             >
-              +33 (0)6 07 08 80 79
-            </a>
-            <a
-              href="mailto:bv@semeuse.eu"
-              className="block font-inter text-white/75 text-[13px] hover:text-white transition-colors my-0.5"
-            >
-              bv@semeuse.eu
+              {t('footer.nous_contacter')}
             </a>
           </div>
 
@@ -63,16 +57,10 @@ export default function FooterSection() {
               Elisabeth FIXARI-VALLAT
             </p>
             <a
-              href="tel:+33684537505"
+              href="/#contact"
               className="block font-inter text-white/75 text-[13px] hover:text-white transition-colors my-0.5"
             >
-              +33 (0)6 84 53 75 05
-            </a>
-            <a
-              href="mailto:efv@semeuse.eu"
-              className="block font-inter text-white/75 text-[13px] hover:text-white transition-colors my-0.5"
-            >
-              efv@semeuse.eu
+              {t('footer.nous_contacter')}
             </a>
           </div>
 

@@ -51,35 +51,18 @@ export default function MentionsLegalesPage() {
             <div>
               <p className="font-semibold text-foreground mb-1">Location de bureaux</p>
               <p>Contact : Bernard VALLAT</p>
-              <p>
-                Tél.{" "}
-                <a href="tel:+33607088079" className="hover:text-accent transition-colors">
-                  +33 (0)6 07 08 80 79
-                </a>
-              </p>
-              <p>
-                Email :{" "}
-                <a href="mailto:bv@semeuse.eu" className="hover:text-accent transition-colors">
-                  bv@semeuse.eu
-                </a>
-              </p>
             </div>
             <div>
               <p className="font-semibold text-foreground mb-1">Location de salles de réunions</p>
               <p>Contact : Elisabeth FIXARI-VALLAT</p>
-              <p>
-                Tél.{" "}
-                <a href="tel:+33684537505" className="hover:text-accent transition-colors">
-                  +33 (0)6 84 53 75 05
-                </a>
-              </p>
-              <p>
-                Email :{" "}
-                <a href="mailto:efv@semeuse.eu" className="hover:text-accent transition-colors">
-                  efv@semeuse.eu
-                </a>
-              </p>
             </div>
+            <p>
+              Pour toute demande, utilisez le{" "}
+              <a href="/#contact" className="text-accent hover:underline transition-colors">
+                formulaire de contact
+              </a>{" "}
+              disponible sur notre site.
+            </p>
           </div>
         </Section>
 
