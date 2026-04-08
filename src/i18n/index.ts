@@ -12,7 +12,13 @@ i18n
       en: { translation: en },
       de: { translation: de },
     },
-    lng: localStorage.getItem('lang') || 'fr',
+    lng: (() => {
+      try {
+        return localStorage.getItem('lang') || 'fr';
+      } catch {
+        return 'fr';
+      }
+    })(),
     fallbackLng: 'fr',
     interpolation: { escapeValue: false },
   });

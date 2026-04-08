@@ -31,8 +31,8 @@ describe("ContactSection", () => {
     expect(screen.getByText("Bernard VALLAT")).toBeInTheDocument();
     expect(screen.getByText("Elisabeth FIXARI-VALLAT")).toBeInTheDocument();
 
-    expect(screen.getByRole("link", { name: /06 07 08 80 79/i })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /06 84 53 75 05/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /\(0\)6 07 08 80 79/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /\(0\)6 84 53 75 05/i })).toBeInTheDocument();
 
     expect(screen.getByRole("link", { name: "bv@semeuse.eu" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "efv@semeuse.eu" })).toBeInTheDocument();
