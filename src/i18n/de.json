@@ -1,0 +1,238 @@
+{
+  "nav": {
+    "accueil": "Startseite",
+    "historique": "Geschichte",
+    "bureaux": "Büros",
+    "salles": "Besprechungsräume",
+    "situation": "Lage",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "location": "Schiltigheim · Elsass · Frankreich",
+    "soustitre": "Professionelle Räume zu vermieten · seit 1910",
+    "cta_offres": "Unsere Angebote",
+    "cta_contact": "Kontakt aufnehmen",
+    "decouvrir": "Entdecken"
+  },
+  "bienvenue": {
+    "label": "Willkommen",
+    "titre": "Im Herzen des Elsass, in ruhiger und einzigartiger Lage, nutzen Sie eine außergewöhnliche Gelegenheit.",
+    "texte": "La Cour de la Semeuse in Schiltigheim bietet flexible und skalierbare Mietflächen zur Gründung Ihres Unternehmens oder für punktuelle Veranstaltungen. Ideal gelegen in der Nähe von Straßburg und den europäischen Institutionen, mit allen städtischen Vorteilen der Eurométropole.",
+    "cta": "Unsere Angebote"
+  },
+  "stats": {
+    "surface": "Gesamtfläche",
+    "lots": "Modulare Flächen",
+    "salles": "Ausgestattete Besprechungsräume"
+  },
+  "historique": {
+    "label": "Geschichte",
+    "titre": "Seit 1910 — eine elsässische Geschichte",
+    "texte": "Kurz vor dem Ersten Weltkrieg, im Jahr 1910, wurde La Compagnie des Produits Agricoles « La Semeuse » in Schiltigheim gegründet. Mehr als ein Jahrhundert später empfangen ihre historischen Gebäude — restauriert, lebendig, vernetzt — eine neue Generation elsässischer Unternehmer.",
+    "aujourd_hui": "Heute",
+    "etapes": {
+      "fondation": {
+        "titre": "Gründung",
+        "texte": "Gründung der Compagnie des Produits Agricoles « La Semeuse » in Schiltigheim. Die Genossenschaft versorgte die vielen kleinen Landwirtschaftsbetriebe der Gemeinde: Kühe, Hühner und Schweine aus den umliegenden Höfen."
+      },
+      "essor": {
+        "titre": "Aufschwung",
+        "texte": "La Semeuse entwickelte sich zum wichtigsten Zentrum des elsässischen Agrarbhandels. Die Mühle, das Uhrengebäude und die Halle wurden errichtet und von Dutzenden von Arbeitern und Handwerkern belebt."
+      },
+      "transition": {
+        "titre": "Übergang",
+        "texte": "Wachsende Urbanisierung und Mechanisierung veränderten die landwirtschaftliche Landschaft Schiltighheims. Die Genossenschaft begann ihren Wandel, während sie ihr bemerkenswertes bauliches Erbe bewahrte."
+      },
+      "rehabilitation": {
+        "titre": "Sanierung",
+        "texte": "Die Gebäude wurden vollständig saniert und renoviert, wobei der ursprüngliche architektonische Charakter erhalten blieb. Der Hof wurde in einen Gewerbepark umgewandelt. Keramikfresken zur Erinnerung an die landwirtschaftliche Geschichte des Geländes wurden installiert."
+      },
+      "parc": {
+        "titre": "Gewerbepark",
+        "texte": "Die ehemaligen Landwirtschaftsgebäude — Mühle, Uhr, Halle — wurden saniert und in flexible Arbeitsflächen umgewandelt, die die ersten Unternehmen aus dem Dienstleistungssektor aufnahmen."
+      },
+      "vivant": {
+        "titre": "Ein lebendiger Ort",
+        "texte": "22 professionelle Einheiten auf 3.500 m² empfangen Unternehmen in einem einzigartigen historischen Rahmen, nur einen Steinwurf von Straßburg und den europäischen Institutionen entfernt."
+      }
+    }
+  },
+  "bureaux": {
+    "label": "Gewerbeflächen",
+    "titre": "Büros & Arbeitsbereiche",
+    "texte": "Etablieren Sie Ihr Unternehmen in einem einzigartigen Umfeld. La Cour de la Semeuse bietet 22 modulare Einheiten für Unternehmen im Dienstleistungssektor.",
+    "avantages": {
+      "parking": "Zentraler privater Parkplatz",
+      "cadre": "Ruhige, grüne Umgebung",
+      "proximite": "Nähe zu Straßburg",
+      "modulable": "Modulare Flächen",
+      "charges": "Überschaubare Nebenkosten",
+      "environnement": "Professionelles Umfeld"
+    },
+    "cta_devis": "Angebot anfragen",
+    "decouvrir": "Entdecken Sie nachstehend einige unserer Angebote:",
+    "en_savoir_plus": "Mehr erfahren →",
+    "lots": {
+      "cb9": { "surface": "80 m²", "desc": "2 große Räume, jeder mit einer eigenen Tür zum Außenbereich." },
+      "h4": { "surface": "17 m²", "desc": "1 Büro von 12 m² im Erdgeschoss + 5 m² Gemeinschaftsflächen mit WC und Kaffeeecke." },
+      "d14": { "surface": "122 m²", "desc": "Erdgeschoss: 11 m² (Eingang + Flur). Obergeschoss: 111 m² (6 Büros + Flur + 2 WC)." },
+      "h7": { "surface": "99 m²", "desc": "Erdgeschoss: 2 abgetrennte Büros + 1 Open Space + 1 verglaster Besprechungsraum + 2 WC." }
+    }
+  },
+  "salles": {
+    "label": "Unsere Räume",
+    "titre": "Ausgestattete Besprechungsräume",
+    "texte": "Tages- und Wochenendvermietung für professionelle Veranstaltungen, Besprechungen, Workshops und Seminare.",
+    "grande": {
+      "nom": "Grande Salle",
+      "surface": "45 m²",
+      "reunion": "Besprechung",
+      "conference": "Konferenz",
+      "sans_tables": "Ohne Tische"
+    },
+    "atelier": {
+      "nom": "Salle Atelier",
+      "surface": "30 m²",
+      "reunion": "Besprechung",
+      "conference": "Konferenz",
+      "sans_tables": "Ohne Tische"
+    },
+    "feature_1": "Mit einem 35 m² großen Gemeinschaftsbereich mit kleiner ausgestatteter Küche für Ihre Pausen und Mahlzeiten sowie 2 WC.",
+    "feature_2": "Ebenerdiger Zugang / Behindertengerechter Zugang.",
+    "equipements": {
+      "videoprojecteur": "Beamer",
+      "cafe": "Kaffeebereich",
+      "pmr": "Barrierefreier Zugang",
+      "modulable": "Modular"
+    },
+    "en_savoir_plus": "Mehr erfahren →"
+  },
+  "situation": {
+    "label": "Erreichbarkeit",
+    "titre": "Ideal gelegen",
+    "texte": "La Cour de la Semeuse befindet sich im historischen Viertel von Schiltigheim, im Zentrum dieser Stadt mit 31.450 Einwohnern. Sie profitieren von einer ruhigen und freundlichen städtischen Umgebung mit allen Vorteilen der Eurométropole.",
+    "autoroute": { "titre": "Autobahn", "desc": "Direkter Autobahnanschluss" },
+    "tram": { "titre": "Tram & Bus", "desc": "Eurométropole-Netz in der Nähe" },
+    "tgv": { "titre": "TGV-Bahnhof", "desc": "Straßburg in 15 Minuten" },
+    "aeroport": { "titre": "Flughafen", "desc": "Entzheim in 30 Minuten" },
+    "parking": "Der Zugang wird durch einen großen zentralen Privatparkplatz erleichtert, der direkt zu den Räumlichkeiten führt. Zahlreiche Restaurants und Hotels befinden sich in unmittelbarer Nähe des Geländes.",
+    "voir_maps": "📍 Auf Google Maps ansehen"
+  },
+  "contact": {
+    "label": "Kontakt",
+    "titre": "Kontakt aufnehmen",
+    "adresse": "20 Place de la Liberté · BP 70123 · F-67303 Schiltigheim",
+    "bureaux_label": "Bürovermietung",
+    "salles_label": "Besprechungsraumvermietung",
+    "voir_maps": "📍 Auf Google Maps ansehen"
+  },
+  "footer": {
+    "copyright": "© 2026 La Cour de la Semeuse · Alle Rechte vorbehalten",
+    "mentions": "Impressum",
+    "linkedin": "LinkedIn",
+    "maps": "Google Maps",
+    "bureaux_label": "Büros",
+    "salles_label": "Besprechungsräume"
+  },
+  "pages_lots": {
+    "retour": "← Zurück zu den Angeboten",
+    "retour_salles": "Zurück zu den Räumen",
+    "acces_plain_pied": "Ebenerdiger Zugang",
+    "deux_niveaux": "Zwei Etagen",
+    "rez_chaussee": "Erdgeschoss",
+    "etage": "Obergeschoss",
+    "demander_visite": "Besichtigung anfragen",
+    "plans": "Grundrisse",
+    "plan_masse": "Lageplan",
+    "plan_sol": "Grundriss",
+    "photos": "Fotos",
+    "equipements": "Ausstattung",
+    "interesse": "Interesse an diesen Räumlichkeiten?",
+    "interesse_salle": "Interesse an diesem Raum?",
+    "contactez": "Kontaktieren Sie uns, um eine Besichtigung zu arrangieren oder weitere Informationen zu den Mietkonditionen zu erhalten."
+  },
+  "local_pro": "Gewerbefläche",
+  "locaux_pro": "Gewerbeflächen",
+  "location_salle": "Raumvermietung",
+  "sur_deux_etages": "auf zwei Etagen",
+  "desc_cb9": "Mühlengebäude, ebenerdiger Zugang. 2 große Räume, jeder mit einer eigenen Tür zum Außenbereich.",
+  "desc_h4": "1 Büro von 12 m² im Erdgeschoss + 5 m² Gemeinschaftsflächen mit WC und Kaffeeecke.",
+  "desc_d14": "Erdgeschoss: 11 m² (Eingang + Flur). Obergeschoss: 111 m² (6 Büros + Flur + 2 WC).",
+  "desc_h7": "Erdgeschoss: 2 abgetrennte Büros + 1 Open Space + 1 verglaster Besprechungsraum + 2 WC.",
+  "desc_grande_salle": "Modularer 45 m² Saal im Erdgeschoss mit Terrassentür zum Innenhof. Ideal für Besprechungen, Konferenzen und Workshops.",
+  "desc_salle_atelier": "Modularer 30 m² Raum im Erdgeschoss im Innenhof. Ideal für Workshops, Schulungen und kleine Seminare.",
+  "equipements_cb9": [
+    "Helle Räumlichkeiten",
+    "Öl-Zentralheizung",
+    "Klimaanlage",
+    "Mechanische Lüftung",
+    "Sehr gute Isolierung",
+    "Glasfaseranschluss auf Anfrage"
+  ],
+  "equipements_h4": [
+    "Sehr gute Isolierung",
+    "Elektrische Fußbodenheizung",
+    "Klimaanlage",
+    "Mechanische Lüftung",
+    "Ebenerdiger Zugang",
+    "Parkplatz im Hof: 1 fester Stellplatz"
+  ],
+  "equipements_d14": [
+    "Sehr gute Isolierung",
+    "Effiziente Strahlungsheizung",
+    "Klimaanlage",
+    "Mechanische Lüftung",
+    "Glasfaseranschluss auf Anfrage",
+    "Parkplatz im Hof: 3 feste Stellplätze"
+  ],
+  "equipements_h7": [
+    "Flexibler Open Space",
+    "2 geschlossene Büros",
+    "Besprechungsraum",
+    "Private Sanitäranlagen",
+    "Ebenerdiger Zugang",
+    "Hofparkplatz"
+  ],
+  "equipements_grande_salle": [
+    "2 Whiteboards, Beamer, Leinwand",
+    "35 m² Gemeinschaftsbereich mit ausgestatteter Küche für Pausen und Mahlzeiten",
+    "Küchenzeile: Kühlschrank, zwei Kochplatten, Kaffeemaschinen und Geschirr",
+    "Hofparkplatz am Wochenende (unter der Woche: 2 feste Stellplätze)",
+    "Ebenerdiger Zugang, behindertengerechter Zugang",
+    "Terrassentür zum Hof",
+    "Ruhige Lage im Innenhof",
+    "Flexible Raumkonfiguration",
+    "Möglichkeit, vor Ort zu essen",
+    "Viele Restaurants in wenigen Gehminuten",
+    "Direkter Zugang zur Fußgängerzone von Alt-Schiltigheim"
+  ],
+  "equipements_salle_atelier": [
+    "2 Whiteboards, Beamer, Leinwand",
+    "35 m² Gemeinschaftsbereich mit ausgestatteter Küche für Pausen und Mahlzeiten",
+    "Küchenzeile: Kühlschrank, zwei Kochplatten, Kaffeemaschinen und Geschirr",
+    "Hofparkplatz am Wochenende (unter der Woche: 2 feste Stellplätze)",
+    "Ebenerdiger Zugang, behindertengerechter Zugang",
+    "Ruhige Lage im Innenhof",
+    "Flexible Raumkonfiguration",
+    "Möglichkeit, vor Ort zu essen",
+    "Viele Restaurants in wenigen Gehminuten",
+    "Direkter Zugang zur Fußgängerzone von Alt-Schiltigheim"
+  ],
+  "pages_salles": {
+    "retour": "← Zurück zu den Sälen",
+    "demander_visite": "Buchung anfragen",
+    "plans": "Grundrisse",
+    "plan_masse": "Lageplan",
+    "plan_sol": "Grundriss",
+    "photos": "Fotos",
+    "equipements": "Ausstattung",
+    "interesse": "Interesse an diesem Raum?",
+    "contactez": "Kontaktieren Sie uns für weitere Informationen.",
+    "acces_plain_pied": "Ebenerdiger Zugang",
+    "grande_salle": "Großer Saal",
+    "salle_atelier": "Workshopraum",
+    "reunion": "Besprechung",
+    "conference": "Konferenz",
+    "sans_tables": "Ohne Tische"
+  }
+}
