@@ -26,6 +26,7 @@ export default defineConfig({
           "framer-motion": ["framer-motion"],
           i18n:           ["i18next", "react-i18next"],
           ui:             ["lucide-react", "sonner", "yet-another-react-lightbox"],
+          forms:          ["react-hook-form", "zod", "@hookform/resolvers"],
         },
       },
     },

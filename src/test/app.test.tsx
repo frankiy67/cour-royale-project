@@ -25,17 +25,24 @@ function withProviders(ui: ReactElement) {
 
 // ── 1. ContactSection ────────────────────────────────────────────────────────
 describe("ContactSection", () => {
-  it("affiche les 2 contacts avec nom, téléphone et email", () => {
+  it("affiche les 2 contacts avec noms et boutons de révélation du numéro", async () => {
+    const user = userEvent.setup();
     withProviders(<ContactSection />);
 
+    // Les noms sont visibles
     expect(screen.getByText("Bernard VALLAT")).toBeInTheDocument();
     expect(screen.getByText("Elisabeth FIXARI-VALLAT")).toBeInTheDocument();
 
-    expect(screen.getByRole("link", { name: /\(0\)6 07 08 80 79/i })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /\(0\)6 84 53 75 05/i })).toBeInTheDocument();
+    // Les téléphones sont masqués par défaut
+    expect(screen.queryByText("+33 (0)6 07 08 80 79")).not.toBeInTheDocument();
 
-    expect(screen.getByRole("link", { name: "bv@semeuse.eu" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "efv@semeuse.eu" })).toBeInTheDocument();
+    // Les boutons "Afficher le numéro" sont présents
+    const revealBtns = screen.getAllByRole("button", { name: /afficher le num/i });
+    expect(revealBtns).toHaveLength(2);
+
+    // Au clic, le vrai numéro s'affiche comme lien tel:
+    await user.click(revealBtns[0]);
+    expect(await screen.findByRole("link", { name: /\(0\)6 07 08 80 79/i })).toBeInTheDocument();
   });
 });
 
